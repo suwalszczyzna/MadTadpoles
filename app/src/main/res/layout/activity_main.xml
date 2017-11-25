@@ -23,7 +23,7 @@
 
             android:layout_alignParentEnd="true"
             android:drawableStart="@drawable/question_marks"
-            android:paddingLeft="12dp"
+            android:paddingStart="12dp"
             android:background="@drawable/button_howto"
             android:layout_width="50dp"
             android:layout_height="55dp" />
