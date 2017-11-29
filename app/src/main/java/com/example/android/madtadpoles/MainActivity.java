@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
 
             // zmieniamy kolory info TextView kijanki z mieczem
 
-            infoSword.setBackgroundResource(R.drawable.my_button_dark_green);
+            infoSword.setBackgroundResource(R.drawable.my_button_grey);
             infoSword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy kolor imienia na aktywny biały
@@ -364,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
 
             // zmieniamy kolory info TextView kijanki z toporem
 
-            infoAxe.setBackgroundResource(R.drawable.my_button_dark_green);
+            infoAxe.setBackgroundResource(R.drawable.my_button_grey);
             infoAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy kolor imienia na aktywny biały
