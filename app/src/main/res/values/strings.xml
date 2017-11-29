@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Mad Tadpoles</string>
     <string name="countdown_start">Countdown start</string>
+    <string name="attackField_text">Last attack:\n21 points</string>
 </resources>

@@ -2,7 +2,8 @@
 <resources>
     <dimen name="health_text_size">24sp</dimen>
     <dimen name="countDownText_size">32sp</dimen>
-    <dimen name="countDownStart_textSize">16sp</dimen>
+    <dimen name="countDownStart_textSize">14sp</dimen>
     <dimen name="descriptTextSize">12sp</dimen>
     <dimen name="progressBar_height">10dp</dimen>
+    <dimen name="attackSummary_padding">15dp</dimen>
 </resources>
