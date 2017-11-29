@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tadpoles);
     }
 
+    //Mateusz's code start
     // zmienne globalne (ustawienie życia po 100 i losowe obrazenia)
     int healthKM = 100;
     int healthKT = 100;
@@ -65,12 +66,10 @@ public class MainActivity extends AppCompatActivity {
         changePlayerColors(1);
     }
 
+    //Mateusz's code end
 
     /*
     Cezary's changes - START
-    metoda zmieniająca kolory nieaktywnego gracza (jeśli parameter == 0, tura należy do gracza
-    grającego kijanka z toporem, jeśli parameter == 1, tura należy do gracza grającego kijanką
-    z mieczem, jeśli parameter == 2, żaden z graczy nie ma swojej tury)
     */
 
     public void changePlayerColors(int parameter) {
