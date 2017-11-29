@@ -2,4 +2,6 @@
     <string name="app_name">Mad Tadpoles</string>
     <string name="countdown_start">Start</string>
     <string name="attackField_text">Last attack:\n21 points</string>
+    <string name="notYourTurn">Wait for your turn</string>
+    <string name="YourTurn">Your turn!</string>
 </resources>
