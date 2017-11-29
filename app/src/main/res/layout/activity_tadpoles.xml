@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_background">
+
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="false"
+        android:contentDescription="@null"
+        app:layout_constraintDimensionRatio="4:3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_fight" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineGora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progressA"
+        android:layout_width="140dp"
+        android:layout_height="@dimen/progressBar_height"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toTopOf="@+id/guidelineGora"
+        android:progress="100"/>
+
+
+    <ProgressBar
+        android:id="@+id/progressB"
+        android:layout_width="140dp"
+        android:layout_height="@dimen/progressBar_height"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintTop_toTopOf="@+id/guidelineGora"
+        android:progress="100"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLewa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <ImageView
+        android:id="@+id/kijankaMiecz"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
+        app:layout_constraintEnd_toStartOf="@+id/kijankaTasak"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toTopOf="@+id/imageBackground"
+        app:layout_constraintVertical_bias="0.75"
+        app:srcCompat="@drawable/tadpole" />
+
+    <ImageView
+        android:id="@+id/kijankaTasak"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/kijankaMiecz"
+        app:layout_constraintTop_toTopOf="@+id/imageBackground"
+        app:srcCompat="@drawable/tadpole_2" />
+
+    <TextView
+        android:id="@+id/KMName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="John"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
+        app:layout_constraintEnd_toEndOf="@+id/kijankaMiecz"
+        app:layout_constraintStart_toStartOf="@+id/kijankaMiecz" />
+
+    <TextView
+        android:id="@+id/KTName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Jerry"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
+        app:layout_constraintEnd_toEndOf="@+id/kijankaTasak"
+        app:layout_constraintStart_toStartOf="@+id/kijankaTasak" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelinePrawa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp"
+        app:layout_constraintStart_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/KMRound"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/main_green"
+        android:gravity="center"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/KTRound"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageBackground" />
+
+    <TextView
+        android:id="@+id/KTRound"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/main_green"
+        android:gravity="center"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/KMRound"
+        app:layout_constraintTop_toBottomOf="@+id/imageBackground" />
+
+    <Button
+        android:id="@+id/KMCountDS"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/my_button"
+        android:text="@string/countdown_start"
+        android:textStyle="bold"
+        android:textSize="@dimen/countDownStart_textSize"
+        app:layout_constraintEnd_toStartOf="@+id/KTCountDS"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toBottomOf="@+id/KMRound" />
+
+    <Button
+        android:id="@+id/KTCountDS"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/my_button"
+        android:text="@string/countdown_start"
+        android:textSize="@dimen/countDownStart_textSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/KMCountDS"
+        app:layout_constraintTop_toBottomOf="@+id/KTRound" />
+
+    <TextView
+        android:id="@+id/KMPowerAttack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="@dimen/countDownText_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/KTPowerAttack"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toBottomOf="@+id/KMCountDS" />
+
+    <TextView
+        android:id="@+id/KTPowerAttack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="@dimen/countDownText_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/KMPowerAttack"
+        app:layout_constraintTop_toBottomOf="@+id/KTCountDS" />
+
+    <ImageButton
+        android:id="@+id/KMBtnAttack"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/my_button"
+        android:contentDescription="Attack Btn"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/KTBtnAttack"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toBottomOf="@+id/KMPowerAttack"
+        app:srcCompat="@drawable/ic_miecz"
+        android:onClick="attackPlayerA"/>
+
+    <ImageButton
+        android:id="@+id/KTBtnAttack"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/my_button"
+        android:contentDescription="Attack Btn"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/KMBtnAttack"
+        app:layout_constraintTop_toBottomOf="@+id/KTPowerAttack"
+        app:srcCompat="@drawable/ic_miecz"
+        android:onClick="attackPlayerB"/>
+
+    <TextView
+        android:id="@+id/KMInfoTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/my_button_grey"
+        android:padding="10dp"
+        android:text="Your time: 320ms \nAttack: 21 points"
+        android:textSize="@dimen/descriptTextSize"
+        app:layout_constraintEnd_toStartOf="@+id/KTInfoTxt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toBottomOf="@+id/KMBtnAttack" />
+
+    <TextView
+        android:id="@+id/KTInfoTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/my_button_grey"
+        android:padding="10dp"
+        android:text="Your time: 320ms \nAttack: 21 points"
+        android:textSize="@dimen/descriptTextSize"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/KMInfoTxt"
+        app:layout_constraintTop_toBottomOf="@+id/KTBtnAttack" />
+
+</android.support.constraint.ConstraintLayout>

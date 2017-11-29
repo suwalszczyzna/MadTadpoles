@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="health_text_size">24sp</dimen>
+    <dimen name="countDownText_size">32sp</dimen>
+    <dimen name="countDownStart_textSize">16sp</dimen>
+    <dimen name="descriptTextSize">12sp</dimen>
+    <dimen name="progressBar_height">10dp</dimen>
 </resources>
