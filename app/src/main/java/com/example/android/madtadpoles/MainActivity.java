@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
         // Left Tadpole: i = 0; Right Tadpole: i = 1;
         whoseTurn(0);
+        // ************* //
+
 
         final TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
         final TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 new CountDownTimer(4200,1000){
                     @Override
                     public void onTick(long l) {
+
+                        // tutaj piszemy co się dzieje w trakcie odliczania
                         counterKM = (int)(l/1000)-1;
                         updateLabels();
 
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
                     @Override
                     public void onFinish() {
+
+                        // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
                         disabledKMBtnAttack(true);
                         disabledKMCounterStart(false);
                         counterKM = 3;
@@ -87,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 new CountDownTimer(4200,1000){
                     @Override
                     public void onTick(long l) {
+                        // tutaj piszemy co się dzieje w trakcie odliczania
+
                         counterKT = (int)(l/1000)-1;
                         updateLabels();
 
@@ -94,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
                     @Override
                     public void onFinish() {
+                        // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
 
                         disabledKTCounterStart(false);
                         counterKT = 3;
