@@ -47,24 +47,26 @@
 
     <ProgressBar
         android:id="@+id/progressA"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="140dp"
         android:layout_height="@dimen/progressBar_height"
-        android:layout_marginTop="@dimen/progressBar_height"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:progress="100"
         app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
-        app:layout_constraintTop_toTopOf="@+id/guidelineGora"
-        android:progress="100"/>
+        app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
 
     <ProgressBar
         android:id="@+id/progressB"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="140dp"
         android:layout_height="@dimen/progressBar_height"
-        android:layout_marginTop="@dimen/progressBar_height"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:progress="100"
         app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
-        app:layout_constraintTop_toTopOf="@+id/guidelineGora"
-        android:progress="100"/>
+        app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineLewa"
@@ -163,7 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageBackground" />
 
     <Button
-        android:id="@+id/KMCountDS"
+        android:id="@+id/startCountKM"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
@@ -173,15 +175,15 @@
         android:text="@string/countdown_start"
         android:textSize="@dimen/countDownStart_textSize"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/KMPowerAttack"
-        app:layout_constraintEnd_toStartOf="@+id/KTCountDS"
+        app:layout_constraintBottom_toTopOf="@+id/labelCounterKM"
+        app:layout_constraintEnd_toStartOf="@+id/startCountKT"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
         app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
         app:layout_constraintTop_toBottomOf="@+id/KMRound" />
 
     <Button
-        android:id="@+id/KTCountDS"
+        android:id="@+id/startCountKT"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
@@ -191,14 +193,14 @@
         android:text="@string/countdown_start"
         android:textSize="@dimen/countDownStart_textSize"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/KTPowerAttack"
+        app:layout_constraintBottom_toTopOf="@+id/labelCounterKT"
         app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/KMCountDS"
+        app:layout_constraintStart_toEndOf="@+id/startCountKM"
         app:layout_constraintTop_toBottomOf="@+id/KTRound" />
 
     <TextView
-        android:id="@+id/KMPowerAttack"
+        android:id="@+id/labelCounterKM"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginBottom="8dp"
@@ -208,14 +210,14 @@
         android:textSize="@dimen/countDownText_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/KMBtnAttack"
-        app:layout_constraintEnd_toStartOf="@+id/KTPowerAttack"
+        app:layout_constraintEnd_toStartOf="@+id/labelCounterKT"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
         app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
-        app:layout_constraintTop_toBottomOf="@+id/KMCountDS" />
+        app:layout_constraintTop_toBottomOf="@+id/startCountKM" />
 
     <TextView
-        android:id="@+id/KTPowerAttack"
+        android:id="@+id/labelCounterKT"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginBottom="8dp"
@@ -228,8 +230,8 @@
         app:layout_constraintBottom_toTopOf="@+id/KTBtnAttack"
         app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/KMPowerAttack"
-        app:layout_constraintTop_toBottomOf="@+id/KTCountDS" />
+        app:layout_constraintStart_toEndOf="@+id/labelCounterKM"
+        app:layout_constraintTop_toBottomOf="@+id/startCountKT" />
 
     <ImageButton
         android:id="@+id/KMBtnAttack"
@@ -241,14 +243,14 @@
         android:background="@drawable/my_button"
         android:contentDescription="Attack Btn"
         android:onClick="attackPlayerA"
-        android:padding="10dp"
+        android:padding="15dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/KMInfoTxt"
         app:layout_constraintEnd_toStartOf="@+id/KTBtnAttack"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/guidelineLewa"
         app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
-        app:layout_constraintTop_toBottomOf="@+id/KMPowerAttack"
+        app:layout_constraintTop_toBottomOf="@+id/labelCounterKM"
         app:srcCompat="@drawable/ic_miecz" />
 
     <ImageButton
@@ -261,13 +263,13 @@
         android:background="@drawable/my_button"
         android:contentDescription="Attack Btn"
         android:onClick="attackPlayerB"
-        android:padding="10dp"
+        android:padding="15dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/KTInfoTxt"
         app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/KMBtnAttack"
-        app:layout_constraintTop_toBottomOf="@+id/KTPowerAttack"
+        app:layout_constraintTop_toBottomOf="@+id/labelCounterKT"
         app:srcCompat="@drawable/ic_miecz" />
 
     <TextView
@@ -306,5 +308,20 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/KMInfoTxt"
         app:layout_constraintTop_toBottomOf="@+id/KTBtnAttack" />
+
+    <Button
+        android:id="@+id/helpButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_help"
+        android:textColor="@color/creme_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressB"
+        app:layout_constraintStart_toEndOf="@+id/progressA"
+        app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
 </android.support.constraint.ConstraintLayout>

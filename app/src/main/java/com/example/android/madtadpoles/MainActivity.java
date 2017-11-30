@@ -1,5 +1,7 @@
 package com.example.android.madtadpoles;
 
+import android.annotation.SuppressLint;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +13,87 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
+    public int counterKM = 3;
+    public int counterKT = 3;
+    String TeamA = "Your Team A";
+    String TeamB = "Your Team B";
+    Button helpButton;
+    TextView textViewTeamA, textViewTeamB;
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
+        changePlayerColors(0);
+        final TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
+        final TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
+        final Button startCountKM = (Button) findViewById(R.id.startCountKM);
+        Button startCountKT = (Button) findViewById(R.id.startCountKT);
+        updateLabels();
+        textViewTeamA = (TextView) findViewById(R.id.KMName);
+        textViewTeamB = (TextView) findViewById(R.id.KTName);
+
+        helpButton = (Button) findViewById(R.id.helpButton);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
+
+        startCountKM.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                updateLabels();
+                startCountKM.setEnabled(false);
+
+                new CountDownTimer(4200,1000){
+                    @Override
+                    public void onTick(long l) {
+                        counterKM = (int)(l/1000)-1;
+                        updateLabels();
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        startCountKM.setEnabled(true);
+                        counterKM = 3;
+                        updateLabels();
+
+                    }
+                }.start();
+            }
+        });
+
+
+
+
     }
+
+    public void updateLabels(){
+        TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
+        TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
+        labelCounterKM.setText(String.valueOf(counterKM));
+        labelCounterKT.setText(String.valueOf(counterKT));
+    }
+    public void openDialog(){
+        Dialog dialog = new Dialog();
+        dialog.show(getSupportFragmentManager(),"dialog");
+    }
+
+    @Override
+    public void applyTexts(String teamA, String teamB) {
+        textViewTeamA.setText(teamA);
+        textViewTeamB.setText(teamB);
+    }
+
+
+
+
 
     //Mateusz's code start
     // zmienne globalne (ustawienie życia po 100 i losowe obrazenia)
@@ -57,13 +133,13 @@ public class MainActivity extends AppCompatActivity {
     // wciśkanie przycisków ataku dla obu graczy
     public void attackPlayerA(View view) {
         progressbarB();
-        changePlayerColors(0);
+
     }
 
     public void attackPlayerB(View view) {
 
         progressbarA();
-        changePlayerColors(1);
+
     }
 
     //Mateusz's code end
@@ -122,19 +198,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Button coundDownStart dla kijanki z mieczem
 
-        Button countDownStartSword = (Button) findViewById(R.id.KMCountDS);
+        Button countDownStartSword = (Button) findViewById(R.id.startCountKM);
 
         // TextView powerAttack dla kijanki z mieczem
 
-        TextView powerAttackSword = (TextView) findViewById(R.id.KMPowerAttack);
+        TextView powerAttackSword = (TextView) findViewById(R.id.labelCounterKM);
 
         // ImageButton kijanki z mieczem
 
         ImageButton btnAttackSword = (ImageButton) findViewById(R.id.KMBtnAttack);
 
-        // info TextView dla kijanki z mieczem
 
-        TextView infoSword = (TextView) findViewById(R.id.KMInfoTxt);
 
         // name TextView kijanki z mieczem
 
@@ -159,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
             // zmieniamy guzik coundDownStartSword na nieaktywny i kolor tekstu na nieaktywny biały
             countDownStartSword.setBackgroundResource(R.drawable.my_button_grey);
-
+            countDownStartSword.setEnabled(false);
             countDownStartSword.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // zmieniamy kolor tekstu powerAttack TextView kijanki z mieczem na szary
@@ -169,15 +243,11 @@ public class MainActivity extends AppCompatActivity {
             // zmienamy attackButton kijanki z mieczem na nieaktywny
 
             btnAttackSword.setBackgroundResource(R.drawable.my_button_grey);
-
+            btnAttackSword.setEnabled(false);
             // zmieniamy grafike attackButton kijanki z mieczem na nieaktywna
 
             btnAttackSword.setImageResource(R.drawable.ic_unnactive_miecz);
 
-            // zmieniamy kolory info TextView kijanki z mieczem
-
-            infoSword.setBackgroundResource(R.drawable.my_button_grey);
-            infoSword.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // zmieniamy kolor imienia na nieaktywny biały
 
@@ -210,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
 
             // zmieniamy guzik coundDownStartSword na aktywny i kolor tekstu na aktywny biały
             countDownStartSword.setBackgroundResource(R.drawable.my_button);
-
+            countDownStartSword.setEnabled(true);
             countDownStartSword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy kolor tekstu powerAttack TextView kijanki z mieczem na bialy
@@ -218,17 +288,14 @@ public class MainActivity extends AppCompatActivity {
             powerAttackSword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmienamy attackButton kijanki z mieczem na aktywny
-
+            btnAttackSword.setEnabled(true);
             btnAttackSword.setBackgroundResource(R.drawable.my_button);
 
             // zmieniamy grafike attackButton kijanki z mieczem na aktywna
 
             btnAttackSword.setImageResource(R.drawable.ic_miecz);
 
-            // zmieniamy kolory info TextView kijanki z mieczem
 
-            infoSword.setBackgroundResource(R.drawable.my_button_grey);
-            infoSword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy kolor imienia na aktywny biały
 
@@ -258,19 +325,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Button coundDownStart dla kijanki z toporem
 
-        Button countDownStartAxe = (Button) findViewById(R.id.KTCountDS);
+        Button countDownStartAxe = (Button) findViewById(R.id.startCountKT);
 
         // TextView powerAttack dla kijanki z toporem
 
-        TextView powerAttackAxe = (TextView) findViewById(R.id.KTPowerAttack);
+        TextView powerAttackAxe = (TextView) findViewById(R.id.labelCounterKT);
 
         // ImageButton kijanki z toporem
 
         ImageButton btnAttackAxe = (ImageButton) findViewById(R.id.KTBtnAttack);
 
-        // info TextView dla kijanki z toporem
 
-        TextView infoAxe = (TextView) findViewById(R.id.KTInfoTxt);
 
         // name TextView kijanki z toporem
 
@@ -294,8 +359,8 @@ public class MainActivity extends AppCompatActivity {
             turnDisplayAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // zmieniamy guzik coundDownStartSword na nieaktywny i kolor tekstu na nieaktywny biały
+            countDownStartAxe.setEnabled(false);
             countDownStartAxe.setBackgroundResource(R.drawable.my_button_grey);
-
             countDownStartAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // zmieniamy kolor tekstu powerAttack TextView kijanki z toporem na szary
@@ -303,17 +368,11 @@ public class MainActivity extends AppCompatActivity {
             powerAttackAxe.setTextColor(getResources().getColor(R.color.unactive_green));
 
             // zmienamy attackButton kijanki z toporem na nieaktywny
-
-            btnAttackAxe.setBackgroundResource(R.drawable.my_button_grey);
-
             // zmieniamy grafike attackButton kijanki z toporem na nieaktywna
-
+            btnAttackAxe.setEnabled(false);
+            btnAttackAxe.setBackgroundResource(R.drawable.my_button_grey);
             btnAttackAxe.setImageResource(R.drawable.ic_unnactive_miecz);
 
-            // zmieniamy kolory info TextView kijanki z toporem
-
-            infoAxe.setBackgroundResource(R.drawable.my_button_grey);
-            infoAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // zmieniamy kolor imienia na nieaktywny biały
 
@@ -345,8 +404,8 @@ public class MainActivity extends AppCompatActivity {
             turnDisplayAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy guzik coundDownStartSword na aktywny i kolor tekstu na aktywny biały
+            countDownStartAxe.setEnabled(true);
             countDownStartAxe.setBackgroundResource(R.drawable.my_button);
-
             countDownStartAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy kolor tekstu powerAttack TextView kijanki z toporem na bialy
@@ -354,17 +413,13 @@ public class MainActivity extends AppCompatActivity {
             powerAttackAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmienamy attackButton kijanki z toporem na aktywny
-
+            btnAttackAxe.setEnabled(true);
             btnAttackAxe.setBackgroundResource(R.drawable.my_button);
 
             // zmieniamy grafike attackButton kijanki z toporem na aktywna
 
             btnAttackAxe.setImageResource(R.drawable.ic_miecz);
 
-            // zmieniamy kolory info TextView kijanki z toporem
-
-            infoAxe.setBackgroundResource(R.drawable.my_button_grey);
-            infoAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // zmieniamy kolor imienia na aktywny biały
 
