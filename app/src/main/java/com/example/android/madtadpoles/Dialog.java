@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 /**
@@ -17,7 +16,7 @@ import android.widget.TextView;
 
 public class Dialog extends AppCompatDialogFragment {
 
-    private EditText editTeamA, editTeamB;
+    private EditText editKM, editKT;
     private DialogListener listener;
 
 
@@ -35,15 +34,15 @@ public class Dialog extends AppCompatDialogFragment {
                 .setPositiveButton("Set names", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String teamA = editTeamA.getText().toString();
-                        String teamB = editTeamB.getText().toString();
+                        String teamA = editKM.getText().toString();
+                        String teamB = editKT.getText().toString();
                         listener.applyTexts(teamA, teamB);
 
                     }
                 });
 
-        editTeamA = view.findViewById(R.id.etTeamA);
-        editTeamB = view.findViewById(R.id.etTeamB);
+        editKM = view.findViewById(R.id.etKM);
+        editKT = view.findViewById(R.id.etKT);
         return builder.create();
     }
 

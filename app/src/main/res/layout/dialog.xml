@@ -16,7 +16,7 @@
         android:text="Do you want to change names?" />
 
     <EditText
-        android:id="@+id/etTeamA"
+        android:id="@+id/etKM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -27,7 +27,7 @@
         android:textColorHint="@color/colorAccent" />
 
     <EditText
-        android:id="@+id/etTeamB"
+        android:id="@+id/etKT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

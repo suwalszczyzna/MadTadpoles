@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     String TeamA = "Your Team A";
     String TeamB = "Your Team B";
     Button helpButton;
-    TextView textViewTeamA, textViewTeamB;
+    TextView textViewKM, textViewKT;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         final Button startCountKM = (Button) findViewById(R.id.startCountKM);
         Button startCountKT = (Button) findViewById(R.id.startCountKT);
         updateLabels();
-        textViewTeamA = (TextView) findViewById(R.id.KMName);
-        textViewTeamB = (TextView) findViewById(R.id.KTName);
+        textViewKM = (TextView) findViewById(R.id.KMName);
+        textViewKT = (TextView) findViewById(R.id.KTName);
 
         helpButton = (Button) findViewById(R.id.helpButton);
         helpButton.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     }
 
     @Override
-    public void applyTexts(String teamA, String teamB) {
-        textViewTeamA.setText(teamA);
-        textViewTeamB.setText(teamB);
+    public void applyTexts(String km, String kt) {
+        textViewKM.setText(km);
+        textViewKT.setText(kt);
     }
 
 
