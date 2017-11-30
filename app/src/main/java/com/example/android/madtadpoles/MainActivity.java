@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     public int counterKM = 3;
     public int counterKT = 3;
-    String TeamA = "Your Team A";
-    String TeamB = "Your Team B";
     Button helpButton;
     TextView textViewKM, textViewKT;
 
@@ -27,11 +25,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
-        changePlayerColors(0);
+        // ********************************** Damian's code start
+
+        // Left Tadpole: i = 0; Right Tadpole: i = 1;
+        whoseTurn(0);
+
         final TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
         final TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
         final Button startCountKM = (Button) findViewById(R.id.startCountKM);
-        Button startCountKT = (Button) findViewById(R.id.startCountKT);
+        final Button startCountKT = (Button) findViewById(R.id.startCountKT);
+
+
         updateLabels();
         textViewKM = (TextView) findViewById(R.id.KMName);
         textViewKT = (TextView) findViewById(R.id.KTName);
@@ -48,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             @Override
             public void onClick (View v){
                 updateLabels();
-                startCountKM.setEnabled(false);
+                disabledKMCounterStart(true);
+                disabledKMBtnAttack(false);
 
                 new CountDownTimer(4200,1000){
                     @Override
@@ -60,17 +65,45 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
                     @Override
                     public void onFinish() {
-                        startCountKM.setEnabled(true);
+                        disabledKMBtnAttack(true);
+                        disabledKMCounterStart(false);
                         counterKM = 3;
                         updateLabels();
+
+                        whoseTurn(1);
 
                     }
                 }.start();
             }
         });
 
+        startCountKT.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                updateLabels();
+                disabledKTCounterStart(true);
+                disabledKTBtnAttack(false);
 
+                new CountDownTimer(4200,1000){
+                    @Override
+                    public void onTick(long l) {
+                        counterKT = (int)(l/1000)-1;
+                        updateLabels();
 
+                    }
+
+                    @Override
+                    public void onFinish() {
+
+                        disabledKTCounterStart(false);
+                        counterKT = 3;
+                        updateLabels();
+                        disabledKTBtnAttack(true);
+                        whoseTurn(0);
+                    }
+                }.start();
+            }
+        });
 
     }
 
@@ -91,11 +124,95 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         textViewKT.setText(kt);
     }
 
+    public void whoseTurn(int i){
+
+        if(i == 0){
+            changePlayerColors(0);
+            disabledKMBtnAttack(true);
+            disabledKTBtnAttack(true);
+        }else if (i == 1){
+            changePlayerColors(1);
+            disabledKMBtnAttack(true);
+            disabledKTBtnAttack(true);
+        }
+
+    }
+
+
+    public void disabledKMBtnAttack(boolean disabled){
+
+        ImageButton KMBtnAttack = (ImageButton) findViewById(R.id.KMBtnAttack);
+
+        if (disabled){
+            KMBtnAttack.setBackgroundResource(R.drawable.my_button_grey);
+            KMBtnAttack.setEnabled(false);
+            KMBtnAttack.setImageResource(R.drawable.ic_unnactive_miecz);
+        }else {
+
+            KMBtnAttack.setEnabled(true);
+            KMBtnAttack.setBackgroundResource(R.drawable.my_button);
+            KMBtnAttack.setImageResource(R.drawable.ic_miecz);
+        }
+    }
+
+    public void disabledKTBtnAttack(boolean disabled){
+
+        ImageButton KTBtnAttack = (ImageButton) findViewById(R.id.KTBtnAttack);
+
+        if (disabled){
+            KTBtnAttack.setBackgroundResource(R.drawable.my_button_grey);
+            KTBtnAttack.setEnabled(false);
+            KTBtnAttack.setImageResource(R.drawable.ic_unnactive_miecz);
+        }else if (!disabled) {
+
+            KTBtnAttack.setEnabled(true);
+            KTBtnAttack.setBackgroundResource(R.drawable.my_button);
+            KTBtnAttack.setImageResource(R.drawable.ic_miecz);
+        }
+    }
+
+    public void disabledKMCounterStart(boolean disabled){
+
+        Button startCountKM = (Button) findViewById(R.id.startCountKM);
+
+        if (disabled){
+            startCountKM.setBackgroundResource(R.drawable.my_button_grey);
+            startCountKM.setEnabled(false);
+            startCountKM.setTextColor(getResources().getColor(R.color.unactive_white_icon));
+        } else {
+
+            startCountKM.setBackgroundResource(R.drawable.my_button);
+            startCountKM.setEnabled(true);
+            startCountKM.setTextColor(getResources().getColor(R.color.creme_text));
+
+        }
+    }
+
+    public void disabledKTCounterStart(boolean disabled){
+
+        Button startCountKT = (Button) findViewById(R.id.startCountKT);
+
+        if (disabled){
+            startCountKT.setBackgroundResource(R.drawable.my_button_grey);
+            startCountKT.setEnabled(false);
+            startCountKT.setTextColor(getResources().getColor(R.color.unactive_white_icon));
+        } else {
+
+            startCountKT.setBackgroundResource(R.drawable.my_button);
+            startCountKT.setEnabled(true);
+            startCountKT.setTextColor(getResources().getColor(R.color.creme_text));
+
+        }
+    }
+
+
+    // ********************************** Damian's code end
 
 
 
 
-    //Mateusz's code start
+    // ********************************** Mateusz's code start
+
     // zmienne globalne (ustawienie życia po 100 i losowe obrazenia)
     int healthKM = 100;
     int healthKT = 100;
@@ -130,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         playerA.setProgress(healthKT);
     }
 
-    // wciśkanie przycisków ataku dla obu graczy
+    // wciskanie przycisków ataku dla obu graczy
     public void attackPlayerA(View view) {
         progressbarB();
 
@@ -142,11 +259,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     }
 
-    //Mateusz's code end
+    // ********************************** Mateusz's code end
 
-    /*
-    Cezary's changes - START
-    */
+
+    // **********************************Cezary's code start
+
 
     public void changePlayerColors(int parameter) {
         // jeśli tura należy do gracza grającego kijanką z mieczem:
@@ -184,34 +301,14 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     }
 
     public void swordTadpoleVisibility(int value) {
-        // progress bar kijanki z mieczem
+
         ProgressBar progressSword = (ProgressBar) findViewById(R.id.progressA);
-
-        // background View dla kijanki z mieczem
         View swordBack = findViewById(R.id.swordTadBack);
-
-        // stworzenie ImageView dla kijanki z mieczem
         ImageView swordTadPole = (ImageView) findViewById(R.id.kijankaMiecz);
-
-        //TextView "turnDisplay" dla kijanki z mieczem
         TextView turnDisplaySword = (TextView) findViewById(R.id.KMRound);
-
-        // Button coundDownStart dla kijanki z mieczem
-
         Button countDownStartSword = (Button) findViewById(R.id.startCountKM);
-
-        // TextView powerAttack dla kijanki z mieczem
-
         TextView powerAttackSword = (TextView) findViewById(R.id.labelCounterKM);
-
-        // ImageButton kijanki z mieczem
-
         ImageButton btnAttackSword = (ImageButton) findViewById(R.id.KMBtnAttack);
-
-
-
-        // name TextView kijanki z mieczem
-
         TextView nameSword = (TextView) findViewById(R.id.KMName);
 
         // zniknij kijanke z mieczem
@@ -433,5 +530,5 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             progressAxe.setProgressDrawable(getResources().getDrawable(R.drawable.progress_horizontal));
         }
     }
-    // Cezary's changes - END
+    // ********************************** Cezary's code end
 }

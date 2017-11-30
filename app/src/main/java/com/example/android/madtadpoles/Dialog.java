@@ -11,9 +11,9 @@ import android.widget.EditText;
 
 
 /**
- * Created by Damian on 19.11.2017.
+ * Created by Damian on 30.11.2017.
  */
-
+// ********************************** Damian's code start
 public class Dialog extends AppCompatDialogFragment {
 
     private EditText editKM, editKT;
@@ -61,3 +61,4 @@ public class Dialog extends AppCompatDialogFragment {
     }
 }
 
+// ********************************** Damian's code end
