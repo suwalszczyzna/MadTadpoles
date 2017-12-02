@@ -7,20 +7,23 @@
     android:background="@drawable/my_background">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <View
-            android:layout_marginTop="10dp"
             android:id="@+id/swordTadBack"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <View
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_weight="1" />
+
+        <View
             android:id="@+id/axeTadBack"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <ImageView
@@ -28,6 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:adjustViewBounds="false"
+        android:background="?attr/selectableItemBackground"
         android:contentDescription="@null"
         android:cropToPadding="false"
         android:scaleType="centerCrop"
@@ -50,22 +54,24 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="140dp"
         android:layout_height="@dimen/progressBar_height"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:progress="100"
-        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintStart_toEndOf="@+id/infoButton"
         app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
 
     <ProgressBar
         android:id="@+id/progressB"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="140dp"
+        android:layout_width="0dp"
         android:layout_height="@dimen/progressBar_height"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:progress="100"
-        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintEnd_toStartOf="@+id/helpButton"
+        app:layout_constraintStart_toEndOf="@+id/progressA"
         app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
     <android.support.constraint.Guideline
@@ -106,10 +112,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="John"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="@+id/kijankaMiecz"
         app:layout_constraintStart_toStartOf="@+id/kijankaMiecz" />
@@ -119,10 +125,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="Jerry"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageBackground"
         app:layout_constraintEnd_toEndOf="@+id/kijankaTasak"
         app:layout_constraintStart_toStartOf="@+id/kijankaTasak" />
@@ -316,16 +322,25 @@
     <Button
         android:id="@+id/helpButton"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ic_help"
         android:textColor="@color/creme_text"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/progressB"
-        app:layout_constraintStart_toEndOf="@+id/progressA"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
+
+    <Button
+        android:id="@+id/infoButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_info_black_24dp"
+        android:textColor="@color/creme_text"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
         app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
 </android.support.constraint.ConstraintLayout>

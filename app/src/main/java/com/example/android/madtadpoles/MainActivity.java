@@ -1,5 +1,4 @@
 package com.example.android.madtadpoles;
-
 import android.annotation.SuppressLint;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
@@ -39,8 +37,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
 
         updateLabels();
+
         textViewKM = (TextView) findViewById(R.id.KMName);
         textViewKT = (TextView) findViewById(R.id.KTName);
+
+
 
         helpButton = (Button) findViewById(R.id.helpButton);
         helpButton.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void applyTexts(String km, String kt) {
         textViewKM.setText(km);
         textViewKT.setText(kt);
+
+        textViewKM.getText();
     }
 
     public void whoseTurn(int i){
@@ -269,6 +272,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     }
 
     // ********************************** Mateusz's code end
+
 
 
     // **********************************Cezary's code start
