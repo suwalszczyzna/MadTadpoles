@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.Toast;
+import android.os.Handler; // Ola's code
 
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public int mainCounterKT = 3;
     boolean isCounterKMworking, isCounterKTworking;
     boolean isAttackHitted = false;
+    public CountDownTimer countDownTimerKM, countDownTimerKT; // Ola's code
+
 
     Button helpButton;
     TextView textViewKM, textViewKT;
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             @Override
             public void onClick(View view) {
 
-            isAttackHitted = true;
+                isAttackHitted = true;
 
             }
         });
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 startWeaponKMCounter();
 
 
-                new CountDownTimer(4200,1000){
+                countDownTimerKM = new CountDownTimer(4200,1000){ // Ola's code: countDownTimerKM =
                     @Override
                     public void onTick(long l) {
 
@@ -129,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 startWeaponKTCounter();
 
 
-                new CountDownTimer(4200,1000){
+                countDownTimerKT = new CountDownTimer(4200,1000){ // Ola's code: countDownTimerKT =
                     @Override
                     public void onTick(long l) {
 
@@ -157,21 +160,79 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     }
 
+    // Ola's code
+    // Countdown timer reset
+    public void cancelTimerKM() {
+        if(countDownTimerKM!=null)
+            countDownTimerKM.cancel();
+        countDownTimerKM = null;
+        mainCounterKM = 3;
+    }
+
+    // Ola's code
+    // Countdown timer reset
+    public void cancelTimerKT() {
+        if(countDownTimerKT!=null)
+            countDownTimerKT.cancel();
+        countDownTimerKT = null;
+        mainCounterKT = 3;
+    }
+
+
+
     public void onFinishKM(){
+        cancelTimerKM();
         disabledKMBtnAttack(true);
-        disabledKMCounterStart(false);
+        //disabledKMCounterStart(false); // Ola's code
         mainCounterKM = 3;
         updateLabels();
-        whoseTurn(1);
+        //whoseTurn(1); // Ola's code
+
+        int delay = 0;
+        if (isAttackHitted)
+            delay = 1000;
+
+        // Ola's code ..
+        final Handler handler = new Handler();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                disabledKTCounterStart(false);
+                whoseTurn(1);
+                isAttackHitted = false;
+            }
+        }, delay);
+        // .. Ola's code
+
 
     }
 
     public void onFinishKT(){
+        cancelTimerKT();
         disabledKMBtnAttack(true);
-        disabledKMCounterStart(false);
+        //disabledKMCounterStart(false); // Ola's code
         mainCounterKT = 3;
         updateLabels();
-        whoseTurn(0);
+        //whoseTurn(0); // Ola's code
+
+        int delay = 0;
+        if (isAttackHitted)
+            delay = 1000;
+
+
+        // Ola's code ..
+        final Handler handler = new Handler();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                disabledKMCounterStart(false);
+                whoseTurn(0);
+                isAttackHitted = false;
+            }
+        }, delay);
+        // .. Ola's code
+
+
 
     }
 
@@ -298,11 +359,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 if(isAttackHitted){
 
                     attackValue = guns[i].damage;
-                    disabledKMBtnAttack(true);
+                    //disabledKMBtnAttack(true); // Ola's code
                     attackKMButton.setImageResource(guns[i].icon);
                     attackPlayerA();
-                    isAttackHitted = false;
+                    //isAttackHitted = false; // Ola's code
                     cancel();
+                    onFinishKM(); // Ola's code
 
                 }
 
@@ -335,8 +397,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     disabledKTBtnAttack(true);
                     attackKTButton.setImageResource(guns[i].icon);
                     attackPlayerB();
-                    isAttackHitted = false;
+                    //isAttackHitted = false; // Ola's code
                     cancel();
+                    onFinishKT();
 
                 }
 
