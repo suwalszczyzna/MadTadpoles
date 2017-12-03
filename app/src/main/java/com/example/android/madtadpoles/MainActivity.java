@@ -1,25 +1,33 @@
 package com.example.android.madtadpoles;
-import android.annotation.SuppressLint;
+
+import android.animation.ObjectAnimator;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.CountDownTimer;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
-    public int counterKM = 3;
-    public int counterKT = 3;
+    public int mainCounterKM = 3;
+    public int mainCounterKT = 3;
+    boolean isCounterKMworking, isCounterKTworking;
+
     Button helpButton;
     TextView textViewKM, textViewKT;
+    Gun[] guns = new Gun[3];
 
-    @SuppressLint("WrongViewCast")
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
@@ -42,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         textViewKT = (TextView) findViewById(R.id.KTName);
 
 
-
+        //Click listener to open Change Names dialog
         helpButton = (Button) findViewById(R.id.helpButton);
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         });
 
+        //************************ Main counter for KM tadpole
         startCountKM.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
@@ -58,12 +67,15 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 disabledKMCounterStart(true);
                 disabledKMBtnAttack(false);
 
+
+
+
                 new CountDownTimer(4200,1000){
                     @Override
                     public void onTick(long l) {
 
                         // tutaj piszemy co się dzieje w trakcie odliczania
-                        counterKM = (int)(l/1000)-1;
+                        mainCounterKM = (int)(l/1000)-1;
                         updateLabels();
 
                     }
@@ -74,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
                         disabledKMBtnAttack(true);
                         disabledKMCounterStart(false);
-                        counterKM = 3;
+                        mainCounterKM = 3;
                         updateLabels();
 
                         whoseTurn(1);
@@ -84,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         });
 
+
+        //********************* Main counter for KT tadpole
         startCountKT.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
@@ -96,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     public void onTick(long l) {
                         // tutaj piszemy co się dzieje w trakcie odliczania
 
-                        counterKT = (int)(l/1000)-1;
+                        mainCounterKT = (int)(l/1000)-1;
                         updateLabels();
 
                     }
@@ -106,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
 
                         disabledKTCounterStart(false);
-                        counterKT = 3;
+                        mainCounterKT = 3;
                         updateLabels();
                         disabledKTBtnAttack(true);
                         whoseTurn(0);
@@ -120,8 +134,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void updateLabels(){
         TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
         TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
-        labelCounterKM.setText(String.valueOf(counterKM));
-        labelCounterKT.setText(String.valueOf(counterKT));
+        labelCounterKM.setText(String.valueOf(mainCounterKM));
+        labelCounterKT.setText(String.valueOf(mainCounterKT));
     }
     public void openDialog(){
         Dialog dialog = new Dialog();
@@ -217,58 +231,148 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         }
     }
 
+    public void createGuns(){
+
+        guns[0] = new Gun(15,R.drawable.ic_miecz);
+        guns[1] = new Gun(25,R.drawable.ic_arc);
+        guns[2] = new Gun(35, R.drawable.ic_sickle);
+
+
+    }
 
     // ********************************** Damian's code end
 
 
 
 
-    // ********************************** Mateusz's code start
+    /// ********************************** Mateusz's code start
 
     // zmienne globalne (ustawienie życia po 100 i losowe obrazenia)
+
     int healthKM = 100;
     int healthKT = 100;
     int randomNumber1;
 
     //metoda losowanko liczba obrazen dla testów
+
     public int randomNumber() {
+
         Random rand = new Random();
         randomNumber1 = rand.nextInt(20);
         return randomNumber1;
+    }
+
+// mnożymy max HP *100 żeby animacja zawsze była widoczna
+
+    private void setProgressMax(ProgressBar pb, int max) {
+        pb.setMax(max * 100);
+    }
+    // ustawiamy wartośc animacji
+    private void setProgressAnimate(ProgressBar pb, int progressTo)
+    {
+        ObjectAnimator animation = ObjectAnimator.ofInt(pb, "progress", pb.getProgress(), progressTo * 100);
+        animation.setDuration(500);
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     /*
     ustawiamy paski zycia graczy A I B ()w każdym dałem ifa żeby
     po spadku ponizej 0 paski się odnawiały - dla testów :D )
     */
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void progressbarA() {
+
         ProgressBar playerA = findViewById(R.id.progressA);
         healthKM -= randomNumber();
+
+        // włączamy animację dla gracza A
+
+        setProgressMax(playerA,100);
+        setProgressAnimate(playerA,healthKM);
         if (healthKM < 0) {
             healthKM = 100;
         }
+
         playerA.setProgress(healthKM);
+
+        //zmieniamy kolory
+
+        if (healthKM>=60){
+            playerA.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        } else if (healthKM<60&&healthKM>=30) {
+            playerA.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        } else if (healthKM<30){
+            playerA.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void progressbarB() {
+
         ProgressBar playerA = findViewById(R.id.progressB);
         healthKT -= randomNumber();
+
+        // włączamy animację dla gracza B
+
+        setProgressMax(playerA,100);
+        setProgressAnimate(playerA, healthKT);
+
         if (healthKT < 0) {
             healthKT = 100;
         }
+
         playerA.setProgress(healthKT);
+
+
+        //zmiana kolorów
+
+        if (healthKT>=60){
+            playerA.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        } else if (healthKT<60&&healthKT>=30) {
+            playerA.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        } else if (healthKT<30){
+            playerA.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        }
+    }
+
+    // dajemy metodę do wyświetlania HP przy kijanie miecz
+
+    public void kijanaMiecz (int aktualneHP){
+
+        TextView miecz = findViewById(R.id.kijankaMieczHP);
+        miecz.setText(""+aktualneHP);
+        if (healthKM<=0){
+            miecz.setText(""+0);
+        }
+    }
+
+    // dajemy metodę do wyświetlania HP przy kijanie toporek
+
+    public void kijanaTopor (int aktualneHP){
+
+        TextView miecz = findViewById(R.id.kijankaTasakHP);
+        miecz.setText(""+aktualneHP);
+        if (healthKT<=0){
+            miecz.setText(""+0);
+        }
     }
 
     // wciskanie przycisków ataku dla obu graczy
-    public void attackPlayerA(View view) {
-        progressbarB();
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void attackPlayerA(View view) {
+
+        progressbarB();
+        kijanaTopor(healthKT);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void attackPlayerB(View view) {
 
         progressbarA();
-
+        kijanaMiecz(healthKM);
     }
 
     // ********************************** Mateusz's code end

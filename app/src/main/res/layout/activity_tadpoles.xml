@@ -54,9 +54,11 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="140dp"
         android:layout_height="@dimen/progressBar_height"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:progress="100"
+        app:layout_constraintEnd_toEndOf="@+id/kijankaMiecz"
         app:layout_constraintStart_toEndOf="@+id/infoButton"
         app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
@@ -71,7 +73,7 @@
         android:layout_marginTop="16dp"
         android:progress="100"
         app:layout_constraintEnd_toStartOf="@+id/helpButton"
-        app:layout_constraintStart_toEndOf="@+id/progressA"
+        app:layout_constraintStart_toStartOf="@+id/kijankaTasak"
         app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
 
     <android.support.constraint.Guideline
@@ -342,5 +344,51 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
         app:layout_constraintTop_toTopOf="@+id/guidelineGora" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLewa"
+        app:layout_constraintTop_toBottomOf="@+id/infoButton"
+        app:srcCompat="@drawable/ic_serce" />
+
+    <TextView
+        android:id="@+id/kijankaMieczHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="100"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/infoButton" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelinePrawa"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpButton"
+        app:srcCompat="@drawable/ic_serce" />
+
+    <TextView
+        android:id="@+id/kijankaTasakHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="100"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
 </android.support.constraint.ConstraintLayout>
