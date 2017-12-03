@@ -281,6 +281,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     disabledKMBtnAttack(true);
                     attackKMButton.setImageResource(guns[i].icon);
                     attackPlayerA();
+                    isAttackHitted = false;
                     cancel();
 
                 }
