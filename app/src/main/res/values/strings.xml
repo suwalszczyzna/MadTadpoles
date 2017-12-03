@@ -4,4 +4,7 @@
     <string name="attackField_text">Last attack:\n21 points</string>
     <string name="notYourTurn">Wait for your turn</string>
     <string name="YourTurn">Your turn!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Attack Button</string>
 </resources>

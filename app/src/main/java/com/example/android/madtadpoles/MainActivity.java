@@ -16,13 +16,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
     public int mainCounterKM = 3;
     public int mainCounterKT = 3;
     boolean isCounterKMworking, isCounterKTworking;
+    boolean isAttackHitted = false;
 
     Button helpButton;
     TextView textViewKM, textViewKT;
@@ -59,6 +59,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         });
 
+        final ImageButton attackKMButton = (ImageButton) findViewById(R.id.KMBtnAttack);
+
+        attackKMButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            isAttackHitted = true;
+
+            }
+        });
+
         //************************ Main counter for KM tadpole
         startCountKM.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -66,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 updateLabels();
                 disabledKMCounterStart(true);
                 disabledKMBtnAttack(false);
-
-
+                createGuns();
+                startWeaponKMCounter();
 
 
                 new CountDownTimer(4200,1000){
@@ -77,6 +88,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         // tutaj piszemy co się dzieje w trakcie odliczania
                         mainCounterKM = (int)(l/1000)-1;
                         updateLabels();
+                        if (isAttackHitted){
+                            onFinishKM();
+                            cancel();
+                        }
+
 
                     }
 
@@ -84,17 +100,14 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     public void onFinish() {
 
                         // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
-                        disabledKMBtnAttack(true);
-                        disabledKMCounterStart(false);
-                        mainCounterKM = 3;
-                        updateLabels();
-
-                        whoseTurn(1);
+                        onFinishKM();
 
                     }
                 }.start();
             }
         });
+
+
 
 
         //********************* Main counter for KT tadpole
@@ -130,6 +143,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         });
 
     }
+
+    public void onFinishKM(){
+        disabledKMBtnAttack(true);
+        disabledKMCounterStart(false);
+        mainCounterKM = 3;
+        updateLabels();
+        whoseTurn(1);
+
+    }
+
+
 
     public void updateLabels(){
         TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
@@ -237,7 +261,38 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         guns[1] = new Gun(25,R.drawable.ic_arc);
         guns[2] = new Gun(35, R.drawable.ic_sickle);
 
+    }
+    public int i = 0;
+    public void startWeaponKMCounter(){
 
+        final ImageButton attackKMButton = (ImageButton) findViewById(R.id.KMBtnAttack);
+        new CountDownTimer(4000, 80){
+            @Override
+            public void onTick(long l) {
+
+                attackKMButton.setImageResource(guns[i].icon);
+                i++;
+                if (i>2){
+                    i = 0;
+                }
+                if(isAttackHitted){
+
+                    attackValue = guns[i].damage;
+                    disabledKMBtnAttack(true);
+                    attackKMButton.setImageResource(guns[i].icon);
+                    attackPlayerA();
+                    cancel();
+
+                }
+
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
     }
 
     // ********************************** Damian's code end
@@ -251,16 +306,16 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     int healthKM = 100;
     int healthKT = 100;
-    int randomNumber1;
+    int attackValue;
 
     //metoda losowanko liczba obrazen dla testów
 
-    public int randomNumber() {
-
-        Random rand = new Random();
-        randomNumber1 = rand.nextInt(20);
-        return randomNumber1;
-    }
+//    public int randomNumber() {
+//
+//        Random rand = new Random();
+//        attackValue = rand.nextInt(20);
+//        return attackValue;
+//    }
 
 // mnożymy max HP *100 żeby animacja zawsze była widoczna
 
@@ -285,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void progressbarA() {
 
         ProgressBar playerA = findViewById(R.id.progressA);
-        healthKM -= randomNumber();
+        healthKM -= attackValue;
 
         // włączamy animację dla gracza A
 
@@ -312,7 +367,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void progressbarB() {
 
         ProgressBar playerA = findViewById(R.id.progressB);
-        healthKT -= randomNumber();
+        healthKT -= attackValue;
 
         // włączamy animację dla gracza B
 
@@ -362,7 +417,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     // wciskanie przycisków ataku dla obu graczy
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public void attackPlayerA(View view) {
+    public void attackPlayerA() {
 
         progressbarB();
         kijanaTopor(healthKT);
