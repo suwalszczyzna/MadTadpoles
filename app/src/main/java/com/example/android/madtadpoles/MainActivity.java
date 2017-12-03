@@ -15,7 +15,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
                         // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
                         onFinishKM();
-
+                        cancel();
                     }
                 }.start();
             }
@@ -298,7 +300,60 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     // ********************************** Damian's code end
 
+// ********************************** MisQLak's code start
 
+    //metody wyswietlajace alert o zwyciezcy, pozwalajace zagrac od nowa badz wyjsc z appki
+    private void winnerKM () {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setTitle("The winner is " + textViewKM.getText() + "!");
+        alertDialogBuilder.setMessage("Do you want to play again?");
+        alertDialogBuilder.setPositiveButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
+                        recreate();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void winnerKT () {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setTitle("The winner is " + textViewKT.getText() + "!");
+        alertDialogBuilder.setMessage("Do you want to play again?");
+        alertDialogBuilder.setPositiveButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
+                        recreate();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    // ********************************** MisQLak's code end
 
 
     /// ********************************** Mateusz's code start
@@ -347,9 +402,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
         setProgressMax(playerA,100);
         setProgressAnimate(playerA,healthKM);
-        if (healthKM < 0) {
-            healthKM = 100;
-        }
+//        if (healthKM < 0) {
+//            healthKM = 100;
+//        }
 
         playerA.setProgress(healthKM);
 
@@ -375,9 +430,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         setProgressMax(playerA,100);
         setProgressAnimate(playerA, healthKT);
 
-        if (healthKT < 0) {
-            healthKT = 100;
-        }
+//        if (healthKT < 0) {
+//            healthKT = 100;
+//        }
 
         playerA.setProgress(healthKT);
 
@@ -400,7 +455,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         TextView miecz = findViewById(R.id.kijankaMieczHP);
         miecz.setText(""+aktualneHP);
         if (healthKM<=0){
+            winnerKT();
             miecz.setText(""+0);
+
         }
     }
 
@@ -411,7 +468,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         TextView miecz = findViewById(R.id.kijankaTasakHP);
         miecz.setText(""+aktualneHP);
         if (healthKT<=0){
+            winnerKM();
             miecz.setText(""+0);
+
         }
     }
 
