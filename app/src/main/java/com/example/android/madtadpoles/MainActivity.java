@@ -38,19 +38,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         // Left Tadpole: i = 0; Right Tadpole: i = 1;
         whoseTurn(0);
         // ************* //
-
+        updateLabels();
 
         final TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
         final TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
         final Button startCountKM = (Button) findViewById(R.id.startCountKM);
         final Button startCountKT = (Button) findViewById(R.id.startCountKT);
-
-
-        updateLabels();
+        final ImageButton attackKMButton = (ImageButton) findViewById(R.id.KMBtnAttack);
+        final ImageButton attackKTButton = (ImageButton) findViewById(R.id.KTBtnAttack);
 
         textViewKM = (TextView) findViewById(R.id.KMName);
         textViewKT = (TextView) findViewById(R.id.KTName);
-
 
         //Click listener to open Change Names dialog
         helpButton = (Button) findViewById(R.id.helpButton);
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         });
 
-        final ImageButton attackKMButton = (ImageButton) findViewById(R.id.KMBtnAttack);
 
         attackKMButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +69,16 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         });
 
-        //************************ Main counter for KM tadpole
+        attackKTButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                isAttackHitted = true;
+
+            }
+        });
+
+        //************************ Main counter for KM tadpole (left)
         startCountKM.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
@@ -119,26 +125,31 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 updateLabels();
                 disabledKTCounterStart(true);
                 disabledKTBtnAttack(false);
+                createGuns();
+                startWeaponKTCounter();
+
 
                 new CountDownTimer(4200,1000){
                     @Override
                     public void onTick(long l) {
-                        // tutaj piszemy co się dzieje w trakcie odliczania
 
+                        // tutaj piszemy co się dzieje w trakcie odliczania
                         mainCounterKT = (int)(l/1000)-1;
                         updateLabels();
+                        if (isAttackHitted){
+                            onFinishKT();
+                            cancel();
+                        }
+
 
                     }
 
                     @Override
                     public void onFinish() {
-                        // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
 
-                        disabledKTCounterStart(false);
-                        mainCounterKT = 3;
-                        updateLabels();
-                        disabledKTBtnAttack(true);
-                        whoseTurn(0);
+                        // tutaj piszemy co sie ma wydazyc po zakonczeniu odliczania
+                        onFinishKT();
+                        cancel();
                     }
                 }.start();
             }
@@ -155,7 +166,14 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     }
 
+    public void onFinishKT(){
+        disabledKMBtnAttack(true);
+        disabledKMCounterStart(false);
+        mainCounterKT = 3;
+        updateLabels();
+        whoseTurn(0);
 
+    }
 
     public void updateLabels(){
         TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
@@ -163,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         labelCounterKM.setText(String.valueOf(mainCounterKM));
         labelCounterKT.setText(String.valueOf(mainCounterKT));
     }
+
     public void openDialog(){
         Dialog dialog = new Dialog();
         dialog.show(getSupportFragmentManager(),"dialog");
@@ -189,7 +208,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         }
 
     }
-
 
     public void disabledKMBtnAttack(boolean disabled){
 
@@ -298,11 +316,45 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         }.start();
     }
 
+
+    public void startWeaponKTCounter(){
+
+        final ImageButton attackKTButton = (ImageButton) findViewById(R.id.KTBtnAttack);
+        new CountDownTimer(4000, 80){
+            @Override
+            public void onTick(long l) {
+
+                attackKTButton.setImageResource(guns[i].icon);
+                i++;
+                if (i>2){
+                    i = 0;
+                }
+                if(isAttackHitted){
+
+                    attackValue = guns[i].damage;
+                    disabledKTBtnAttack(true);
+                    attackKTButton.setImageResource(guns[i].icon);
+                    attackPlayerB();
+                    isAttackHitted = false;
+                    cancel();
+
+                }
+
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+    }
+
     // ********************************** Damian's code end
 
-// ********************************** MisQLak's code start
+    // ********************************** MisQLak's code start
 
-    //metody wyswietlajace alert o zwyciezcy, pozwalajace zagrac od nowa badz wyjsc z appki
+    //alert about winners, restart or end of game
     private void winnerKM () {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
@@ -366,12 +418,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     //metoda losowanko liczba obrazen dla testów
 
-//    public int randomNumber() {
-//
-//        Random rand = new Random();
-//        attackValue = rand.nextInt(20);
-//        return attackValue;
-//    }
+    //    public int randomNumber() {
+    //
+    //        Random rand = new Random();
+    //        attackValue = rand.nextInt(20);
+    //        return attackValue;
+    //    }
 
 // mnożymy max HP *100 żeby animacja zawsze była widoczna
 
@@ -484,7 +536,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public void attackPlayerB(View view) {
+    public void attackPlayerB() {
 
         progressbarA();
         kijanaMiecz(healthKM);
@@ -495,7 +547,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
 
     // **********************************Cezary's code start
-
 
     public void changePlayerColors(int parameter) {
         // jeśli tura należy do gracza grającego kijanką z mieczem:
@@ -762,5 +813,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             progressAxe.setProgressDrawable(getResources().getDrawable(R.drawable.progress_horizontal));
         }
     }
+
     // ********************************** Cezary's code end
 }

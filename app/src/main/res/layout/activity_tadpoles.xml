@@ -273,7 +273,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/my_button"
         android:contentDescription="@string/attack_btn_desc"
-        android:onClick="attackPlayerB"
+
         android:padding="15dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/KTInfoTxt"
