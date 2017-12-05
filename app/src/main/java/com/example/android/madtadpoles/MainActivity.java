@@ -25,14 +25,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     public int mainCounterKM = 3;
     public int mainCounterKT = 3;
-    boolean isCounterKMworking, isCounterKTworking;
     boolean isAttackHitted = false;
     public CountDownTimer countDownTimerKM, countDownTimerKT; // Ola's code
 
 
     Button helpButton;
     TextView textViewKM, textViewKT;
-    Gun[] guns = new Gun[3];
+    Gun[] guns = new Gun[7];
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialog();
+                openChangeNamesDialog();
             }
         });
 
@@ -244,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         labelCounterKT.setText(String.valueOf(mainCounterKT));
     }
 
-    public void openDialog(){
+    public void openChangeNamesDialog(){
         Dialog dialog = new Dialog();
         dialog.show(getSupportFragmentManager(),"dialog");
     }
@@ -339,22 +338,26 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     public void createGuns(){
 
-        guns[0] = new Gun(15,R.drawable.ic_miecz);
-        guns[1] = new Gun(25,R.drawable.ic_arc);
-        guns[2] = new Gun(35, R.drawable.ic_sickle);
+        guns[0] = new Gun(4,R.drawable.ic_miecz);
+        guns[1] = new Gun(6,R.drawable.ic_arc);
+        guns[2] = new Gun(15, R.drawable.ic_sickle);
+        guns[3] = new Gun(10,R.drawable.ic_axe);
+        guns[4] = new Gun(5,R.drawable.ic_baseball);
+        guns[5] = new Gun(30,R.drawable.ic_bomb);
+        guns[6] = new Gun(50,R.drawable.ic_bigbomb);
 
     }
     public int i = 0;
     public void startWeaponKMCounter(){
 
         final ImageButton attackKMButton = (ImageButton) findViewById(R.id.KMBtnAttack);
-        new CountDownTimer(4000, 80){
+        new CountDownTimer(4000, 120){
             @Override
             public void onTick(long l) {
 
                 attackKMButton.setImageResource(guns[i].icon);
                 i++;
-                if (i>2){
+                if (i>6){
                     i = 0;
                 }
                 if(isAttackHitted){
@@ -389,7 +392,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
                 attackKTButton.setImageResource(guns[i].icon);
                 i++;
-                if (i>2){
+                if (i>6){
                     i = 0;
                 }
                 if(isAttackHitted){

@@ -7,4 +7,7 @@
     <string name="km_hp_value">100</string>
     <string name="kt_hp_value">100</string>
     <string name="attack_btn_desc">Attack Button</string>
+    <string name="change_names_dialog">Do you want to change names?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
 </resources>

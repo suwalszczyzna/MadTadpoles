@@ -20,9 +20,6 @@ public class Dialog extends AppCompatDialogFragment {
     private DialogListener listener;
 
 
-
-
-
     @Override
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
 
