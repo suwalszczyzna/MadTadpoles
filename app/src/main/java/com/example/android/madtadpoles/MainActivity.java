@@ -1,6 +1,7 @@
 package com.example.android.madtadpoles;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -428,7 +429,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
-                        recreate();
+                        Intent startIntent = new Intent(MainActivity.this, MainActivity.class);
+                        healthKM = 100;
+                        healthKT = 100;
+                        startActivity(startIntent);
+                        finish();
+
+
                     }
                 });
 
@@ -453,7 +460,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
-                        recreate();
+                        Intent startIntent = new Intent(MainActivity.this, MainActivity.class);
+                        healthKM = 100;
+                        healthKT = 100;
+                        startActivity(startIntent);
+                        finish();
                     }
                 });
 
