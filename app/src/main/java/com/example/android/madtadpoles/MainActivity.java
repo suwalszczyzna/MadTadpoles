@@ -19,14 +19,16 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.Toast;
-import android.os.Handler; // Ola's code
+import android.os.Handler; // Ola's new code
+
 
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
     public int mainCounterKM = 3;
     public int mainCounterKT = 3;
+    boolean isCounterKMworking, isCounterKTworking;
     boolean isAttackHitted = false;
-    public CountDownTimer countDownTimerKM, countDownTimerKT; // Ola's code
+    public CountDownTimer countDownTimerKM, countDownTimerKT; // Ola's new code
 
 
     Button helpButton;
@@ -36,12 +38,29 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
+
         // ********************************** Damian's code start
 
         // Left Tadpole: i = 0; Right Tadpole: i = 1;
         whoseTurn(0);
         // ************* //
+
+        Bundle extras = getIntent().getExtras(); // --> Ola's new code
+        if (extras != null){
+            int turn = extras.getInt("whoseTurn");
+            whoseTurn(turn);
+        }
+
         updateLabels();
+        progressbarA();  // --> Ola's new code
+        progressbarB();  // --> Ola's new code
+
+        //Podwójna implementacja tej samej funkcjonalności?
+        //==============================================
+        // final TextView LastAttackKT = ((TextView) findViewById(R.id.KMInfoTxt));  // --> Ola's new code
+        // LastAttackKT.setText(getString(R.string.attackField_text, String.valueOf(attackValue))); // --> Ola's new code
+        //final TextView LastAttackKM = ((TextView) findViewById(R.id.KMInfoTxt));  // --> Ola's new code
+        //LastAttackKM.setText(getString(R.string.attackField_text, String.valueOf(attackValue))); // --> Ola's new code
 
         final TextView labelCounterKM = (TextView) findViewById(R.id.labelCounterKM);
         final TextView labelCounterKT = (TextView) findViewById(R.id.labelCounterKT);
@@ -58,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openChangeNamesDialog();
+                openDialog();
             }
         });
 
@@ -92,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 startWeaponKMCounter();
 
 
-                countDownTimerKM = new CountDownTimer(4200,1000){ // Ola's code: countDownTimerKM =
+                countDownTimerKM = new CountDownTimer(4200,1000){ // Ola's new code: countDownTimerKM =
                     @Override
                     public void onTick(long l) {
 
@@ -132,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 startWeaponKTCounter();
 
 
-                countDownTimerKT = new CountDownTimer(4200,1000){ // Ola's code: countDownTimerKT =
+                countDownTimerKT = new CountDownTimer(4200,1000){ // Ola's new code: countDownTimerKT =
                     @Override
                     public void onTick(long l) {
 
@@ -160,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     }
 
-    // Ola's code
+    // Ola's new code
     // Countdown timer reset
     public void cancelTimerKM() {
         if(countDownTimerKM!=null)
@@ -169,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         mainCounterKM = 3;
     }
 
-    // Ola's code
+    // Ola's new code
     // Countdown timer reset
     public void cancelTimerKT() {
         if(countDownTimerKT!=null)
@@ -183,16 +202,28 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void onFinishKM(){
         cancelTimerKM();
         disabledKMBtnAttack(true);
-        //disabledKMCounterStart(false); // Ola's code
-        mainCounterKM = 3;
+        //disabledKMCounterStart(false); // Ola's new code
+        // mainCounterKM = 3; // Ola's new code --> w cancelTimerKM()
         updateLabels();
-        //whoseTurn(1); // Ola's code
+        //whoseTurn(1); // Ola's new code
 
+        //Podwójna implementacja tej samej funkcjonalności?
+        //==============================================
+        //final TextView LastAttackKM = ((TextView) findViewById(R.id.KMInfoTxt));  // --> Ola's new code
+        //LastAttackKM.setText(getString(R.string.attackField_text, String.valueOf(attackValue)));
+        final TextView AttackPoints = ((TextView) findViewById(R.id.kijankaTasakPts)); // Ola's new code
         int delay = 0;
-        if (isAttackHitted)
+        if (isAttackHitted) {
             delay = 1000;
+            AttackPoints.setVisibility(View.VISIBLE);
+            AttackPoints.setAlpha(0f); // Damian
+            AttackPoints.animate().alpha(1f).setDuration(300); // Damian
+            AttackPoints.setText("-"+ String.valueOf(attackValue));
 
-        // Ola's code ..
+
+        }
+
+        // Ola's new code ..
         final Handler handler = new Handler();
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -200,27 +231,40 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 disabledKTCounterStart(false);
                 whoseTurn(1);
                 isAttackHitted = false;
+                AttackPoints.setVisibility(View.INVISIBLE); // Ola's new code
+                AttackPoints.setAlpha(0f); // Damian
             }
         }, delay);
-        // .. Ola's code
+        // .. Ola's new code
 
 
     }
 
     public void onFinishKT(){
         cancelTimerKT();
-        disabledKMBtnAttack(true);
-        //disabledKMCounterStart(false); // Ola's code
-        mainCounterKT = 3;
+        // disabledKMBtnAttack(true); --> tu chyba literowka
+        disabledKTBtnAttack(true);
+        //disabledKMCounterStart(false); // Ola's new code
+        // mainCounterKT = 3; // Ola's new code -> w cancelTimerKT()
         updateLabels();
-        //whoseTurn(0); // Ola's code
+        //whoseTurn(0); // Ola's new code
 
+        //Podwójna implementacja tej samej funkcjonalności?
+        //==================================================
+        //final TextView LastAttackKT = ((TextView) findViewById(R.id.KTInfoTxt)); // --> Ola's new code
+        //LastAttackKT.setText(getString(R.string.attackField_text, String.valueOf(attackValue)));
+
+
+        final TextView AttackPoints = ((TextView) findViewById(R.id.kijankaMieczPts)); // Ola's new code
         int delay = 0;
-        if (isAttackHitted)
+        if (isAttackHitted) {
             delay = 1000;
-
-
-        // Ola's code ..
+            AttackPoints.setVisibility(View.VISIBLE); // Ola's new code
+            AttackPoints.setAlpha(0f); // Damian
+            AttackPoints.animate().alpha(1f).setDuration(300); // Damian
+            AttackPoints.setText("-"+ String.valueOf(attackValue));
+        }
+        // Ola's new code ..
         final Handler handler = new Handler();
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -228,9 +272,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 disabledKMCounterStart(false);
                 whoseTurn(0);
                 isAttackHitted = false;
+                AttackPoints.setVisibility(View.INVISIBLE); // Ola's new code
+                AttackPoints.setAlpha(0f); // Damian
             }
         }, delay);
-        // .. Ola's code
+        // .. Ola's new code
 
 
 
@@ -243,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         labelCounterKT.setText(String.valueOf(mainCounterKT));
     }
 
-    public void openChangeNamesDialog(){
+    public void openDialog(){
         Dialog dialog = new Dialog();
         dialog.show(getSupportFragmentManager(),"dialog");
     }
@@ -351,7 +397,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void startWeaponKMCounter(){
 
         final ImageButton attackKMButton = (ImageButton) findViewById(R.id.KMBtnAttack);
-        new CountDownTimer(4000, 120){
+        new CountDownTimer(4000, 80){
             @Override
             public void onTick(long l) {
 
@@ -363,12 +409,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 if(isAttackHitted){
 
                     attackValue = guns[i].damage;
-                    //disabledKMBtnAttack(true); // Ola's code
+                    //disabledKMBtnAttack(true); // Ola's new code --> w onFinishKM()
                     attackKMButton.setImageResource(guns[i].icon);
                     attackPlayerA();
-                    //isAttackHitted = false; // Ola's code
+                    //isAttackHitted = false; // Ola's new code --> w onFinishKM()
                     cancel();
-                    onFinishKM(); // Ola's code
+                    onFinishKM(); // Ola's new code
 
                 }
 
@@ -398,10 +444,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 if(isAttackHitted){
 
                     attackValue = guns[i].damage;
-                    disabledKTBtnAttack(true);
+                    //disabledKTBtnAttack(true); // Ola's new code --> onFinishKT
                     attackKTButton.setImageResource(guns[i].icon);
                     attackPlayerB();
-                    //isAttackHitted = false; // Ola's code
+                    //isAttackHitted = false; // Ola's new code --> onFinishKT
                     cancel();
                     onFinishKT();
 
@@ -432,13 +478,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
-                        Intent startIntent = new Intent(MainActivity.this, MainActivity.class);
-                        healthKM = 100;
-                        healthKT = 100;
+                        //recreate();
+                        Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
+                        startIntent.putExtra("whoseTurn", 0);
                         startActivity(startIntent);
                         finish();
-
-
                     }
                 });
 
@@ -463,9 +507,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
-                        Intent startIntent = new Intent(MainActivity.this, MainActivity.class);
-                        healthKM = 100;
-                        healthKT = 100;
+                        //recreate();
+                        Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
+                        startIntent.putExtra("whoseTurn", 1);
                         startActivity(startIntent);
                         finish();
                     }
@@ -491,7 +535,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     int healthKM = 100;
     int healthKT = 100;
-    int attackValue;
+    int attackValue = 0;
 
     //metoda losowanko liczba obrazen dla testów
 
