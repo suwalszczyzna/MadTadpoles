@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     public void createGuns(){
 
-        guns[0] = new Gun(4,R.drawable.ic_miecz);
+        guns[0] = new Gun(3,R.drawable.ic_miecz);
         guns[1] = new Gun(6,R.drawable.ic_arc);
         guns[2] = new Gun(15, R.drawable.ic_sickle);
         guns[3] = new Gun(10,R.drawable.ic_axe);
