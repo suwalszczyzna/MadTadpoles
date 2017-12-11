@@ -28,4 +28,5 @@
     <string name="newGameToast">You started new game</string>
     <string name="playAgain">Do you want to play again?</string>
     <string name="winnerIs">The winner is </string>
+
 </resources>
