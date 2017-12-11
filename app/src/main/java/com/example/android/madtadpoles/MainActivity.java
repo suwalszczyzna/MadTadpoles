@@ -718,7 +718,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             progressSword.setProgressDrawable(getResources().getDrawable(R.drawable.progress_horizontal));
         }
     }
-
     /**
      * Right KT player visibility
      * @param value hide = 0, display = 1
