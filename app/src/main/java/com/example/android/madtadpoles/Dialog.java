@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 
 
-/**
- * Created by Damian on 30.11.2017.
- */
 // ********************************** Damian's code start
 public class Dialog extends AppCompatDialogFragment {
 
@@ -28,7 +25,7 @@ public class Dialog extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog, null);
         builder.setView(view)
 
-                .setPositiveButton("Set names", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.setNames, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String teamA = editKM.getText().toString();
@@ -49,7 +46,7 @@ public class Dialog extends AppCompatDialogFragment {
         try {
             listener = (DialogListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + "must implement DialogListener");
+            throw new ClassCastException(context.toString() + R.string.mustImplement);
         }
     }
 

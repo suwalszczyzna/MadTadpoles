@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         textViewKM = (TextView) findViewById(R.id.KMName);
         textViewKT = (TextView) findViewById(R.id.KTName);
 
+
         // KM Attack button ClickListener
         // On attack button click set isAttackHitted = true
         attackKMButton.setOnClickListener(new View.OnClickListener() {
@@ -421,13 +422,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private void winnerKM () {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setTitle("The winner is " + textViewKM.getText() + "!");
-        alertDialogBuilder.setMessage("Do you want to play again?");
-        alertDialogBuilder.setPositiveButton("yes",
+        alertDialogBuilder.setTitle("The winnes is: " + textViewKM.getText() + "!");
+        alertDialogBuilder.setMessage(R.string.playAgain);
+        alertDialogBuilder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.newGameToast, Toast.LENGTH_LONG).show();
                         Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
                         startIntent.putExtra("whoseTurn", 0);
                         startActivity(startIntent);
@@ -435,7 +436,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     }
                 });
 
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
@@ -451,12 +452,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setTitle("The winner is " + textViewKT.getText() + "!");
-        alertDialogBuilder.setMessage("Do you want to play again?");
-        alertDialogBuilder.setPositiveButton("yes",
+        alertDialogBuilder.setMessage(R.string.playAgain);
+        alertDialogBuilder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        Toast.makeText(MainActivity.this, "You started new game", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.newGameToast, Toast.LENGTH_LONG).show();
                         //recreate();
                         Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
                         startIntent.putExtra("whoseTurn", 1);
@@ -465,7 +466,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     }
                 });
 
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
@@ -484,7 +485,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     /**
      * Set progress bar max
-     * @param pb
+     * @param pb progressbar
      * @param max maximum value
      */
     private void setProgressMax(ProgressBar pb, int max) {
@@ -493,7 +494,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     /**
      * Set progress bar animation values
-     * @param pb
+     * @param pb progressbar
      * @param progressTo progress bar animation value
      */
     private void setProgressAnimate(ProgressBar pb, int progressTo)
