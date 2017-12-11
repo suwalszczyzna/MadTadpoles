@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     int attackValue = 0;
     public CountDownTimer countDownTimerKM, countDownTimerKT; // Ola's new code
 
-    Button helpButton;
     TextView textViewKM, textViewKT;
     Gun[] guns = new Gun[7];
 
@@ -67,16 +66,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
         textViewKM = (TextView) findViewById(R.id.KMName);
         textViewKT = (TextView) findViewById(R.id.KTName);
-
-        // "?" ClickListener
-        // On "?" button click open Change name dialog
-        helpButton = (Button) findViewById(R.id.helpButton);
-        helpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
 
 
         // KM Attack button ClickListener
@@ -291,9 +280,24 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     /*
     * Open change name dialog
     */
-    public void openDialog(){
+    public void openDialog(View view){
         Dialog dialog = new Dialog();
         dialog.show(getSupportFragmentManager(),"dialog");
+    }
+
+    /*
+    Start HelpActivity
+     */
+    public void openHelpActivity(View view){
+        Intent helpActivity = new Intent (getApplicationContext(), HelpActivity.class);
+        startActivity(helpActivity);
+    }
+    /*
+    Start InfoActivity
+     */
+    public void openInfoActivity(View view){
+        Intent infoActivity = new Intent (getApplicationContext(), InfoActivity.class);
+        startActivity(infoActivity);
     }
 
     /**
