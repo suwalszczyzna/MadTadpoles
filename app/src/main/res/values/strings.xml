@@ -10,4 +10,22 @@
     <string name="change_names_dialog">Do you want to change names?</string>
     <string name="john">John</string>
     <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">How to play?</string>
+    <string name="helpInfo">Mad Tadpoles is a turn-based game for two players\non one device.</string>
+    <string name="startHelp">To start your turn press Start button.\n\nNow, you have only 3 seonds to attack your opponent.</string>
+    <string name="titleImage">Here we go title image</string>
+    <string name="countdownHelp">During countdown press Attack button.\n\nYour opponent will be attack by the weapon which you randomly choose</string>
+    <string name="hpHelp">You win when your opponent\'s health points are equals 0</string>
+    <string name="weaponImage">Image of weapon</string>
+    <string name="hpImage">Image of HP</string>
+    <string name="namesHelp">You can personalize game by adding your names.\n\nTap on name below tadpole</string>
+    <string name="imageNames">Image of names</string>
+    <string name="setNames">Set names</string>
+    <string name="mustImplement">must implement DialogListener</string>
+    <string name="yes">Yes</string>
+    <string name="No">No</string>
+    <string name="newGameToast">You started new game</string>
+    <string name="playAgain">Do you want to play again?</string>
+    <string name="winnerIs">The winner is </string>
 </resources>
