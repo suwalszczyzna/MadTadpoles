@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         textViewKM = (TextView) findViewById(R.id.KMName);
         textViewKT = (TextView) findViewById(R.id.KTName);
 
-
         // KM Attack button ClickListener
         // On attack button click set isAttackHitted = true
         attackKMButton.setOnClickListener(new View.OnClickListener() {
