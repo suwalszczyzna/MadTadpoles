@@ -6,4 +6,5 @@
     <dimen name="descriptTextSize">12sp</dimen>
     <dimen name="progressBar_height">10dp</dimen>
     <dimen name="attackSummary_padding">15dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
 </resources>
