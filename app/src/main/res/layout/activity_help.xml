@@ -29,7 +29,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="How to play?"
+        android:text="@string/howToPlay"
         android:textAppearance="@android:style/TextAppearance.Material.Title"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/top_background"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Mad Tadpoles is a turn-based game for two players\non one device."
+                android:text="@string/helpInfo"
                 android:textAlignment="center"
                 android:textSize="12sp" />
 
@@ -80,10 +80,12 @@
                     android:layout_margin="@dimen/default_margin"
                     android:layout_weight="2"
                     android:paddingStart="8dp"
-                    android:text="To start your turn press Start button.\n\nNow, you have only 3 seonds to attack your opponent."
+                    android:paddingEnd="8dp"
+                    android:text="@string/startHelp"
                     android:textSize="12sp" />
 
                 <ImageView
+                    android:contentDescription="@string/titleImage"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_margin="@dimen/default_margin"
@@ -106,10 +108,12 @@
                     android:layout_margin="@dimen/default_margin"
                     android:layout_weight="2"
                     android:paddingStart="8dp"
-                    android:text="During countdown press Attack button.\n\nYour opponent will be attack by the weapon which you randomly choose"
+                    android:paddingEnd="8dp"
+                    android:text="@string/countdownHelp"
                     android:textSize="12sp" />
 
                 <ImageView
+                    android:contentDescription="@string/weaponImage"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_margin="@dimen/default_margin"
@@ -132,10 +136,12 @@
                     android:layout_margin="@dimen/default_margin"
                     android:layout_weight="2"
                     android:paddingStart="8dp"
-                    android:text="You win when your opponent's health points are equals 0"
+                    android:paddingEnd="8dp"
+                    android:text="@string/hpHelp"
                     android:textSize="12sp" />
 
                 <ImageView
+                    android:contentDescription="@string/hpImage"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_margin="@dimen/default_margin"
@@ -158,10 +164,12 @@
                     android:layout_margin="@dimen/default_margin"
                     android:layout_weight="2"
                     android:paddingStart="8dp"
-                    android:text="You can personalize game by adding your names.\n\nTap on name below tadpole"
+                    android:paddingEnd="8dp"
+                    android:text="@string/namesHelp"
                     android:textSize="12sp" />
 
                 <ImageView
+                    android:contentDescription="@string/imageNames"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_margin="@dimen/default_margin"
