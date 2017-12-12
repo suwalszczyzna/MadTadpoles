@@ -31,14 +31,21 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     int healthKM = 100;
     int healthKT = 100;
     int attackValue = 0;
-    public CountDownTimer countDownTimerKM, countDownTimerKT; // Ola's new code
+    public CountDownTimer countDownTimer; // Ola's new code
 
     TextView textViewKM, textViewKT;
     Gun[] guns = new Gun[7];
 
+
+    // creating tadpoles
+    Tadpole KM = new Tadpole(100, 4, 0);
+    Tadpole KT = new Tadpole(100, 4, 1);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
+
+
 
         // ******************************************************
         // ********************************** Damian's code start
@@ -68,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         textViewKT = findViewById(R.id.KTName);
 
 
-        // KM Attack button ClickListener
+       // KM Attack button ClickListener
         // On attack button click set isAttackHitted = true
         attackKMButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,9 +103,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 disabledKMCounterStart(true);
                 disabledKMBtnAttack(false);
                 createGuns();
-                final ImageButton attackKMButton = findViewById(R.id.KMBtnAttack); // Ola's code modification
+               // final ImageButton attackKMButton = findViewById(R.id.KMBtnAttack); // Ola's code modification
 
-                countDownTimerKM = new CountDownTimer(4000,100){ // Ola's new code: countDownTimerKM + modifications
+                countDownTimer = new CountDownTimer(4000,100){ // Ola's new code: countDownTimerKM + modifications
                     @Override
                     // On each counter tick..
                     public void onTick(long millisUntilFinished) {
@@ -141,8 +148,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                 disabledKTCounterStart(true);
                 disabledKTBtnAttack(false);
                 createGuns();
-                final ImageButton attackKTButton = findViewById(R.id.KTBtnAttack);
-                countDownTimerKT = new CountDownTimer(4000,100){ // Ola's code: countDownTimerKT =
+               // final ImageButton attackKTButton = findViewById(R.id.KTBtnAttack);
+                countDownTimer = new CountDownTimer(4000,100){ // Ola's code: countDownTimerKT =
                     @Override
                     // On each counter tick..
                     public void onTick(long millisUntilFinished) {
@@ -181,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     */
     public void onFinishKM(){
         // Reset countdown timer
-        cancelTimerKM();
+        cancelTimer();
         final TextView AttackPoints =  findViewById(R.id.kijankaTasakPts); // NOWY KOD
         int delay = 0;
         // If Attack button was pressed introduce 1s delay and display attack points
@@ -217,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     */
     public void onFinishKT(){
         // Reset countdown timer
-        cancelTimerKT();
+        cancelTimer();
         final TextView AttackPoints = findViewById(R.id.kijankaMieczPts);
         int delay = 0;
         // If Attack button was pressed introduce 1s delay and display attack points
@@ -249,23 +256,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     /*
     * KM Countdown timer reset
     */
-    public void cancelTimerKM() {
-        if(countDownTimerKM!=null)
-            countDownTimerKM.cancel();
-        countDownTimerKM = null;
+    public void cancelTimer() {
+        if(countDownTimer!=null)
+            countDownTimer.cancel();
+        countDownTimer = null;
         mainCounterKM = 4;
     }
 
-    // Ola's code
-    /*
-    * KT Countdown timer reset
-    */
-    public void cancelTimerKT() {
-        if(countDownTimerKT!=null)
-            countDownTimerKT.cancel();
-        countDownTimerKT = null;
-        mainCounterKT = 4;
-    }
 
     /*
     * Display KM and KT counters value
