@@ -63,12 +63,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KT.setName((TextView) findViewById(R.id.KTName));
         KT.setLabelCounter((TextView) findViewById(R.id.labelCounterKT));
 
-//        private ImageButton attackButton;
-//        private View counter;
-//        private Button startCount;
-//        private TextView name;
-//        private TextView AttackPoints;
-//        private ProgressBar progressBar;
+
 
 
         // ******************************************************
@@ -271,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         if(countDownTimer!=null)
             countDownTimer.cancel();
         countDownTimer = null;
-       
+
     }
 
 
