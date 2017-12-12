@@ -175,16 +175,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         });
 
     }
-//  GITHUB PUSH/PULL TEST
-    public void mygosiaRant (){
-        String myFacialExpression;
-        boolean mygosiaRantCheck;
-        if (mygosiaRantCheck = true){
-            myFacialExpression = "sad";
-        }else{
-            myFacialExpression = "happy";
-        }
-    }
 
     /*
     * Finish KM countdown - Attack button pressed or countdown is finished
