@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         });
 
     }
-//  GITHUB PUSH/PULL TEST FUNCTION
+//  GITHUB PUSH/PULL TEST
     public void mygosiaRant (){
         String myFacialExpression;
         boolean mygosiaRantCheck;
