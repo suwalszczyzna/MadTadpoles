@@ -422,7 +422,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private void winnerKM () {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setTitle("The winnes is: " + textViewKM.getText() + "!");
+        alertDialogBuilder.setTitle(getString(R.string.winnerIs) + textViewKM.getText() + "!");
         alertDialogBuilder.setMessage(R.string.playAgain);
         alertDialogBuilder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
@@ -451,7 +451,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private void winnerKT () {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setTitle("The winner is " + textViewKT.getText() + "!");
+        alertDialogBuilder.setTitle(getString(R.string.winnerIs) + textViewKT.getText() + "!");
         alertDialogBuilder.setMessage(R.string.playAgain);
         alertDialogBuilder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
