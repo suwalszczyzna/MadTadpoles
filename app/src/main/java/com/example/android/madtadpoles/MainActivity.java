@@ -25,16 +25,12 @@ import android.os.Handler; // Ola's new code
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
     private boolean isAttackHitted = false;
-    private int mainCounterKM = 4;
-    private int mainCounterKT = 4;
     private int i = 0;
     private int healthKM = 100;
     private int healthKT = 100;
     private int attackValue = 0;
     private CountDownTimer countDownTimer; // Ola's new code
 
-    private TextView textViewKM;
-    private TextView textViewKT;
 
     private final Gun miecz = new Gun(3,R.drawable.ic_miecz);
     private final Gun arc = new Gun(6,R.drawable.ic_arc);
@@ -54,6 +50,25 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
 
+        // Assign Views corresponding to tadpoles
+        KM.setHealthPoints((TextView) findViewById(R.id.kijankaMieczHP));
+        KM.setAttackButton((ImageButton) findViewById(R.id.KMBtnAttack));
+        KM.setStartCount((Button) findViewById(R.id.startCountKM));
+        KM.setName((TextView) findViewById(R.id.KMName));
+        KM.setLabelCounter((TextView) findViewById(R.id.labelCounterKM));
+
+        KT.setHealthPoints((TextView) findViewById(R.id.kijankaTasakHP));
+        KT.setAttackButton((ImageButton) findViewById(R.id.KTBtnAttack));
+        KT.setStartCount((Button) findViewById(R.id.startCountKT));
+        KT.setName((TextView) findViewById(R.id.KTName));
+        KT.setLabelCounter((TextView) findViewById(R.id.labelCounterKT));
+
+//        private ImageButton attackButton;
+//        private View counter;
+//        private Button startCount;
+//        private TextView name;
+//        private TextView AttackPoints;
+//        private ProgressBar progressBar;
 
 
         // ******************************************************
@@ -75,18 +90,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         progressbarA();  // --> Ola's new code
         progressbarB();  // --> Ola's new code
 
-        final Button startCountKM = findViewById(R.id.startCountKM);
-        final Button startCountKT = findViewById(R.id.startCountKT);
-        final ImageButton attackKMButton = findViewById(R.id.KMBtnAttack);
-        final ImageButton attackKTButton = findViewById(R.id.KTBtnAttack);
-
-        textViewKM = findViewById(R.id.KMName);
-        textViewKT = findViewById(R.id.KTName);
-
 
        // KM Attack button ClickListener
         // On attack button click set isAttackHitted = true
-        attackKMButton.setOnClickListener(new View.OnClickListener() {
+        KM.getAttackButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 isAttackHitted = true;
@@ -95,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
         // KT Attack button ClickListener
         // On attack button click set isAttackHitted = true
-        attackKTButton.setOnClickListener(new View.OnClickListener() {
+        KT.getAttackButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 isAttackHitted = true;
@@ -105,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         //************************ Main counter for KM tadpole (left)
         // On Start button enable Attack button and disable other players buttons
         // Create guns
-        startCountKM.setOnClickListener(new View.OnClickListener(){
+        KM.getStartCount().setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
                 updateLabels();
@@ -117,16 +124,16 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     // On each counter tick..
                     public void onTick(long millisUntilFinished) {
                         // .. display remaining time
-                        mainCounterKM = (int)(millisUntilFinished / 1000);
-                        updateLabels();
+                        int counter = (int)(millisUntilFinished / 1000);
+                        updateLabels(KM, counter);
                         // .. display gun
-                        attackKMButton.setImageResource(guns[i].icon);
+                        KM.getAttackButton().setImageResource(guns[i].icon);
                         // Check if Attack button is pressed
                         // If yes, disable it, show chosen gun, update progress bar, reset counter
                         if (isAttackHitted) {
                             disabledKMBtnAttack(true);
                             attackValue = guns[i].damage;
-                            attackKMButton.setImageResource(guns[i].icon);
+                            KM.getAttackButton().setImageResource(guns[i].icon);
                             attackPlayerA();
                             onFinishKM();
                         }
@@ -148,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         //********************* Main counter for KT tadpole
         // On Start button enable Attack button and disable other players buttons
         // Create guns
-        startCountKT.setOnClickListener(new View.OnClickListener(){
+        KT.getStartCount().setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
                 updateLabels();
@@ -160,16 +167,16 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     // On each counter tick..
                     public void onTick(long millisUntilFinished) {
                         // .. display remaining time
-                        mainCounterKT = (int)(millisUntilFinished/1000);
-                        updateLabels();
+                        int counter = (int)(millisUntilFinished/1000);
+                        updateLabels(KT, counter);
                         // .. display gun
-                        attackKTButton.setImageResource(guns[i].icon);
+                        KT.getAttackButton().setImageResource(guns[i].icon);
                         // Check if Attack button is pressed
                         // If yes, disable it, show chosen gun, update progress bar, reset counter
                         if (isAttackHitted){
                             disabledKTBtnAttack(true);
                             attackValue = guns[i].damage;
-                            attackKTButton.setImageResource(guns[i].icon);
+                            KT.getAttackButton().setImageResource(guns[i].icon);
                             attackPlayerB();
                             onFinishKT();
                         }
@@ -264,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         if(countDownTimer!=null)
             countDownTimer.cancel();
         countDownTimer = null;
-        mainCounterKM = 4;
+       
     }
 
 
@@ -272,10 +279,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     * Display KM and KT counters value
     */
     private void updateLabels(){
-        TextView labelCounterKM = findViewById(R.id.labelCounterKM);
-        TextView labelCounterKT = findViewById(R.id.labelCounterKT);
-        labelCounterKM.setText(String.valueOf(mainCounterKM));
-        labelCounterKT.setText(String.valueOf(mainCounterKT));
+
+        KM.getLabelCounter().setText(String.valueOf(KM.getMainCounter()));
+        KT.getLabelCounter().setText(String.valueOf(KT.getMainCounter()));
+    }
+    private void updateLabels(Tadpole tadpole, int counter){
+        tadpole.getLabelCounter().setText(""+counter);
     }
 
     /*
@@ -308,10 +317,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
      */
     @Override
     public void applyTexts(String km, String kt) {
-        textViewKM.setText(km);
-        textViewKT.setText(kt);
+        KM.getName().setText(km);
+        KT.getName().setText(kt);
 
-        textViewKM.getText();
+        KM.getName().getText();
     }
 
     /**
@@ -412,7 +421,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private void winnerKM () {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setTitle("The winnes is: " + textViewKM.getText() + "!");
+        alertDialogBuilder.setTitle("The winnes is: " + KM.getName().getText() + "!");
         alertDialogBuilder.setMessage(R.string.playAgain);
         alertDialogBuilder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
@@ -441,7 +450,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private void winnerKT () {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
-        alertDialogBuilder.setTitle("The winner is " + textViewKT.getText() + "!");
+        alertDialogBuilder.setTitle("The winner is " + KT.getName().getText() + "!");
         alertDialogBuilder.setMessage(R.string.playAgain);
         alertDialogBuilder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {

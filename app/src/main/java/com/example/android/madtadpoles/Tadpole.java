@@ -12,13 +12,15 @@ import android.widget.TextView;
  */
 
 class Tadpole {
-
+    //Tagpole views
    private ImageButton attackButton;
    private View counter;
    private Button startCount;
    private TextView name;
    private TextView AttackPoints;
    private ProgressBar progressBar;
+   private TextView healthPoints;
+   private TextView labelCounter;
 
     // Tadpole stats
     private int hitPoints;
@@ -106,4 +108,44 @@ class Tadpole {
         this.mainCounter = mainCounter;
     }
 
+    public TextView getHealthPoints() {
+        return healthPoints;
+    }
+
+    public void setHealthPoints(TextView healthPoints) {
+        this.healthPoints = healthPoints;
+    }
+
+    public ImageButton getAttackButton() {
+        return attackButton;
+    }
+
+    public View getCounter() {
+        return counter;
+    }
+
+    public Button getStartCount() {
+        return startCount;
+    }
+
+    public TextView getName() {
+        return name;
+    }
+
+    public TextView getAttackPoints() {
+        return AttackPoints;
+    }
+
+    public ProgressBar getProgressBar() {
+        return progressBar;
+
+    }
+
+    public TextView getLabelCounter() {
+        return labelCounter;
+    }
+
+    public void setLabelCounter(TextView labelCounter) {
+        this.labelCounter = labelCounter;
+    }
 }
