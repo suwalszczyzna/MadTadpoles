@@ -1,6 +1,6 @@
 package com.example.android.madtadpoles;
 
-import android.os.Handler;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -13,32 +13,42 @@ import android.widget.TextView;
 
 public class Tadpole {
 
-    ImageButton attackButton;
-    View counter;
-    Button startCount;
-    TextView name;
-    TextView AttackPoints;
-    ProgressBar progressBar;
+   private ImageButton attackButton;
+   private View counter;
+   private Button startCount;
+   private TextView name;
+   private TextView AttackPoints;
+   private ProgressBar progressBar;
 
     // Tadpole stats
     private int hitPoints;
     private int health;
     private int mainCounter;
-    private int attackValue;
     private int id;
 
     public Tadpole() {
     }
 
-    public Tadpole(ImageButton attackButton, View counter, Button startCount, TextView name, TextView AttackPoints, ProgressBar progressBar) {
-        this.attackButton = attackButton;
-        this.counter = counter;
-        this.startCount = startCount;
-        this.name = name;
-        this.AttackPoints = AttackPoints;
-        this.progressBar = progressBar;
+    public Tadpole(int hitPoints, int mainCounter, int id) {
+        this.hitPoints = hitPoints;
+        this.mainCounter = mainCounter;
+        this.id = id;
+        this.health = hitPoints;
+    }
+
+    public void attack(Tadpole tadpole, Gun gun) {
+
+        int attackValue;
+        attackValue = gun.damage;
+        tadpole.takeDamage(attackValue);
+    }
+
+    private void takeDamage(int damage) {
+        if (health <= 0)
+            this.health -= damage;
 
     }
+
 
     public void setAttackButton(ImageButton attackButton) {
         this.attackButton = attackButton;
@@ -95,14 +105,5 @@ public class Tadpole {
     public void setMainCounter(int mainCounter) {
         this.mainCounter = mainCounter;
     }
-
-    public int getAttackValue() {
-        return attackValue;
-    }
-
-    public void setAttackValue(int attackValue) {
-        this.attackValue = attackValue;
-    }
-
 
 }
