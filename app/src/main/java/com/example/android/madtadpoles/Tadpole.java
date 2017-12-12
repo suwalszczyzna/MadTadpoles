@@ -11,7 +11,7 @@ import android.widget.TextView;
  * Created by Michał Jura on 11.12.2017.
  */
 
-public class Tadpole {
+class Tadpole {
 
    private ImageButton attackButton;
    private View counter;
