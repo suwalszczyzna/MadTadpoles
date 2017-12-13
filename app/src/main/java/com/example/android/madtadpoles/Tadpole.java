@@ -1,7 +1,8 @@
 package com.example.android.madtadpoles;
 
 
-import android.view.View;
+
+
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 class Tadpole {
     //Tagpole views
    private ImageButton attackButton;
-   private View counter;
    private Button startCount;
    private TextView name;
    private TextView AttackPoints;
@@ -28,124 +28,111 @@ class Tadpole {
     private int mainCounter;
     private int id;
 
-    public Tadpole() {
-    }
 
-    public Tadpole(int hitPoints, int mainCounter, int id) {
+    Tadpole(int hitPoints, int mainCounter, int id) {
         this.hitPoints = hitPoints;
         this.mainCounter = mainCounter;
         this.id = id;
         this.health = hitPoints;
     }
 
-    public void attack(Tadpole tadpole, Gun gun) {
+     int attack(Tadpole tadpole, Gun gun) {
 
         int attackValue;
+        int health;
         attackValue = gun.damage;
-        tadpole.takeDamage(attackValue);
-    }
-
-    private void takeDamage(int damage) {
-        if (health <= 0)
-            this.health -= damage;
-
-    }
-
-
-    public void setAttackButton(ImageButton attackButton) {
-        this.attackButton = attackButton;
-    }
-
-    public void setCounter(View counter) {
-        this.counter = counter;
-    }
-
-    public void setStartCount(Button startCount) {
-        this.startCount = startCount;
-    }
-
-    public void setName(TextView name) {
-        this.name = name;
-    }
-
-    public void setAttackPoints(TextView attackPoints) {
-        AttackPoints = attackPoints;
-    }
-
-    public void setProgressBar(ProgressBar progressBar) {
-        this.progressBar = progressBar;
-    }
-
-    public int getHealth() {
+        health = tadpole.takeDamage(attackValue);
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+     private int takeDamage(int damage) {
+        if (health >= 0)
+            this.health -= damage;
+        return health;
     }
 
-    public void setId(int id) {
-        this.id = id;
+
+
+
+
+     void setAttackButton(ImageButton attackButton) {
+        this.attackButton = attackButton;
     }
 
-    public int getId() {
+     void setStartCount(Button startCount) {
+        this.startCount = startCount;
+    }
+
+     void setName(TextView name) {
+        this.name = name;
+    }
+
+     void setAttackPoints(TextView attackPoints) {
+        AttackPoints = attackPoints;
+    }
+
+     void setProgressBar(ProgressBar progressBar) {
+        this.progressBar = progressBar;
+    }
+
+     int getHealth() {
+        return health;
+    }
+
+     int getId() {
         return id;
     }
 
-    public int getHitPoints() {
+     int getHitPoints() {
         return hitPoints;
     }
 
-    public void setHitPoints(int hitPoints) {
+     void setHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
     }
 
-    public int getMainCounter() {
+     int getMainCounter() {
         return mainCounter;
     }
 
-    public void setMainCounter(int mainCounter) {
+     void setMainCounter(int mainCounter) {
         this.mainCounter = mainCounter;
     }
 
-    public TextView getHealthPoints() {
+     TextView getHealthPoints() {
         return healthPoints;
     }
 
-    public void setHealthPoints(TextView healthPoints) {
+     void setHealthPoints(TextView healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    public ImageButton getAttackButton() {
+     ImageButton getAttackButton() {
         return attackButton;
     }
 
-    public View getCounter() {
-        return counter;
-    }
-
-    public Button getStartCount() {
+     Button getStartCount() {
         return startCount;
     }
 
-    public TextView getName() {
+     TextView getName() {
         return name;
     }
 
-    public TextView getAttackPoints() {
+     TextView getAttackPoints() {
         return AttackPoints;
     }
 
-    public ProgressBar getProgressBar() {
+     ProgressBar getProgressBar() {
         return progressBar;
 
     }
 
-    public TextView getLabelCounter() {
+     TextView getLabelCounter() {
         return labelCounter;
     }
 
-    public void setLabelCounter(TextView labelCounter) {
+     void setLabelCounter(TextView labelCounter) {
         this.labelCounter = labelCounter;
     }
 }
