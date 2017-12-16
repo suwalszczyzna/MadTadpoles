@@ -12,9 +12,8 @@
     <string name="jerry">Jerry</string>
     <string name="zero">0</string>
     <string name="howToPlay">How to play?</string>
-    <string name="helpInfo">Mad Tadpoles is a turn-based game for two players\non one device.</string>
+    <string name="helpInfo">Mad Tadpoles is a turn-based game\nfor two players on one device.</string>
     <string name="startHelp">To start your turn press Start button.\n\nNow, you have only 3 seconds to attack your opponent.</string>
-    <string name="titleImage">Here we go title image</string>
     <string name="countdownHelp">During countdown press Attack button.\n\nYour opponent will be attacked by the weapon which you randomly choose</string>
     <string name="hpHelp">You win when your opponent\'s health points are equal to 0</string>
     <string name="weaponImage">Image of the weapon</string>
@@ -28,5 +27,33 @@
     <string name="newGameToast">You have started new game</string>
     <string name="playAgain">Do you want to play again?</string>
     <string name="winnerIs">The winner is </string>
+    <string name="authors">Authors</string>
+    <string name="damian_name">Damian Suwała</string>
+    <string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="damian_description">Base concept, project management, Java and XML code</string>
+    <string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Main graphic designer, XML layouts, java code</string>
+    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Advanced Java code, programming support</string>
+    <string name="michal_name">Michał Jura</string>
+    <string name="michal_link">https://github.com/yoori85</string>
+    <string name="michal_description">Object-oriented programming, VCS and programming support</string>
+    <string name="mateusz_name">Mateusz Famulski</string>
+    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Advanced Java and XML code, programming support</string>
+    <string name="cezary_name">Cezary Graban</string>
+    <string name="cezary_link">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Graphic designer, java and XML code, programming support</string>
+    <string name="misqlak_name">Michał Bieda</string>
+    <string name="misqlak_link">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java code, programming support</string>
+    <string name="beetho_name">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Graphic designer, video advertising, general support</string>
+    <string name="titleImage">Here we go title image</string>
+    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
 
 </resources>

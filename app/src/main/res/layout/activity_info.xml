@@ -1,9 +1,523 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.madtadpoles.InfoActivity">
+
+    <ImageView
+        android:id="@+id/top_background"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_fight_blurred" />
+
+    <ImageView
+        android:id="@+id/tadpoleLeft"
+        android:layout_width="128dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/authors"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:srcCompat="@drawable/tadpole"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/rightTadpole"
+        android:layout_width="123dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="@dimen/bigger_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_background"
+        app:srcCompat="@drawable/tadpole_2"
+        android:contentDescription="@null" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/bigger_margin" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/bigger_margin" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="214dp"
+        android:layout_height="112dp"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/madtadpoles"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/authors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/bigger_margin"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/authors"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/top_background" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/bigger_margin"
+        android:scrollbarStyle="insideOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guidelineRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/authors">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:orientation="vertical">
+
+            <!-- Damian -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/damian_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="2"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/damian_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/damian_description" />
+
+            </LinearLayout>
+
+            <!-- Malgoska -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/malgoska_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="2"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/malgoska_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/malgoska_description" />
+
+            </LinearLayout>
+
+            <!-- Ola -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/ola_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="3"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/ola_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/ola_description" />
+
+            </LinearLayout>
+
+            <!-- MichaJura -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/michal_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="3"
+                        android:autoLink="web"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/michal_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/michal_description" />
+
+            </LinearLayout>
+
+            <!-- Mateusz -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/mateusz_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/mateusz_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/mateusz_description" />
+
+            </LinearLayout>
+
+            <!-- Cezary -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/cezary_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/cezary_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/cezary_description" />
+
+            </LinearLayout>
+
+            <!-- MisQlak -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/misqlak_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/misqlak_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/misqlak_description" />
+
+            </LinearLayout>
+
+            <!-- Beetho -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                android:background="@drawable/my_button_grey"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/beetho_name"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_weight="1"
+                        android:autoLink="email"
+                        android:paddingEnd="@dimen/default_margin"
+                        android:paddingStart="@dimen/default_margin"
+                        android:text="@string/beetho_link"
+                        android:textAlignment="viewEnd"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/bigger_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin"
+                    android:paddingStart="@dimen/default_margin"
+                    android:text="@string/beetho_description" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
