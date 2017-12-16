@@ -343,7 +343,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/default_margin"
-                        android:layout_weight="3"
+                        android:layout_weight="1"
                         android:autoLink="email"
                         android:paddingEnd="@dimen/default_margin"
                         android:paddingStart="@dimen/default_margin"
