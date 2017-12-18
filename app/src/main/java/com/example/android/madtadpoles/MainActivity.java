@@ -2,11 +2,15 @@ package com.example.android.madtadpoles;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.os.IBinder;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +45,36 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private final Gun[] guns = {miecz, arc, sickle, axe, baseball, bomb, bigBomb};
 
 
+    private boolean mIsBound = false;
+    private BackgroundMusic mServ;
+    private ServiceConnection Scon =new ServiceConnection(){
+
+        public void onServiceConnected(ComponentName name, IBinder
+                binder) {
+            mServ = ((BackgroundMusic.ServiceBinder)binder).getService();
+        }
+
+        public void onServiceDisconnected(ComponentName name) {
+            mServ = null;
+        }
+    };
+
+    void doBindService(){
+        bindService(new Intent(this,BackgroundMusic.class),
+                Scon, Context.BIND_AUTO_CREATE);
+        mIsBound = true;
+    }
+
+    void doUnbindService()
+    {
+        if(mIsBound)
+        {
+            unbindService(Scon);
+            mIsBound = false;
+        }
+    }
+
+
     // creating tadpoles
     private Tadpole KM = new Tadpole(100, 4, 0);
     private Tadpole KT = new Tadpole(100, 4, 1);
@@ -68,6 +102,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KT.setProgressBar((ProgressBar) findViewById(R.id.progressB));
         KT.setHealthPoints((TextView) findViewById(R.id.kijankaTasakHP));
 
+        if(!mIsBound) {
+            doBindService();
+            Intent music = new Intent();
+            music.setClass(this, BackgroundMusic.class);
+            startService(music);
+        }
         // ******************************************************
         // ********************************** Damian's code start
         // ******************************************************
@@ -204,10 +244,46 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        doUnbindService();
+    }
+
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
+        finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mServ!=null)
+        mServ.pauseMusic();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(mServ!=null)
+            mServ.resumeMusic();
+
+    }
+
     /*
-    * Finish KM countdown - Attack button pressed or countdown is finished
-    * give attacked tadpole as parameter
-    */
+            @Override
+            protected void onStop() {
+                super.onStop();
+        mServ.pauseMusic();
+                doUnbindService();
+            }
+        */
+    /*
+            * Finish KM countdown - Attack button pressed or countdown is finished
+            * give attacked tadpole as parameter
+            */
     @SuppressLint("SetTextI18n")
     private void afterAttack(final Tadpole tadpole ){
         // Reset countdown timer
@@ -244,7 +320,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         }, delay);
         // .. Ola's new code
     }
-
 
     // Ola's code
     /*

@@ -26,6 +26,10 @@
 
         <activity android:name=".HelpActivity" />
         <activity android:name=".InfoActivity"></activity>
+        <service
+            android:name="BackgroundMusic"
+            android:enabled="true"></service>
+
     </application>
 
 </manifest>
