@@ -69,7 +69,7 @@ public class BackgroundMusic extends Service implements MediaPlayer.OnErrorListe
     }
 
     public void resumeMusic() {
-        if (mPlayer.isPlaying() == false) {
+        if (!mPlayer.isPlaying()) {
             mPlayer.seekTo(length);
             mPlayer.start();
         }
