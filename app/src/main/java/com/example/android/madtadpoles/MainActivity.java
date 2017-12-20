@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.IBinder;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private int attackValue = 0;
     private int activePlayer=1;
     private CountDownTimer countDownTimer; // Ola's new code
-
+    private MediaPlayer attackSound;
 
     private final Gun miecz = new Gun(3,R.drawable.ic_miecz);
     private final Gun arc = new Gun(6,R.drawable.ic_arc);
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KM.setAttackPoints((TextView) findViewById(R.id.kijankaMieczPts));
         KM.setProgressBar((ProgressBar) findViewById(R.id.progressA));
         KM.setHealthPoints((TextView) findViewById(R.id.kijankaMieczHP));
+        KM.setAttackSound(R.raw.kinja_01);
 
         KT.setHealthPoints((TextView) findViewById(R.id.kijankaTasakHP));
         KT.setAttackButton((ImageButton) findViewById(R.id.KTBtnAttack));
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KT.setAttackPoints((TextView) findViewById(R.id.kijankaTasakPts));
         KT.setProgressBar((ProgressBar) findViewById(R.id.progressB));
         KT.setHealthPoints((TextView) findViewById(R.id.kijankaTasakHP));
+        KT.setAttackSound(R.raw.kinja_02);
 
         if(!mIsBound) {
             doBindService();
@@ -203,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                             disabledBtnAttack(tadpole, true);
                             attackValue = guns[i].damage;
                             tadpole.getAttackButton().setImageResource(guns[i].icon);
-                            players[nextPLayer(tadpole.getId())].getHealthPoints().setText("" + tadpole.attack(players[nextPLayer(tadpole.getId())], guns[i]));
+                            players[nextPLayer(tadpole.getId())].getHealthPoints().setText(String.valueOf(tadpole.attack(players[nextPLayer(tadpole.getId())], guns[i])));
                             if(players[nextPLayer(tadpole.getId())].getHealth()<=0) {
                                 winner(tadpole);
                             }
@@ -274,6 +277,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         // If Attack button was pressed introduce 1s delay and display attack points
         if (isAttackHitted) { // Ola's new code
             delay = 1000;
+            attackSound = MediaPlayer.create(this, tadpole.getAttackSound());
+            attackSound.start();
             players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.VISIBLE);
             players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
             players[nextPLayer(tadpole.getId())].getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
@@ -297,6 +302,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         }, delay);
         // .. Ola's new code
+        attackSound = null;
     }
 
     // Ola's code
