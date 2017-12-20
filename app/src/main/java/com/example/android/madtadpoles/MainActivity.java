@@ -30,8 +30,8 @@ import android.os.Handler; // Ola's new code
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
     private boolean isAttackHitted = false;
-    private int i = 0;
     private int attackValue = 0;
+    private int activePlayer=1;
     private CountDownTimer countDownTimer; // Ola's new code
 
 
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     // creating tadpoles
     private Tadpole KM = new Tadpole(100, 4, 0);
     private Tadpole KT = new Tadpole(100, 4, 1);
+    private Tadpole[] players = {KM, KT};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,16 +113,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         // ********************************** Damian's code start
         // ******************************************************
 
-        // Left Tadpole: i = 0; Right Tadpole: i = 1;
-        whoseTurn(0);
-        // ************* //
 
-        // After starting activity take previous value of whoseTurn -> winner starts new game
+        // After starting activity take previous winner  and switch player to start new game
         Bundle extras = getIntent().getExtras(); // --> Ola's new code
         if (extras != null){
-            int turn = extras.getInt("whoseTurn");
-            whoseTurn(turn);
-        }
+            activePlayer = extras.getInt("winner");
+            switchPlayers();
+        }else switchPlayers();
 
         updateLabels();
         progressbar(KM);  // --> Ola's new code
@@ -152,45 +150,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KM.getStartCount().setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                updateLabels();
-                disabledCounterStart(KM, true);
-                disabledBtnAttack(KM, false);
-
-                countDownTimer = new CountDownTimer(4000,100){ // Ola's new code: countDownTimerKM + modifications
-                    @SuppressLint("SetTextI18n")
-                    @Override
-                    // On each counter tick..
-                    public void onTick(long millisUntilFinished) {
-                        // .. display remaining time
-                        int counter = (int)(millisUntilFinished / 1000);
-                        updateLabels(KM, counter);
-                        // .. display gun
-                        KM.getAttackButton().setImageResource(guns[i].icon);
-                        // Check if Attack button is pressed
-                        // If yes, disable it, show chosen gun, update progress bar, reset counter
-                        if (isAttackHitted) {
-                            disabledBtnAttack(KM, true);
-                            attackValue = guns[i].damage;
-                            KM.getAttackButton().setImageResource(guns[i].icon);
-                            KT.getHealthPoints().setText("" + KM.attack(KT, guns[i]));
-                            if(KT.getHealth()<=0) {
-                                winner(KM);
-                            }
-                            progressbar(KT);
-                            afterAttack(KT);
-                        }
-                        // .. increment index to show new gun
-                        i++;
-                        if ( i > 6)
-                            i = 0;
-                    }
-                    @Override
-                    // Attack not pressed and countdown finished - reset counter
-                    public void onFinish() {
-                        afterAttack(KT);
-
-                    }
-                }.start();
+             activatePlayer(KM);
             }
         });
 
@@ -200,32 +160,55 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KT.getStartCount().setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                updateLabels();
-                disabledCounterStart(KT, true);
-                disabledBtnAttack(KT, false);
+               activatePlayer(KT);
+            }
+        });
 
-               countDownTimer = new CountDownTimer(4000,100){ // Ola's code: countDownTimerKT =
-                    @SuppressLint("SetTextI18n")
+    }
+
+    private int nextPLayer(int player){
+        return(player + 1)%2;
+    }
+
+    private void switchPlayers(){
+
+        disabledCounterStart(players[activePlayer], false);
+        disabledBtnAttack(players[activePlayer], true);
+        activePlayer = nextPLayer(activePlayer);
+        disabledCounterStart(players[activePlayer], true);
+        disabledBtnAttack(players[activePlayer], false);
+        changePlayerColors(activePlayer);
+    }
+
+    private void activatePlayer(final Tadpole tadpole){
+
+
+                updateLabels();
+                disabledCounterStart(tadpole, true);
+                disabledBtnAttack(tadpole, false);
+
+                countDownTimer = new CountDownTimer(tadpole.getMainCounter()*1000,100){
+                    int i =0;
                     @Override
                     // On each counter tick..
                     public void onTick(long millisUntilFinished) {
                         // .. display remaining time
-                        int counter = (int)(millisUntilFinished/1000);
-                        updateLabels(KT, counter);
+                        int counter = (int)(millisUntilFinished / 1000);
+                        updateLabels(tadpole, counter);
                         // .. display gun
-                        KT.getAttackButton().setImageResource(guns[i].icon);
+                        tadpole.getAttackButton().setImageResource(guns[i].icon);
                         // Check if Attack button is pressed
                         // If yes, disable it, show chosen gun, update progress bar, reset counter
-                        if (isAttackHitted){
-                            disabledBtnAttack(KT, true);
+                        if (isAttackHitted) {
+                            disabledBtnAttack(tadpole, true);
                             attackValue = guns[i].damage;
-                            KT.getAttackButton().setImageResource(guns[i].icon);
-                            KM.getHealthPoints().setText("" + KT.attack(KM, guns[i]));
-                            if(KM.getHealth()<=0){
-                                winner(KT);
+                            tadpole.getAttackButton().setImageResource(guns[i].icon);
+                            players[nextPLayer(tadpole.getId())].getHealthPoints().setText("" + tadpole.attack(players[nextPLayer(tadpole.getId())], guns[i]));
+                            if(players[nextPLayer(tadpole.getId())].getHealth()<=0) {
+                                winner(tadpole);
                             }
-                            progressbar(KM);
-                            afterAttack(KM);
+
+                            afterAttack(tadpole);
                         }
                         // .. increment index to show new gun
                         i++;
@@ -233,13 +216,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                             i = 0;
                     }
                     @Override
+                    // Attack not pressed and countdown finished - reset counter
                     public void onFinish() {
-                        // Attack not pressed and countdown finished - reset counter
-                        afterAttack(KM);
+                        afterAttack(tadpole);
+
                     }
                 }.start();
-            }
-        });
 
     }
 
@@ -292,10 +274,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         // If Attack button was pressed introduce 1s delay and display attack points
         if (isAttackHitted) { // Ola's new code
             delay = 1000;
-            tadpole.getAttackPoints().setVisibility(View.VISIBLE);
-            tadpole.getAttackPoints().setAlpha(0f); // Damian
-            tadpole.getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
-            tadpole.getAttackPoints().setText("-"+ String.valueOf(attackValue));
+            players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.VISIBLE);
+            players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
+            players[nextPLayer(tadpole.getId())].getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
+            players[nextPLayer(tadpole.getId())].getAttackPoints().setText("-"+ String.valueOf(attackValue));
+            progressbar(players[nextPLayer(tadpole.getId())]);
         }
 
         // Ola's new code ..
@@ -305,17 +288,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             @Override
             public void run() {
                 updateLabels();
-                if (tadpole.getId()==0) {
-                    disabledCounterStart(KM, false);
-                    disabledBtnAttack(KM, true);
-                }else {
-                    disabledCounterStart(KT, false);
-                    disabledBtnAttack(KT, true);
-                }
-                whoseTurn(tadpole.getId());
+                                              //whoseTurn(tadpole.getId());
                 isAttackHitted = false;
-                tadpole.getAttackPoints().setVisibility(View.INVISIBLE);
-                tadpole.getAttackPoints().setAlpha(0f); // Damian
+                players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.INVISIBLE);
+                players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
+                if(players[nextPLayer(tadpole.getId())].getHealth()>0)
+                switchPlayers();
             }
         }, delay);
         // .. Ola's new code
@@ -379,26 +357,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         KM.getName().setText(km);
         KT.getName().setText(kt);
 
-        KM.getName().getText();
+       // KM.getName().getText();
     }
 
-    /**
-     * Change player
-     * @param i : 0 for 1st (left) player, 1 for 2nd (right) player
-     */
-    private void whoseTurn(int i) {
-        if (KT.getHealth() <= 0 || KM.getHealth() <= 0) {
-            changePlayerColors(3);
-        } else if (i == 0) {
-            changePlayerColors(0);
-            disabledBtnAttack(KM, true);
-            disabledBtnAttack(KT, true);
-        } else if (i == 1) {
-            changePlayerColors(1);
-            disabledBtnAttack(KM, true);
-            disabledBtnAttack(KT, true);
-        }
-    }
+
     /**
      * Enabling/disabling KM Attack button, change icon
      * @param disabled true false
@@ -439,6 +401,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     // *******************************************************
     // Alert about winner, game restart or finish
     private void winner(final Tadpole tadpole) {
+        changePlayerColors(3);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setCancelable(false);
 
@@ -451,7 +414,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     public void onClick(DialogInterface arg0, int arg1) {
                         Toast.makeText(MainActivity.this, R.string.newGameToast, Toast.LENGTH_LONG).show();
                         Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
-                        startIntent.putExtra("whoseTurn", tadpole.getId());
+                        startIntent.putExtra("winner", tadpole.getId());
                         startActivity(startIntent);
                         finish();
                     }
@@ -501,16 +464,16 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void progressbar(Tadpole tadpole) {
         // Progress bar animation
-        setProgressMax(tadpole.getProgressBar(),100);
+        setProgressMax(tadpole.getProgressBar(),tadpole.getHitPoints());
         setProgressAnimate(tadpole.getProgressBar(),tadpole.getHealth());
         tadpole.getProgressBar().setProgress(tadpole.getHealth());
 
         // Animation color changing
-        if (tadpole.getHealth() >= 60){
+        if (tadpole.getHealth() >= tadpole.getHitPoints()*0.6){
             tadpole.getProgressBar().setProgressTintList(ColorStateList.valueOf(Color.GREEN));
-        } else if (tadpole.getHealth() < 60 && tadpole.getHealth() >= 30) {
+        } else if (tadpole.getHealth() >= tadpole.getHitPoints()*0.3) {
             tadpole.getProgressBar().setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
-        } else if (tadpole.getHealth() < 30){
+        } else {
             tadpole.getProgressBar().setProgressTintList(ColorStateList.valueOf(Color.RED));
         }
     }
