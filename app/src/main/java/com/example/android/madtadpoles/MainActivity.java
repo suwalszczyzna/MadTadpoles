@@ -12,6 +12,7 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private int activePlayer=1;
     private CountDownTimer countDownTimer; // Ola's new code
     private MediaPlayer attackSound;
-
+    Vibrator vibe;
     private final Gun miecz = new Gun(3,R.drawable.ic_miecz);
     private final Gun arc = new Gun(6,R.drawable.ic_arc);
     private final Gun sickle = new Gun(15, R.drawable.ic_sickle);
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tadpoles);
+        vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         // Assign Views corresponding to tadpoles
         KM.setHealthPoints((TextView) findViewById(R.id.kijankaMieczHP));
@@ -279,6 +281,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             delay = 1000;
             attackSound = MediaPlayer.create(this, tadpole.getAttackSound());
             attackSound.start();
+            vibe.vibrate(100);
             players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.VISIBLE);
             players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
             players[nextPLayer(tadpole.getId())].getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
