@@ -247,6 +247,9 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     @Override
     protected void onPause() {
         super.onPause();
+
+
+
         if(mServ!=null)
         mServ.pauseMusic();
 
@@ -255,8 +258,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     @Override
     protected void onResume() {
         super.onResume();
-        if(mServ!=null)
-            mServ.resumeMusic();
+        if(!mIsBound){
+            doBindService();
+            Intent music = new Intent();
+            music.setClass(this, BackgroundMusic.class);
+            startService(music);
+        }
+
 
     }
 
@@ -269,14 +277,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         doUnbindService();
     }
 
-    /*
-            @Override
-            protected void onStop() {
-                super.onStop();
-        mServ.pauseMusic();
-                doUnbindService();
-            }
-        */
     /*
             * Finish KM countdown - Attack button pressed or countdown is finished
             * give attacked tadpole as parameter
