@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         {
             unbindService(Scon);
             mIsBound = false;
+
         }
     }
 
@@ -257,6 +258,15 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         if(mServ!=null)
             mServ.resumeMusic();
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Intent music = new Intent();
+        music.setClass(this, BackgroundMusic.class);
+        stopService(music);
+        doUnbindService();
     }
 
     /*
