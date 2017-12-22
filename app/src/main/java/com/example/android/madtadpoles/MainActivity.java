@@ -238,11 +238,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
         doUnbindService();
     }
 
-    @Override
-    public void onBackPressed() {
-       // super.onBackPressed();
-        finish();
-    }
+   
 
     @Override
     protected void onPause() {
@@ -297,7 +293,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             players[nextPLayer(tadpole.getId())].getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
             players[nextPLayer(tadpole.getId())].getAttackPoints().setText("-"+ String.valueOf(attackValue));
             progressbar(players[nextPLayer(tadpole.getId())]);
+            //attackSound = null;
+
         }
+
 
         // Ola's new code ..
         // Update labels, enable 2nd player Start button, disable this player attack button..
@@ -306,7 +305,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             @Override
             public void run() {
                 updateLabels();
-                                              //whoseTurn(tadpole.getId());
+                attackSound.stop();
+                attackSound.reset();
+                attackSound.release();
+                attackSound = null;                //whoseTurn(tadpole.getId());
                 isAttackHitted = false;
                 players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.INVISIBLE);
                 players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
@@ -315,7 +317,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             }
         }, delay);
         // .. Ola's new code
-        attackSound = null;
+
     }
 
     // Ola's code
@@ -434,10 +436,24 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         Toast.makeText(MainActivity.this, R.string.newGameToast, Toast.LENGTH_LONG).show();
                         Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
                         startIntent.putExtra("winner", tadpole.getId());
-                        startActivity(startIntent);
                         finish();
+                        startActivity(startIntent);
+
                     }
                 });
+
+        /*if (Build.VERSION.SDK_INT >= 11) {
+            recreate();
+        } else {
+            Intent intent = getIntent();
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            finish();
+            overridePendingTransition(0, 0);
+
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        }*/
+
 
         alertDialogBuilder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
