@@ -32,6 +32,7 @@ import android.os.Handler; // Ola's new code
 public class MainActivity extends AppCompatActivity implements Dialog.DialogListener{
 
     private boolean isAttackHitted = false;
+    private boolean isBackBtnPressed = false;
     private int attackValue = 0;
     private int activePlayer=1;
     private CountDownTimer countDownTimer; // Ola's new code
@@ -178,11 +179,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
     private void switchPlayers(){
 
-        disabledCounterStart(players[activePlayer], false);
+        disabledCounterStart(players[activePlayer], true);
         disabledBtnAttack(players[activePlayer], true);
         activePlayer = nextPLayer(activePlayer);
-        disabledCounterStart(players[activePlayer], true);
-        disabledBtnAttack(players[activePlayer], false);
+        disabledCounterStart(players[activePlayer], false);
+        disabledBtnAttack(players[activePlayer], true);
         changePlayerColors(activePlayer);
     }
 
@@ -224,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                     @Override
                     // Attack not pressed and countdown finished - reset counter
                     public void onFinish() {
+                        attackValue=0;
                         afterAttack(tadpole);
 
                     }
@@ -233,12 +235,34 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
 
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        doUnbindService();
+    public void onBackPressed() {
+
+        //super.onBackPressed();
+        if(isBackBtnPressed){
+            finish();
+        }else {
+            isBackBtnPressed=true;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    isBackBtnPressed=false;
+                }
+            }, 2000);
+        }
+
     }
 
-   
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent music = new Intent();
+        music.setClass(this, BackgroundMusic.class);
+        stopService(music);
+        doUnbindService();
+    }
 
     @Override
     protected void onPause() {
@@ -259,6 +283,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             Intent music = new Intent();
             music.setClass(this, BackgroundMusic.class);
             startService(music);
+        }else if (mServ!=null){
+            mServ.resumeMusic();
         }
 
 
@@ -277,14 +303,13 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             * Finish KM countdown - Attack button pressed or countdown is finished
             * give attacked tadpole as parameter
             */
-    @SuppressLint("SetTextI18n")
+
     private void afterAttack(final Tadpole tadpole ){
         // Reset countdown timer
         cancelTimer();
-       int delay = 0;
+
         // If Attack button was pressed introduce 1s delay and display attack points
         if (isAttackHitted) { // Ola's new code
-            delay = 1000;
             attackSound = MediaPlayer.create(this, tadpole.getAttackSound());
             attackSound.start();
             vibe.vibrate(100);
@@ -293,30 +318,29 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             players[nextPLayer(tadpole.getId())].getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
             players[nextPLayer(tadpole.getId())].getAttackPoints().setText("-"+ String.valueOf(attackValue));
             progressbar(players[nextPLayer(tadpole.getId())]);
-            //attackSound = null;
+            // Ola's new code ..
+            // Update labels, enable 2nd player Start button, disable this player attack button..
+            // .. change player, reset isAttackHitted
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    updateLabels();
+                    attackSound.stop();
+                    attackSound.reset();
+                    attackSound.release();
+                    attackSound = null;
+                    isAttackHitted = false;
+                    players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.INVISIBLE);
+                    players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
+                    if(players[nextPLayer(tadpole.getId())].getHealth()>0)
+                        switchPlayers();
+                }
+            }, 1000);
 
-        }
+        }else
+        switchPlayers();
 
-
-        // Ola's new code ..
-        // Update labels, enable 2nd player Start button, disable this player attack button..
-        // .. change player, reset isAttackHitted
-       new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                updateLabels();
-                attackSound.stop();
-                attackSound.reset();
-                attackSound.release();
-                attackSound = null;                //whoseTurn(tadpole.getId());
-                isAttackHitted = false;
-                players[nextPLayer(tadpole.getId())].getAttackPoints().setVisibility(View.INVISIBLE);
-                players[nextPLayer(tadpole.getId())].getAttackPoints().setAlpha(0f); // Damian
-                if(players[nextPLayer(tadpole.getId())].getHealth()>0)
-                switchPlayers();
-            }
-        }, delay);
-        // .. Ola's new code
 
     }
 
@@ -436,9 +460,8 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         Toast.makeText(MainActivity.this, R.string.newGameToast, Toast.LENGTH_LONG).show();
                         Intent startIntent = new Intent(MainActivity.this, MainActivity.class);  // --> Ola's new code
                         startIntent.putExtra("winner", tadpole.getId());
-                        finish();
                         startActivity(startIntent);
-
+                        finish();
                     }
                 });
 
@@ -582,17 +605,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             turnDisplaySword.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // Disable Start button, change color and font color
-            countDownStartSword.setEnabled(false);
-            countDownStartSword.setBackgroundResource(R.drawable.my_button_grey);
-            countDownStartSword.setTextColor(getResources().getColor(R.color.unactive_white_icon));
+//            countDownStartSword.setEnabled(false);
+//            countDownStartSword.setBackgroundResource(R.drawable.my_button_grey);
+//            countDownStartSword.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // Change countdown value color
             powerAttackSword.setTextColor(getResources().getColor(R.color.unactive_green));
 
             // Disable Attack button, change color and icon
-            btnAttackSword.setEnabled(false);
-            btnAttackSword.setBackgroundResource(R.drawable.my_button_grey);
-            btnAttackSword.setImageResource(R.drawable.ic_unnactive_miecz);
+//            btnAttackSword.setEnabled(false);
+//            btnAttackSword.setBackgroundResource(R.drawable.my_button_grey);
+//            btnAttackSword.setImageResource(R.drawable.ic_unnactive_miecz);
 
             // Change name color
             nameSword.setTextColor(getResources().getColor(R.color.unactive_white_icon));
@@ -615,17 +638,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             turnDisplaySword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // Enable Start button, change color and font color
-            countDownStartSword.setEnabled(true);
-            countDownStartSword.setBackgroundResource(R.drawable.my_button);
-            countDownStartSword.setTextColor(getResources().getColor(R.color.creme_text));
+//            countDownStartSword.setEnabled(true);
+//            countDownStartSword.setBackgroundResource(R.drawable.my_button);
+//            countDownStartSword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // Change countdown value color
             powerAttackSword.setTextColor(getResources().getColor(R.color.creme_text));
 
             // Enable Attack button, change color and icon
-            btnAttackSword.setEnabled(true);
-            btnAttackSword.setBackgroundResource(R.drawable.my_button);
-            btnAttackSword.setImageResource(R.drawable.ic_miecz);
+//            btnAttackSword.setEnabled(true);
+//            btnAttackSword.setBackgroundResource(R.drawable.my_button);
+//            btnAttackSword.setImageResource(R.drawable.ic_miecz);
 
             // Change name color
             nameSword.setTextColor(getResources().getColor(R.color.creme_text));
@@ -662,17 +685,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             turnDisplayAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // Disable Start button, change color and font color
-            countDownStartAxe.setEnabled(false);
-            countDownStartAxe.setBackgroundResource(R.drawable.my_button_grey);
-            countDownStartAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
+//            countDownStartAxe.setEnabled(false);
+//            countDownStartAxe.setBackgroundResource(R.drawable.my_button_grey);
+//            countDownStartAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
 
             // Change countdown value color
             powerAttackAxe.setTextColor(getResources().getColor(R.color.unactive_green));
 
             // Disable Attack button, change color and icon
-            btnAttackAxe.setEnabled(false);
-            btnAttackAxe.setBackgroundResource(R.drawable.my_button_grey);
-            btnAttackAxe.setImageResource(R.drawable.ic_unnactive_miecz);
+//            btnAttackAxe.setEnabled(false);
+//            btnAttackAxe.setBackgroundResource(R.drawable.my_button_grey);
+//            btnAttackAxe.setImageResource(R.drawable.ic_unnactive_miecz);
 
             // Change name color
             nameAxe.setTextColor(getResources().getColor(R.color.unactive_white_icon));
@@ -696,17 +719,17 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
             turnDisplayAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // Enable Start button, change color and font color
-            countDownStartAxe.setEnabled(true);
-            countDownStartAxe.setBackgroundResource(R.drawable.my_button);
-            countDownStartAxe.setTextColor(getResources().getColor(R.color.creme_text));
+//            countDownStartAxe.setEnabled(true);
+//            countDownStartAxe.setBackgroundResource(R.drawable.my_button);
+//            countDownStartAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // Change countdown value color
             powerAttackAxe.setTextColor(getResources().getColor(R.color.creme_text));
 
             // Enable Attack button, change color and icon
-            btnAttackAxe.setEnabled(true);
-            btnAttackAxe.setBackgroundResource(R.drawable.my_button);
-            btnAttackAxe.setImageResource(R.drawable.ic_miecz);
+//            btnAttackAxe.setEnabled(true);
+//            btnAttackAxe.setBackgroundResource(R.drawable.my_button);
+//            btnAttackAxe.setImageResource(R.drawable.ic_miecz);
 
             // Change countdown value color
             nameAxe.setTextColor(getResources().getColor(R.color.creme_text));

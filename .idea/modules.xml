@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MadTadpoles.iml" filepath="$PROJECT_DIR$/MadTadpoles.iml" />
-      <module fileurl="file://C:\Users\narcy\Desktop\aplikacjeUdacity\bledyAS\MadTadpoles-1\MadTadpoles.iml" filepath="C:\Users\narcy\Desktop\aplikacjeUdacity\bledyAS\MadTadpoles-1\MadTadpoles.iml" />
-      <module fileurl="file://D:\programowanie\Android\MadTadpoles\MadTadpoles-1.iml" filepath="D:\programowanie\Android\MadTadpoles\MadTadpoles-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
