@@ -56,4 +56,8 @@
     <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
     <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
 
+    <string name="RecoveryInfo">, you have a chance to recover your health!!! After pressing start button try to memorize displayed icons. You have 4 seconds to find and select them. Selection order is important. Good luck!</string>
+    <string name="RecoveryOk">, health is recovered!</string>
+    <string name="RecoveryNOk">, health is not recovered!</string>
+
 </resources>

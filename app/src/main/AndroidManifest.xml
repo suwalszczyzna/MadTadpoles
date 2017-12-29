@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.madtadpoles">
+
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_tadpoles"
@@ -25,11 +27,13 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".HelpActivity" />
-        <activity android:name=".InfoActivity"></activity>
-        <service
-            android:name="BackgroundMusic"
-            android:enabled="true"></service>
+        <activity android:name=".InfoActivity" />
 
+        <service
+            android:name=".BackgroundMusic"
+            android:enabled="true" />
+
+        <activity android:name=".RecoveryActivity"></activity>
     </application>
 
 </manifest>

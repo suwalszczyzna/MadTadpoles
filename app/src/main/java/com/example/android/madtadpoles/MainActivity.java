@@ -2,6 +2,7 @@ package com.example.android.madtadpoles;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -45,8 +46,10 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     private final Gun baseball = new Gun(5,R.drawable.ic_baseball);
     private final Gun bomb = new Gun(30,R.drawable.ic_bomb);
     private final Gun bigBomb = new Gun(50,R.drawable.ic_bigbomb);
-    private final Gun[] guns = {miecz, arc, sickle, axe, baseball, bomb, bigBomb};
+    private final Gun recovery = new Gun(0,R.drawable.ic_bigbomb); // TEMPORARY ICON
+    private final Gun[] guns = {miecz, arc, sickle, axe, baseball, bomb, bigBomb, recovery};
 
+    private boolean recovered;
 
     private boolean mIsBound = false;
     private BackgroundMusic mServ;
@@ -208,19 +211,43 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         // If yes, disable it, show chosen gun, update progress bar, reset counter
                         if (isAttackHitted) {
                             disabledBtnAttack(tadpole, true);
-                            attackValue = guns[i].damage;
                             tadpole.getAttackButton().setImageResource(guns[i].icon);
-                            players[nextPLayer(tadpole.getId())].getHealthPoints().setText(String.valueOf(tadpole.attack(players[nextPLayer(tadpole.getId())], guns[i])));
-                            if(players[nextPLayer(tadpole.getId())].getHealth()<=0) {
-                                winner(tadpole);
-                            }
+                            // MODIFICATION -> for tests i == 2
+                            if (i == 2){
+                                // Open new activity - Recovery
+                                openRecoveryActivity();
+                            }else {
+                                attackValue = guns[i].damage;
 
-                            afterAttack(tadpole);
+                                players[nextPLayer(tadpole.getId())].getHealthPoints().setText(String.valueOf(tadpole.attack(players[nextPLayer(tadpole.getId())], guns[i])));
+                                if (players[nextPLayer(tadpole.getId())].getHealth() <= 0) {
+                                    winner(tadpole);
+                                }
+
+                                afterAttack(tadpole);
+                            }
                         }
                         // .. increment index to show new gun
                         i++;
-                        if ( i > 6)
-                            i = 0;
+
+                        // TEMPORARY commented for tests
+                        // Health recovery possible only for tadpole with health < 100
+                        /* if (tadpole.getHealth() == 100) {
+                            if (i > 7)
+                                i = 0;
+                        } else {
+                            if (i > 6)
+                                i = 0;
+                        }
+                        */
+                        // TEMPORARY for tests
+                        if (tadpole.getHealth() == 100) {
+                            if (i > 1)
+                                i = 0;
+                        } else {
+                            if (i > 2)
+                                i = 0;
+                        }
                     }
                     @Override
                     // Attack not pressed and countdown finished - reset counter
@@ -390,6 +417,66 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
     public void openInfoActivity(View view){
         Intent infoActivity = new Intent (getApplicationContext(), InfoActivity.class);
         startActivity(infoActivity);
+    }
+
+    /*
+    Start RecoveryActivity
+    */
+    public void openRecoveryActivity(){
+        cancelTimer();
+        Intent recoveryActivity = new Intent (getApplicationContext(), RecoveryActivity.class);
+        recoveryActivity.putExtra("currentPlayerHealth", players[activePlayer].getHealth());
+        recoveryActivity.putExtra("currentPlayerName", players[activePlayer].getName().getText());
+        startActivityForResult(recoveryActivity,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (requestCode == 1){
+            if (resultCode == Activity.RESULT_OK){
+                recovered = data.getBooleanExtra("healthRecovered", false);
+                afterRecovery(players[activePlayer]);
+            }
+        }
+    }
+
+    private void afterRecovery(final Tadpole tadpole ){
+        // Reset countdown timer
+        cancelTimer();
+        int delay = 0;
+        // If health recovery is successfully introduce 1s delay and display attack points
+        if (recovered) {
+            delay = 1000;
+            guns[2].damage = -(100 - tadpole.getHealth());
+            attackValue = guns[2].damage;
+            players[activePlayer].getAttackPoints().setVisibility(View.VISIBLE);
+            players[activePlayer].getAttackPoints().setAlpha(0f); // Damian
+            players[activePlayer].getAttackPoints().animate().alpha(1f).setDuration(300); // Damian
+            players[activePlayer].getAttackPoints().setText("+"+ String.valueOf(-attackValue));
+            players[activePlayer].getAttackPoints().setBackgroundResource(R.drawable.ic_bam_green);
+            players[activePlayer].getHealthPoints().setText(String.valueOf(tadpole.attack(players[activePlayer], guns[2])));
+            progressbar(players[activePlayer]);
+            Toast.makeText(getApplicationContext(), players[activePlayer].getName().getText() + getString(R.string.RecoveryOk), Toast.LENGTH_SHORT).show();
+        } else
+            Toast.makeText(getApplicationContext(), players[activePlayer].getName().getText() + getString(R.string.RecoveryNOk), Toast.LENGTH_SHORT).show();
+
+
+        // Update labels, enable 2nd player Start button, disable this player attack button..
+        // .. change player, reset isAttackHitted
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                updateLabels();
+                isAttackHitted = false;
+                recovered = false;
+                players[activePlayer].getAttackPoints().setVisibility(View.INVISIBLE);
+                players[activePlayer].getAttackPoints().setAlpha(0f); // Damian
+                players[activePlayer].getAttackPoints().setBackgroundResource(R.drawable.ic_bam);
+                switchPlayers();
+            }
+        }, delay);
+        // .. Ola's new code
+
     }
 
     /**

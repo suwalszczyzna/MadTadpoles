@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_background"
+    tools:context="com.example.android.madtadpoles.RecoveryActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--<ProgressBar
+            android:id="@+id/progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/progressBar_height"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:progress="100"
+            />
+
+        <Button
+            android:id="@+id/helpButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_help"
+            android:onClick="openHelpActivity"
+            android:textColor="@color/creme_text"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true" /> -->
+
+
+    <TextView
+        android:id="@+id/tv_recovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/RecoveryInfo"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_recoveryStart"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/my_button"
+        android:text="@string/countdown_start"
+        android:textSize="@dimen/countDownStart_textSize"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_recoveryIcon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/my_button"
+        android:padding="4dp" />
+
+    <Button
+        android:id="@+id/btn_memoryStart"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/my_button"
+        android:text="@string/countdown_start"
+        android:textSize="@dimen/countDownStart_textSize"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_recoveryCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/zero"
+        android:textAlignment="center"
+        android:textSize="@dimen/countDownText_size"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/iv_recoveryIcon_0"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_miecz" />
+
+        <ImageButton
+            android:id="@+id/iv_recoveryIcon_1"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arc" />
+
+        <ImageButton
+            android:id="@+id/iv_recoveryIcon_2"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_sickle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/iv_recoveryIcon_3"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseball" />
+
+        <ImageButton
+            android:id="@+id/iv_recoveryIcon_4"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_bomb" />
+
+        <ImageButton
+            android:id="@+id/iv_recoveryIcon_5"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_bigbomb" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
