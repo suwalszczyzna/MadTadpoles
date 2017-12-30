@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mad Tadpoles</string>
     <string name="countdown_start">Start</string>
@@ -20,7 +21,7 @@
     <string name="hpImage">Image of HP</string>
     <string name="namesHelp">You can personalize game by adding your names.\n\nTap on name below tadpole to change it</string>
     <string name="imageNames">Image of names</string>
-    <string name="setNames">Set names</string>
+    <string name="setNames">Apply changes</string>
     <string name="mustImplement">must implement DialogListener</string>
     <string name="yes">Yes</string>
     <string name="No">No</string>
@@ -55,5 +56,9 @@
     <string name="titleImage">Here we go title image</string>
     <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
     <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+
+    <!--  New Strings -->
+    <string name="background_music" translatable="false">Background music ON/OFF</string>
+    <string name="fight_sounds" translatable="false">Fight souns ON/OFF</string>
 
 </resources>
