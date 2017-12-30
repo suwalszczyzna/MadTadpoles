@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Tkanks to Lyron Y.-->
+<resources>
+    <string name="app_name">Mad Tadpoles</string>
+    <string name="countdown_start">התחל</string>
+    <string name="attackField_text">מתקפה אחרונה:\n21 נקודות</string>
+    <string name="notYourTurn">אנא המתינו לתורכם</string>
+    <string name="YourTurn">תורך</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">כפתור התקפה</string>
+    <string name="change_names_dialog">תרצו לשנות את השם?</string>
+    <string name="john">ג'ון</string>
+    <string name="jerry">ג'רי</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">הוראות משחק</string>
+    <string name="helpInfo">Mad Tadpoles הוא משחק מבוסס תורות\nעבור שני שחקנים המשחקים במכשיר אחד.</string>
+    <string name="startHelp">על מנת להתחיל את המשחק, לחץ על "התחל".\n\nכעת, יש לך 3 שניות לתקוף את היריב.</string>
+    <string name="countdownHelp">בזמן הספירה לאחר יש ללחוץ על כפתור ההתקפה.\n\nהיריב יותקף בנשק הנבחר בצורה אקראית</string>
+    <string name="hpHelp">נצחון מוכרע כאשר נקודות\'s הבריאות של היריב שוות ל 0</string>
+    <string name="weaponImage">תמונת הנשק</string>
+    <string name="hpImage">תמונת נקודות הבריאות</string>
+    <string name="namesHelp">ניתן להתאים אישית את המשחק על ידי שינוי השמות.\n\nTap on name below tadpole to change it</string>
+    <string name="imageNames">תמונת שמות</string>
+    <string name="setNames">בחרו שמות</string>
+    <string name="mustImplement">must implement DialogListener</string>
+    <string name="yes">כן</string>
+    <string name="No">לא</string>
+    <string name="newGameToast">התחלת משחק חדש</string>
+    <string name="playAgain">האם תרצו לשחק שוב?</string>
+    <string name="winnerIs">והמנצח הוא </string>
+    <string name="authors">כותבי האפליקציה</string>
+    <string name="damian_name">Damian Suwała</string>
+    <string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="damian_description">קווי בסיס, ניהול הפרוייקט, קוד ג'אווה ו XML</string>
+    <string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">מעצבת גרפיקה ראשית, XML מערך, קוד ג'אווה</string>
+    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">קוד ג'אווה מתקדם ותמיכה</string>
+    <string name="michal_name">Michał Jura</string>
+    <string name="michal_link">https://github.com/yoori85</string>
+    <string name="michal_description">תכנות מונחה עצמים, תכנות VCS ותמיכה</string>
+    <string name="mateusz_name">Mateusz Famulski</string>
+    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">תכנות JAVA ו XML מתקדמים ותמיכה</string>
+    <string name="cezary_name">Cezary Graban</string>
+    <string name="cezary_link">cezarygraban@gmail.com</string>
+    <string name="cezary_description"> מעצב גרפי, קוד ג'אווה ו XML, תמיכה</string>
+    <string name="misqlak_name">Michał Bieda</string>
+    <string name="misqlak_link">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">קוד ג'אווה ותמיכה</string>
+    <string name="beetho_name">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">מעצב גרפי, פרסום בוידאו ותמיכה כללית</string>
+    <string name="titleImage">Here we go title image</string>
+    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+
+</resources>

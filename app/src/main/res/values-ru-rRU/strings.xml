@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Thanks to Capri-->
+<resources>
+    <string name="app_name">Безумные Головастики</string>
+    <string name="countdown_start">Старт</string>
+    <string name="attackField_text">Последняя атака:\n21 очко</string>
+    <string name="notYourTurn">Ожидание хода</string>
+    <string name="YourTurn">Ваш ход!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Кнопка "Атака"</string>
+    <string name="change_names_dialog">Вы хотите изменить имена?</string>
+    <string name="john">Джон</string>
+    <string name="jerry">Джерри</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Как играть?</string>
+    <string name="helpInfo">Безумные Головастики - это пошаговая игра для двух игроков на одном устройстве.</string>
+    <string name="startHelp">Для начала вашего хода нажмите кнопку "Старт".\n\nТеперь у вас есть только 3 секунды, чтобы атаковать противника.</string>
+    <string name="countdownHelp">Во время обратного отсчета нажмите кнопку «Атака». Ваш противник будет атакован оружием, которое вы произвольно выберете.</string>
+    <string name="hpHelp">Вы выигрываете, когда очки здоровья вашего противника равны 0.</string>
+    <string name="weaponImage">Изображение оружия</string>
+    <string name="hpImage">Изображение HP</string>
+    <string name="namesHelp">Вы можете персонализировать игру, добавив свои имена. Нажмите на имя под головастиком, чтобы изменить его</string>
+    <string name="imageNames">Изображение имён</string>
+    <string name="setNames">Сохранить</string>
+    <string name="mustImplement">must implement DialogListener</string>
+    <string name="yes">Да</string>
+    <string name="No">Нет</string>
+    <string name="newGameToast">Вы начали новую игру</string>
+    <string name="playAgain">Вы хотите сыграть снова?</string>
+    <string name="winnerIs">Победитель - </string>
+    <string name="authors">Авторы</string>
+    <string name="damian_name">Damian Suwała</string>
+    <string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="damian_description">Базовая концепция, управление проектом, Java и XML код</string>
+    <string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Главный графический дизайнер, XML разметка, Java код</string>
+    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Углубленный Java код, сопровождение процесса программирования</string>
+    <string name="michal_name">Michał Jura</string>
+    <string name="michal_link">https://github.com/yoori85</string>
+    <string name="michal_description">Объектно-ориентированное программирование, VCS и сопровождение процесса программирования</string>
+    <string name="mateusz_name">Mateusz Famulski</string>
+    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Углубленный Java и Xml код, сопровождение процесса программирования</string>
+    <string name="cezary_name">Cezary Graban</string>
+    <string name="cezary_link">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Графический дизайнер, Java и XML код, сопровождение процесса программирования</string>
+    <string name="misqlak_name">Michał Bieda</string>
+    <string name="misqlak_link">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java код, сопровождение процесса программирования</string>
+    <string name="beetho_name">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Графический дизайнер, видео-реклама, общая поддержка</string>
+    <string name="titleImage">Here we go title image</string>
+    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+</resources>
