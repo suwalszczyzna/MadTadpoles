@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Thanks to Thodoris Papadimitrou-->
+<resources>
+    <string name="app_name">Τρελοί Βάτραχοι</string>
+    <string name="countdown_start">Έναρξη</string>
+    <string name="attackField_text">Τελευταία Επίθεση:\n21 πόντοι</string>
+    <string name="notYourTurn">Περίμενε τον γύρο σου!</string>
+    <string name="YourTurn">Ο Γύρος σου!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Κουμπί Επίθεσης</string>
+    <string name="change_names_dialog">Θέλεις να αλλάξεις τα ονόματα?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Πως παίζεται?</string>
+    <string name="helpInfo"> Το Mad Tadpoles είναι ένα παιχνίδι με γύρους\nγια 2 παίχτες στην ίδια συσκευή.</string>
+    <string name="startHelp">Για να ξεκινήσεις τον γύρο σου πατάς το κουμπί της Έναρξης.\n\nΤώρα έχεις μόνο 3 δευτερόλεπτα για να
+
+επιτεθείς.</string>
+    <string name="countdownHelp">Όσο κατεβαίνει ο χρόνος πάτα το κουμπί της Επίθεσης.\n\nΟ αντίπαλος θα χάσει ζωή απο το όπλο που
+
+επέλεξες τυχαία.</string>
+    <string name="hpHelp">Νικάς όταν οι πόντοι ζωής του αντιπάλου σου φτάσουν στο 0</string>
+    <string name="weaponImage">Εικόνα του όπλου</string>
+    <string name="hpImage">Εικόνα πόντων ζωής</string>
+    <string name="namesHelp">Μπορείς να προσωποποιήσεις το παιχνίδι αλλάζοντας ονόματα.\n\nΠάτα το όνομα κάτω από τον βάτραχο για να το
+
+αλλάξεις</string>
+    <string name="imageNames">Εικόνα ονόματος</string>
+    <string name="setNames">Άλλαξε τα ονόματα</string>
+    <string name="mustImplement">πρέπει να εφαρμόσει το DialogListener</string>
+    <string name="yes">Ναι</string>
+    <string name="No">Όχι</string>
+    <string name="newGameToast">Έχεις ξεκινήσει νέο παιχνίδι</string>
+    <string name="playAgain">Θες να παίξεις ξανά?</string>
+    <string name="winnerIs">Ο νικητής είναι </string>
+    <string name="authors">Συγγραφείς</string>
+    <string name="damian_name">Damian Suwała</string>
+    <string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="damian_description">Βασική ιδέα, project management, Java και XML κώδικας</string>
+    <string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Κύριος graphic designer, XML layouts, java κώδικας</string>
+    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Προχωρημένος Java κώδικας, υποστήριξη προγράμματος</string>
+    <string name="michal_name">Michał Jura</string>
+    <string name="michal_link">https://github.com/yoori85</string>
+    <string name="michal_description">Αντικειμενοστραφής προγραμματισμός, VCS και υποστήριξη προγράμματος</string>
+    <string name="mateusz_name">Mateusz Famulski</string>
+    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Προχωρημένος Java κώδικας, υποστήριξη προγράμματος</string>
+    <string name="cezary_name">Cezary Graban</string>
+    <string name="cezary_link">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Graphic designer, java και XML κώδικας, υποστήριξη προγράμματος</string>
+    <string name="misqlak_name">Michał Bieda</string>
+    <string name="misqlak_link">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java κώδικας, υποστήριξη προγράμματος</string>
+    <string name="beetho_name">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Graphic designer, video διαφήμιση, γενική υποστήριξη</string>
+    <string name="titleImage">Ξεκινάμε λοιπόν title image</string>
+    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+
+</resources>
