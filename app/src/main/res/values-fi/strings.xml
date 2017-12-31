@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mad Tadpoles</string>
+    <string name="countdown_start">Aloita</string>
+    <string name="attackField_text">Viimeinen hyökkäys: 21 pistettä</string>
+    <string name="notYourTurn">Odota vuoroasi</string>
+    <string name="YourTurn">Sinun vuorosi!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Hyökkäys-nappula</string>
+    <string name="change_names_dialog">Haluatko vaihtaa nimen?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Kuinka pelata?</string>
+    <string name="helpInfo">Mad Tadpoles on peli, jossa kaksi pelaajaa vuorottelee yhdellä laitteella.</string>
+    <string name="startHelp">Aloittaaksesi vuorosi paina Aloita-nappulaa. Sinulla on 3 sekuntia aikaa hyökätä vastustajaasi kohti.</string>
+    <string name="countdownHelp">Lähtölaskennan aikana paina hyökkäys-nappulaa. Hyökkäät vastustajaasi kohtaan satunnaisesti valitsemallasi aseella.</string>
+    <string name="hpHelp">Voitat kun vastustajasi pisteet laskevat nollaan.</string>
+    <string name="weaponImage">Aseen kuva</string>
+    <string name="hpImage">HP:n kuva</string>
+    <string name="namesHelp">Voitte laittaa omat nimenne pelaajien nimiksi. Klikkaa nimeä tadpolen alla muuttaaksesi sitä</string>
+    <string name="imageNames">Nimien kuva</string>
+    <string name="setNames">Aseta nimi</string>
+    <string name="mustImplement">must implement DialogListener</string>
+    <string name="yes">Kyllä</string>
+    <string name="No">Ei</string>
+    <string name="newGameToast">Olet aloittanut uuden pelin</string>
+    <string name="playAgain">Haluatko pelata uudestaan?</string>
+    <string name="winnerIs">Voittaja on</string>
+    <string name="authors">Tekijät</string>
+    <string name="damian_description">Konsepti, projektinhallinta, Java- ja XML-koodi</string>
+    <string name="malgoska_description">Graafinen suunnittelu, XML-pohjat, Java-koodi</string>
+    <string name="ola_description">Edistyksellinen Java-koodi, ohjelmointituki</string>
+    <string name="michal_description">Olio-ohjelmointi, VCS ja ohjelmointituki</string>
+    <string name="mateusz_description">Edistyksellinen Java- ja XML-koodi, ohjelmointituki</string>
+    <string name="cezary_description">Graafinen suunnittelu, Java- ja XML-koodi, ohjelmointituki</string>
+    <string name="misqlak_description">Java-koodi, ohjelmointituki</string>
+    <string name="beetho_description">Graafinen suunnittelu, videomainokset, yleinen tuki</string>
+    <string name="titleImage">Here we go title image</string>
+</resources>
