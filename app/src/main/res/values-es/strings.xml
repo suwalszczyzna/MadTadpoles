@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Tkanks to Franz Lopez-->
+<resources>
+
+    <string name="app_name">Mad Tadpoles</string>
+
+    <string name="countdown_start">Start</string>
+
+    <string name="attackField_text">Último ataque:\n21 puntos</string>
+
+    <string name="notYourTurn">Espera tu turno</string>
+
+    <string name="YourTurn">¡Tu turno!</string>
+
+    <string name="km_hp_value">100</string>
+
+    <string name="kt_hp_value">100</string>
+
+    <string name="attack_btn_desc">Botón de ataque</string>
+
+    <string name="change_names_dialog">¿Quieres cambiar los nombres?</string>
+
+<string name="john">John</string>
+
+<string name="jerry">Jerry</string>
+
+<string name="zero">0</string>
+
+<string name="howToPlay">Cómo jugar</string>
+
+    <string name="helpInfo">Mad Tadpoles es un juego basado en turnos\npara dos jugadores en un dispositivo.</string>
+
+    <string name="startHelp">Para empezar tu turno pulsa Start.\n\nAhora, tienes 3 segundos para atacar a tu oponente.</string>
+
+    <string name="countdownHelp">Durante la cuenta atrás presiona el botón Atacar.\n\nTu oponente será atacado por el arma que elijas aleatoriamente</string>
+
+    <string name="hpHelp">Ganas cuando la vida de tu oponente llegue a 0</string>
+
+    <string name="weaponImage">Imagen del arma</string>
+
+    <string name="hpImage">Imagen de los puntos de salud</string>
+
+    <string name="namesHelp">Puedes personalizar el juego añadiendo vuestros nombres.\n\nPulsa en el nombre bajo tadpole para cambiarlo</string>
+
+    <string name="imageNames">Imagen de los nombres</string>
+
+    <string name="setNames">Modificar nombres</string>
+
+    <string name="mustImplement">se debe implementar DialogListener</string>
+
+    <string name="yes">Sí</string>
+
+    <string name="No">No</string>
+
+    <string name="newGameToast">Has empezado una nueva partida</string>
+
+    <string name="playAgain">¿Quieres jugar de nuevo?</string>
+
+<string name="winnerIs">El ganador es </string>
+
+<string name="authors">Autoress</string>
+
+<string name="damian_name">Damian Suwała</string>
+
+<string name="damian_link">damian.suwala@gmail.com</string>
+
+<string name="damian_description">Idea, gestión del proyecto, código Java y XML</string>
+
+<string name="malgoska_name">Małgorzata Ghouga</string>
+
+<string name="malgoska_link">ghouga.m@gmail.com</string>
+
+<string name="malgoska_description">Diseñador gráfico principal, diseños XML, código Java</string>
+
+<string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+
+<string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+
+<string name="ola_description">Código Java avanzado, soporte de programación</string>
+
+<string name="michal_name">Michał Jura</string>
+
+<string name="michal_link">https://github.com/yoori85</string>
+
+<string name="michal_description">Programación orientada a objetos, VCS y soporte de programación</string>
+
+<string name="mateusz_name">Mateusz Famulski</string>
+
+<string name="mateusz_link">mateusz.famulski@gmail.com</string>
+
+<string name="mateusz_description">Código Java y XML avanzado, soporte de programación</string>
+
+<string name="cezary_name">Cezary Graban</string>
+
+<string name="cezary_link">cezarygraban@gmail.com</string>
+
+<string name="cezary_description">Diseñador gráfico, código Java y XML, soporte de programación</string>
+
+<string name="misqlak_name">Michał Bieda</string>
+
+<string name="misqlak_link">bieda.michal@gmail.com</string>
+
+<string name="misqlak_description">Código Java, soporte de programación</string>
+
+<string name="beetho_name">Jacek Smolik (Beetho)</string>
+
+<string name="beetho_link">j.smolik@bth-studio.pl</string>
+
+<string name="beetho_description">Diseñador gráfico, anunciante de vídeo, soporte general</string>
+
+<string name="titleImage">Título de imagen</string>
+
+<string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+
+<string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+
+
+
+    </resources>

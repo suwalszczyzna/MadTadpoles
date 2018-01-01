@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 /**
  * Created by Michał Jura on 11.12.2017.
+ *
+ * class definig tadpoles
  */
 
 class Tadpole {
@@ -21,7 +23,7 @@ class Tadpole {
    private ProgressBar progressBar;
    private TextView healthPoints;
    private TextView labelCounter;
-
+   private int attackSound;
     // Tadpole stats
     private int hitPoints;
     private int health;
@@ -52,10 +54,15 @@ class Tadpole {
     }
 
 
+    int getAttackSound() {
+        return attackSound;
+    }
 
+    void setAttackSound(int attackSound) {
+        this.attackSound = attackSound;
+    }
 
-
-     void setAttackButton(ImageButton attackButton) {
+    void setAttackButton(ImageButton attackButton) {
         this.attackButton = attackButton;
     }
 

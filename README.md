@@ -4,6 +4,24 @@ I am really happy to introduce you game, that was made by group of people from o
 
 **Meet the “Mad Tadpoles” (beta) !**
 
+Tadpoles began to speak in different languages!!!
+Thanks to courtesy of people from the Slack regional channels, managed to add new game translations 😊. Thank you all for your commitment and I encourage others to add their languages to game
+
+- Arabic - @Alaeldien
+- Italian - @Melsara
+- Russian - @Capri and @Alex Troy
+- French - @r4dixx
+- Spanish - @Fran López
+- Greek - @Thodoris Papadimitriou
+- Hebrew - @Liron Y.
+- Dutch - @Oswald
+- Czech - @Michaela
+- Romanian - @Claudia D. , @Diana, @Lucian
+- Finnish - @Pauliina A 
+- Slovak - @netucet and @jr.semko
+
+
+
 ![image](https://user-images.githubusercontent.com/33101796/34072829-987035c6-e28e-11e7-8485-9688fb0b9527.png)
 
 [![image](https://user-images.githubusercontent.com/33101796/34073036-86368a42-e291-11e7-8465-b76ba4131eaf.png)](https://www.youtube.com/watch?v=Ii1YuBTzZC4)

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Thanks to r4dixx-->
+
+    <resources>
+        <string name="app_name">Têtards Fous</string>
+        <string name="countdown_start">Commencer</string>
+        <string name="attackField_text">Dernière attaque\n21 points</string>
+        <string name="notYourTurn">Attends ton tour</string>
+        <string name="YourTurn">C\'est à toi !</string>
+        <string name="km_hp_value">100</string>
+        <string name="kt_hp_value">100</string>
+        <string name="attack_btn_desc">Bouton Attaque</string>
+        <string name="change_names_dialog">Souhaites-tu changer les noms ?</string>
+        <string name="john">John</string>
+        <string name="jerry">Jerry</string>
+        <string name="zero">0</string>
+        <string name="howToPlay">Comment jouer ?</string>
+        <string name="helpInfo">Têtards Fous est un jeu au tour par tour\npour deux joueurs sur le même appareil.</string>
+        <string name="startHelp">Pour commencer votre tour, appuyez sur le bouton Commencer\n\nVous avez seulement 3 secondes pour attaquer votre adversaire</string>
+        <string name="countdownHelp">Pendant le compte à rebours, appuyez sur le bouton Attaquer.\n\nVous attaquerez votre adversaire avec une arme choisie aléatoirement</string>
+        <string name="hpHelp">Si les points de vie de votre adversaire arrivent à 0 vous avez gagné</string>
+        <string name="weaponImage">Image de l\'arme</string>
+        <string name="hpImage">Image des PV</string>
+        <string name="namesHelp">Vous pouvez personnaliser le jeu en ajoutant vos noms.\n\nAppuyez sur l\'un des deux noms sous les têtards</string>        <string name="imageNames">Image des noms</string>
+        <string name="setNames">Appliquer</string>
+        <string name="mustImplement">DialogListener à implémenter</string>
+        <string name="yes">Oui</string>
+        <string name="No">Non</string>
+        <string name="newGameToast">Nouvelle partie commencée</string>
+        <string name="playAgain">Jouer à nouveau ?</string>
+        <string name="winnerIs">Le gagnant est</string>
+        <string name="authors">Auteurs</string>
+        <string name="damian_name">Damian Suwała</string>
+        <string name="damian_link">damian.suwala@gmail.com</string>
+        <string name="damian_description">Concept de base, management de projet, code Java et XML</string>
+        <string name="malgoska_name">Małgorzata Ghouga</string>
+        <string name="malgoska_link">ghouga.m@gmail.com</string>
+        <string name="malgoska_description">Design graphique, agencements XML, code Java</string>
+        <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+        <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+        <string name="ola_description">Code Java avancé, participation à la programmation</string>
+        <string name="michal_name">Michał Jura</string>
+        <string name="michal_link">https://github.com/yoori85</string>
+        <string name="michal_description">OOP, VCS et participation à la programmation</string>
+        <string name="mateusz_name">Mateusz Famulski</string>
+        <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+        <string name="mateusz_description">Code Java et XML avancés, participation à la programmation</string>
+        <string name="cezary_name">Cezary Graban</string>
+        <string name="cezary_link">cezarygraban@gmail.com</string>
+        <string name="cezary_description">Design graphique, code Java et XML, participation à la programmation</string>
+        <string name="misqlak_name">Michał Bieda</string>
+        <string name="misqlak_link">bieda.michal@gmail.com</string>
+        <string name="misqlak_description">Code Java, participation à la programmation</string>
+        <string name="beetho_name">Jacek Smolik (Beetho)</string>
+        <string name="beetho_link">j.smolik@bth-studio.pl</string>
+        <string name="beetho_description">Design graphique, publicité vidéo, participation générale</string>
+        <string name="titleImage">C\'est parti pour le titre de l\'image</string>
+        <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+        <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+</resources>
