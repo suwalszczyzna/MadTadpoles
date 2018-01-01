@@ -18,6 +18,7 @@ Thanks to courtesy of people from the Slack regional channels, managed to add ne
 - Czech - @Michaela
 - Romanian - @Claudia D. , @Diana, @Lucian
 - Finnish - @Pauliina A 
+- Slovak - @netucet and @jr.semko
 
 
 
