@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Thanks to Netucet and jr.semko-->
+<resources>
+    <string name="app_name">Mad Tadpoles - Šialené žubrienky</string>
+    <string name="countdown_start">Štart</string>
+    <string name="attackField_text">Posledný útok:\n21 bodov</string>
+    <string name="notYourTurn">Počkaj, kým budeš na rade</string>
+    <string name="YourTurn">Hraj!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Tlačidlo pre útok</string>
+    <string name="change_names_dialog">Chceš zmeniť meno?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Ako hrať?</string>
+    <string name="helpInfo">Mad Tadpoles - Šialené žubrienky je hra pre dvoch hráčov, \nktorí sa navzájom striedajú a hrajú na jednom zariadení.</string>
+    <string name="startHelp">Pre začiatok hry stlač Štart.\n\nTeraz máš 3 sekundy na to, aby si zaútočil na svojho protivníka.</string>
+    <string name="countdownHelp">Počas odpočítavania stlač tlačidlo pre útok.\n\nNa protivníka zaútočíš zbraňou, ktorá bude vybratá náhodne.</string>
+    <string name="hpHelp">Vyhráš v momente, keď tvoj protivník bude mať body zdravia na 0.</string>
+    <string name="weaponImage">Obrázok zbrane</string>
+    <string name="hpImage">Obrázok bodov zdravia</string>
+    <string name="namesHelp">Mená hráčov sa dajú zmeniť.\n\nKlikni na prednastavené meno pod Žubrienkou a zmeň ho.</string>
+    <string name="imageNames">Obrázok mien</string>
+    <string name="setNames">Upraviť mená</string>
+    <string name="mustImplement">uskutočnenie DialogListener</string>
+    <string name="yes">Áno</string>
+    <string name="No">Nie</string>
+    <string name="newGameToast">Začala sa nová hra</string>
+    <string name="playAgain">Chceš hrať znova?</string>
+    <string name="winnerIs">Víťazom je </string>
+    <string name="authors">Autori</string>
+    <string name="damian_name">Damian Suwała</string>
+    <string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="damian_description">Základný koncept hry, projektový manažment, Java a XML kód</string>
+    <string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Hlavný grafický dizajnér, XML štruktúra, Java kód</string>
+    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Pokročilý Java kód, programátorská podpora</string>
+    <string name="michal_name">Michał Jura</string>
+    <string name="michal_link">https://github.com/yoori85</string>
+    <string name="michal_description">Objektovo orientované programovanie, VCS a programátorská podpora</string>
+    <string name="mateusz_name">Mateusz Famulski</string>
+    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Pokročilý Java a XML kód, programátorská podpora</string>
+    <string name="cezary_name">Cezary Graban</string>
+    <string name="cezary_link">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Grafický dizajn, Java a XML kód, programátorská podpora</string>
+    <string name="misqlak_name">Michał Bieda</string>
+    <string name="misqlak_link">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java kód, programátorská podpora</string>
+    <string name="beetho_name">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Grafický dizajnér, video reklama, všeobecná podpora</string>
+    <string name="titleImage">Názov titulu</string>
+    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+
+    <!--  New Strings -->
+    <string name="background_music" translatable="false">Hudba v pozadí VYPNÚŤ/ZAPNÚŤ</string>
+    <string name="fight_sounds" translatable="false">Zvuky súbojov VYPNÚŤ/ZAPNÚŤ</string>
+
+</resources>
