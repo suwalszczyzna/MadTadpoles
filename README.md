@@ -9,13 +9,15 @@ Thanks to courtesy of people from the Slack regional channels, managed to add ne
 
 - Arabic - @Alaeldien
 - Italian - @Melsara
-- Russian - @Capri
+- Russian - @Capri and @Alex Troy
 - French - @r4dixx
 - Spanish - @Fran López
 - Greek - @Thodoris Papadimitriou
 - Hebrew - @Liron Y.
 - Dutch - @Oswald
-- Slovak - @Netucet and @jr.semko
+- Czech - @Michaela
+- Romanian - @Claudia D. , @Diana, @Lucian
+- Finnish - @Pauliina A 
 
 
 
