@@ -19,6 +19,7 @@ Thanks to courtesy of people from the Slack regional channels, managed to add ne
 - Romanian - @Claudia D. , @Diana, @Lucian
 - Finnish - @Pauliina A 
 - Slovak - @netucet and @jr.semko
+- Turkish - Anild @anildaloglu
 
 
 
@@ -27,7 +28,10 @@ Thanks to courtesy of people from the Slack regional channels, managed to add ne
 [![image](https://user-images.githubusercontent.com/33101796/34073036-86368a42-e291-11e7-8465-b76ba4131eaf.png)](https://www.youtube.com/watch?v=Ii1YuBTzZC4)
 
 ![image](https://user-images.githubusercontent.com/33101796/34072837-ce529ce2-e28e-11e7-822f-e70d1b60bad7.png)
-*Mad Tadpoles is in beta stage now. We are still working on it. If you want to install it on your phone, just download apk file from main catalogue on beta branch on github*
+*Mad Tadpoles is in beta stage now. We are still working on it. If you want to be a tester download game from Google Play*
+ https://play.google.com/apps/testing/com.poland.android.madtadpoles
+ 
+ *If you want to check newest features build project from “development” branch from our github*
 
 **Let’s start our short story**
 
