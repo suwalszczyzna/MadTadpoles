@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pikti buožgalviai</string>
+    <string name="countdown_start">Pradėti</string>
+    <string name="attackField_text">Paskutinis puolimas:\n21 taškas</string>
+    <string name="notYourTurn">Palauk savo eilės</string>
+    <string name="YourTurn">Tavo eilė!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Puolimo mygtukas</string>
+    <string name="change_names_dialog">Ar norite pakeisti vardus?</string>
+    <string name="john">Jonas</string>
+    <string name="jerry">Džeris</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Kaip žaisti?</string>
+    <string name="helpInfo">Pikti buožgalviai yra ėjimais pagrįstas žaidimas\nskirtas dviem žaidėjams viename įrenginyje.</string>
+    <string name="startHelp">Norėdami pradėti savo ėjimą, spauskite mygtuką Pradėti.\n\nDabar turite tik tris sekundes užpulti priešininką.</string>
+    <string name="countdownHelp">Laikui pradėjus eiti spauskite Puolimo mygtuką.\n\nJūsų priešininkas bus užpultas ginklu, kurį jūs atsitiktinai pasirinksite.</string>
+    <string name="hpHelp">Jūs laimite, kai jūsų priešininko sveikatos taškai lygūs 0</string>
+    <string name="weaponImage">Ginklo paveikslėlis</string>
+    <string name="hpImage">HP paveikslėlis</string>
+    <string name="namesHelp">Galite individualizuoti žaidimą pridėdami savo vardus.\n\n Paspauskite ant vardo po buožgalviu, kad jį pakeistumėte.</string>
+    <string name="imageNames">Vardų paveikslėlis</string>
+    <string name="setNames">Pritaikyti pakeitimus</string>
+    <string name="mustImplement">turite įdiegti DialogListener</string>
+    <string name="yes">Taip</string>
+    <string name="No">Ne</string>
+    <string name="newGameToast">Pradėjote naują žaidimą</string>
+    <string name="playAgain">Ar norite žaisti dar kartą?</string>
+    <string name="winnerIs">Laimėtojas yra </string>
+    <string name="authors">Autoriai</string>
+    <string name="damian_name" translatable="false">Damian Suwała</string>
+    <string name="damian_link" translatable="false">damian.suwala@gmail.com</string>
+    <string name="damian_description">Pagrindinė idėja, projekto valdymas, Java ir XML kodai</string>
+    <string name="malgoska_name" translatable="false">Małgorzata Ghouga</string>
+    <string name="malgoska_link" translatable="false">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Pagrindinė grafikos dizainerė, XML maketai, Java kodas</string>
+    <string name="ola_name" translatable="false">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link" translatable="false">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Sudėtingesnis Java kodas, programavimo pagalba</string>
+    <string name="michal_name" translatable="false">Michał Jura</string>
+    <string name="michal_link" translatable="false">https://github.com/yoori85</string>
+    <string name="michal_description">Objektinis programavimas, VCS ir programavimo pagalba</string>
+    <string name="mateusz_name" translatable="false">Mateusz Famulski</string>
+    <string name="mateusz_link" translatable="false">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Sudėtingesnis Java ir XML kodai, programavimo pagalba</string>
+    <string name="cezary_name" translatable="false">Cezary Graban</string>
+    <string name="cezary_link" translatable="false">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Grafikos dizaineris, Java ir XML kodai, programavimo pagalba</string>
+    <string name="misqlak_name" translatable="false">Michał Bieda</string>
+    <string name="misqlak_link" translatable="false">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java kodas, programavimo pagalba</string>
+    <string name="beetho_name" translatable="false">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link" translatable="false">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Grafikos dizaineris, vaizdo reklama, bendra pagalba</string>
+    <string name="titleImage">Pavadinimo Pirmyn paveikslėlis</string>
+    <string name="com_google_android_gms_fonts_certs_dev" translatable="false">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod" translatable="false">com_google_android_gms_fonts_certs_prod</string>
+
+    <!--  New Strings -->
+    <string name="background_music" translatable="false">Background music ON/OFF</string>
+    <string name="fight_sounds" translatable="false">Fight souns ON/OFF</string>
+
+</resources>
