@@ -1,14 +1,21 @@
 package com.example.android.madtadpoles;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.CountDownTimer;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,7 +55,8 @@ public class RecoveryActivity extends AppCompatActivity {
         final ImageView recoveryIcon_3 = (ImageView) findViewById(R.id.iv_recoveryIcon_3);
         final ImageView recoveryIcon_4 = (ImageView) findViewById(R.id.iv_recoveryIcon_4);
         final ImageView recoveryIcon_5 = (ImageView) findViewById(R.id.iv_recoveryIcon_5);
-
+        final TextView healthPoints = (TextView) findViewById(R.id.healthPoints);
+        final ProgressBar pb = (ProgressBar) findViewById(R.id.progress);
 
         // Set views visibility
         recoveryIcon.setVisibility(View.INVISIBLE);
@@ -71,6 +79,17 @@ public class RecoveryActivity extends AppCompatActivity {
         int health = recoveryActivity.getIntExtra("currentPlayerHealth", 0);
         String name = recoveryActivity.getStringExtra("currentPlayerName");
         recoveryText.setText(name + getString(R.string.RecoveryInfo));
+        healthPoints.setText(String.valueOf(health));
+        pb.setProgress(health);
+
+        // Animation color changing
+        if (health >= 60){
+            pb.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        } else if ( health >= 30) {
+            pb.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        } else {
+            pb.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        }
 
         // Start recovery
         if (recoveryStartButton != null) {
@@ -141,18 +160,16 @@ public class RecoveryActivity extends AppCompatActivity {
                     }.start();
                 }
             });
-
         }
     }
 
-
-
     public void finishCounterRec() {
         cancelTimerRec();
+        Button recoveryStartButton = (Button) findViewById(R.id.btn_recoveryStart);
         ImageView recoveryIcon = (ImageView) findViewById(R.id.iv_recoveryIcon);
         Button memoryStartButton = (Button) findViewById(R.id.btn_memoryStart);
-        recoveryIcon.setBackgroundResource(R.drawable.my_button_grey);
-        recoveryIcon.setImageResource(R.drawable.ic_unnactive_miecz);
+        recoveryStartButton.setVisibility(View.GONE);
+        recoveryIcon.setVisibility(View.GONE);
         memoryStartButton.setVisibility(View.VISIBLE);
     }
 
@@ -274,6 +291,56 @@ public class RecoveryActivity extends AppCompatActivity {
                     }
                 });
             }
+        }
+    }
+
+    /*
+    Start HelpActivity
+     */
+    public void openHelpActivity(View view){
+        Intent helpActivity = new Intent (getApplicationContext(), HelpActivity.class);
+        startActivity(helpActivity);
+    }
+
+    /**
+     * Set progress bar max
+     * @param pb progressbar
+     * @param max maximum value
+     */
+    private void setProgressMax(ProgressBar pb, int max) {
+        pb.setMax(max * 100);
+    }
+
+    /**
+     * Set progress bar animation values
+     * @param pb progressbar
+     * @param progressTo progress bar animation value
+     */
+    private void setProgressAnimate(ProgressBar pb, int progressTo)
+    {
+        ObjectAnimator animation = ObjectAnimator.ofInt(pb, "progress", pb.getProgress(), progressTo * 100);
+        animation.setDuration(500);
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
+    }
+
+    /**
+     * Progress bar animation
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void progressbar(Tadpole tadpole) {
+        // Progress bar animation
+        setProgressMax(tadpole.getProgressBar(),tadpole.getHitPoints());
+        setProgressAnimate(tadpole.getProgressBar(),tadpole.getHealth());
+        tadpole.getProgressBar().setProgress(tadpole.getHealth());
+
+        // Animation color changing
+        if (tadpole.getHealth() >= tadpole.getHitPoints()*0.6){
+            tadpole.getProgressBar().setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        } else if (tadpole.getHealth() >= tadpole.getHitPoints()*0.3) {
+            tadpole.getProgressBar().setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        } else {
+            tadpole.getProgressBar().setProgressTintList(ColorStateList.valueOf(Color.RED));
         }
     }
 }

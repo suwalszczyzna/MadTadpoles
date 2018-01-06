@@ -212,10 +212,11 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         if (isAttackHitted) {
                             disabledBtnAttack(tadpole, true);
                             tadpole.getAttackButton().setImageResource(guns[i].icon);
-                            // MODIFICATION -> for tests i == 2
-                            if (i == 2){
+                            // Recovery
+                            if (i == 7){
                                 // Open new activity - Recovery
                                 openRecoveryActivity();
+                            // Attack
                             }else {
                                 attackValue = guns[i].damage;
 
@@ -229,23 +230,12 @@ public class MainActivity extends AppCompatActivity implements Dialog.DialogList
                         }
                         // .. increment index to show new gun
                         i++;
-
-                        // TEMPORARY commented for tests
                         // Health recovery possible only for tadpole with health < 100
-                        /* if (tadpole.getHealth() == 100) {
-                            if (i > 7)
-                                i = 0;
-                        } else {
+                        if (tadpole.getHealth() == 100) {
                             if (i > 6)
                                 i = 0;
-                        }
-                        */
-                        // TEMPORARY for tests
-                        if (tadpole.getHealth() == 100) {
-                            if (i > 1)
-                                i = 0;
                         } else {
-                            if (i > 2)
+                            if (i > 7)
                                 i = 0;
                         }
                     }

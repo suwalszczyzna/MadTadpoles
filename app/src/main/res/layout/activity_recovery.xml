@@ -7,165 +7,214 @@
     android:background="@drawable/my_background"
     tools:context="com.example.android.madtadpoles.RecoveryActivity">
 
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="false"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@null"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+
+        app:srcCompat="@drawable/bg_fight" />
+
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
 
-        <!--<ProgressBar
-            android:id="@+id/progress"
-            style="@android:style/Widget.ProgressBar.Horizontal"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/progressBar_height"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:progress="100"
-            />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin">
 
-        <Button
-            android:id="@+id/helpButton"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/ic_help"
-            android:onClick="openHelpActivity"
-            android:textColor="@color/creme_text"
-            android:textSize="16sp"
-            android:layout_alignParentRight="true" /> -->
+            <Button
+                android:id="@+id/helpButton"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/default_margin"
+                android:background="@drawable/ic_help"
+                android:onClick="openHelpActivity"
+                android:textColor="@color/creme_text"
+                android:textSize="16sp"></Button>
 
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/progressBar_height"
+                android:layout_alignParentLeft="true"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_toStartOf="@id/helpButton"
+                android:progress="100" />
 
-    <TextView
-        android:id="@+id/tv_recovery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/RecoveryInfo"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+            <ImageView
+                android:id="@+id/hearth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/helpButton"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_serce" />
 
-    <Button
-        android:id="@+id/btn_recoveryStart"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/my_button"
-        android:text="@string/countdown_start"
-        android:textSize="@dimen/countDownStart_textSize"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/healthPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/helpButton"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toStartOf="@id/hearth"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/kt_hp_value"
+                android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/iv_recoveryIcon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/my_button"
-        android:padding="4dp" />
-
-    <Button
-        android:id="@+id/btn_memoryStart"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/my_button"
-        android:text="@string/countdown_start"
-        android:textSize="@dimen/countDownStart_textSize"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_recoveryCounter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="@string/zero"
-        android:textAlignment="center"
-        android:textSize="@dimen/countDownText_size"
-        android:textStyle="bold" />
+        </RelativeLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/iv_recoveryIcon_0"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@drawable/my_button"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_miecz" />
+            <TextView
+                android:id="@+id/tv_recovery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/RecoveryInfo"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
-        <ImageButton
-            android:id="@+id/iv_recoveryIcon_1"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@drawable/my_button"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_arc" />
+            <Button
+                android:id="@+id/btn_recoveryStart"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/my_button"
+                android:text="@string/countdown_start"
+                android:textSize="@dimen/countDownStart_textSize"
+                android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/iv_recoveryIcon_2"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@drawable/my_button"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_sickle" />
+            <ImageView
+                android:id="@+id/iv_recoveryIcon"
+                android:layout_width="@dimen/item_height"
+                android:layout_height="@dimen/item_height"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginTop="@dimen/default_margin"
+                android:background="@drawable/my_button"
+                android:padding="@dimen/margin_small" />
 
+            <Button
+                android:id="@+id/btn_memoryStart"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/my_button"
+                android:text="@string/countdown_start"
+                android:textSize="@dimen/countDownStart_textSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_recoveryCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/zero"
+                android:textAlignment="center"
+                android:textSize="@dimen/countDownText_size"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/iv_recoveryIcon_0"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/item_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:padding="@dimen/margin_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_miecz" />
+
+                <ImageButton
+                    android:id="@+id/iv_recoveryIcon_1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/item_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:padding="@dimen/margin_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arc" />
+
+                <ImageButton
+                    android:id="@+id/iv_recoveryIcon_2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/item_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:padding="@dimen/margin_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_sickle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/iv_recoveryIcon_3"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/item_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:padding="@dimen/margin_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_baseball" />
+
+                <ImageButton
+                    android:id="@+id/iv_recoveryIcon_4"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/item_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:padding="@dimen/margin_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_bomb" />
+
+                <ImageButton
+                    android:id="@+id/iv_recoveryIcon_5"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/item_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:padding="@dimen/margin_small"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_bigbomb" />
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/iv_recoveryIcon_3"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@drawable/my_button"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseball" />
-
-        <ImageButton
-            android:id="@+id/iv_recoveryIcon_4"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@drawable/my_button"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_bomb" />
-
-        <ImageButton
-            android:id="@+id/iv_recoveryIcon_5"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@drawable/my_button"
-            android:padding="4dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_bigbomb" />
-
-    </LinearLayout>
-
-</LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
