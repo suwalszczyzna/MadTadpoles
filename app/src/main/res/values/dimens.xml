@@ -8,4 +8,7 @@
     <dimen name="attackSummary_padding">15dp</dimen>
     <dimen name="default_margin">8dp</dimen>
     <dimen name="bigger_margin">16dp</dimen>
+    <dimen name="item_height">100dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+
 </resources>
