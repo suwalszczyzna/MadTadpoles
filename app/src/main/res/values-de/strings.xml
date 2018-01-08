@@ -14,8 +14,8 @@
 <string name="zero">0</string>
 <string name="howToPlay">Spielanleitung</string>
 <string name="helpInfo">Mad Tadpoles ist ein rundenbasiertes Spiel \nfür zwei Leute auf einem Gerät.</string>
-<string name="startHelp">Um dein Zug zu starten, drücke die Starttaste.\n\ Jetzt hast du nur 3 Sekunden, um deinen Gegner anzugreifen.</string>
-<string name="countdownHelp">Drücke während des Countdowns die Angriffstaste.\n\n Dein Gegner wird mit der zufällig ausgewählten Waffe angegriffen </string>
+<string name="startHelp">Um dein Zug zu starten, drücke die Starttaste.\n\nJetzt hast du nur 3 Sekunden, um deinen Gegner anzugreifen.</string>
+<string name="countdownHelp">Drücke während des Countdowns die Angriffstaste.\n\nDein Gegner wird mit der zufällig ausgewählten Waffe angegriffen </string>
 <string name="hpHelp">Du gewinnst, wenn die Lebenspunkte deines Gegners gleich 0 sind</string>
 <string name="weaponImage">Bild der Waffe</string>
 <string name="hpImage">Bild von LP</string>
