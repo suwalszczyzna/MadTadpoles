@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">Mad Tadpoles</string>
+<string name="countdown_start">Start</string>
+<string name="attackField_text">Letzter Angriff:\n21 Punkte</string>
+<string name="notYourTurn">Warte bis du dran bist</string>
+<string name="YourTurn">Dein Zug!</string>
+<string name="km_hp_value">100</string>
+<string name="kt_hp_value">100</string>
+<string name="attack_btn_desc">Angriff</string>
+<string name="change_names_dialog">Willst du Namen ändern?</string>
+<string name="john">John</string>
+<string name="jerry">Jerry</string>
+<string name="zero">0</string>
+<string name="howToPlay">Spielanleitung</string>
+<string name="helpInfo">Mad Tadpoles ist ein rundenbasiertes Spiel \nfür zwei Leute auf einem Gerät.</string>
+<string name="startHelp">Um dein Zug zu starten, drücke die Starttaste.\n\ Jetzt hast du nur 3 Sekunden, um deinen Gegner anzugreifen.</string>
+<string name="countdownHelp">Drücke während des Countdowns die Angriffstaste.\n\n Dein Gegner wird mit der zufällig ausgewählten Waffe angegriffen </string>
+<string name="hpHelp">Du gewinnst, wenn die Lebenspunkte deines Gegners gleich 0 sind</string>
+<string name="weaponImage">Bild der Waffe</string>
+<string name="hpImage">Bild von LP</string>
+<string name="namesHelp">Du kannst das Spiel personalisieren, indem du deine eigenen Namen hinzugefügst.\n\nTippe auf den Namen unter Kaulquappe, um ihn zu ändern.</string>
+<string name="imageNames">Bild von Namen</string>
+<string name="setNames">Änderungen übernehmen</string>
+<string name="mustImplement">muss DialogListener implementieren</string>
+<string name="yes">Ja</string>
+<string name="No">Nein</string>
+<string name="newGameToast">Du hast ein neues Spiel gestartet</string>
+<string name="playAgain">Willst du noch mal spielen?</string>
+<string name="winnerIs">Der Gewinner ist </string>
+<string name="authors">Entwickler</string>
+<string name="damian_name" translatable="false">Damian Suwała</string>
+<string name="damian_link" translatable="false">damian.suwala@gmail.com</string>
+<string name="damian_description">Grundkonzept, Projektmanagement, Java und XML-Code</string>
+<string name="malgoska_name" translatable="false">Małgorzata Ghouga</string>
+<string name="malgoska_link" translatable="false">ghouga.m@gmail.com</string>
+<string name="malgoska_description">Hauptgrafikdesigner, XML-Layouts, Java-Code</string>
+<string name="ola_name" translatable="false">Aleksanda Mielcarek-Najdek</string>
+<string name="ola_link" translatable="false">mielcarek.aleksandra@gmail.com</string>
+<string name="ola_description">Komplexer Java-Code, Programmierunterstützung</string>
+<string name="michal_name" translatable="false">Michał Jura</string>
+<string name="michal_link" translatable="false">https://github.com/yoori85</string>
+<string name="michal_description">Objektorientierte Programmierung, VCS und Programmierunterstützung</string>
+<string name="mateusz_name" translatable="false">Mateusz Famulski</string>
+<string name="mateusz_link" translatable="false">mateusz.famulski@gmail.com</string>
+<string name="mateusz_description">Komplexer Java und XML-Code, Programmierunterstützung</string>
+<string name="cezary_name" translatable="false">Cezary Graban</string>
+<string name="cezary_link" translatable="false">cezarygraban@gmail.com</string>
+<string name="cezary_description">Grafik-Designer, Java und XML-Code, Programmierunterstützung</string>
+<string name="misqlak_name" translatable="false">Michał Bieda</string>
+<string name="misqlak_link" translatable="false">bieda.michal@gmail.com</string>
+<string name="misqlak_description">Java-Code, Programmierunterstützung</string>
+<string name="beetho_name" translatable="false">Jacek Smolik (Beetho)</string>
+<string name="beetho_link" translatable="false">j.smolik@bth-studio.pl</string>
+<string name="beetho_description">Grafik-Designer, Video-Werbung, allgemeine Unterstützung</string>
+<string name="titleImage">Auf geht\'s Titelbild</string>
+<string name="com_google_android_gms_fonts_certs_dev" translatable="false">com_google_android_gms_fonts_certs_dev</string>
+<string name="com_google_android_gms_fonts_certs_prod" translatable="false">com_google_android_gms_fonts_certs_prod</string>
+
+<!-- New Strings -->
+<string name="background_music" translatable="false">Hintergrundmusik EIN/AUS</string>
+<string name="fight_sounds" translatable="false">Klänge des Kampfes EIN/AUS</string>
+
+</resources>
