@@ -22,6 +22,7 @@ Thanks to courtesy of people from the Slack regional channels, managed to add ne
 - Turkish - Anild @anildaloglu
 - Lithuanian - @Greta Gr.
 - German - @Maria Kovaleva
+- Hungarian - @Loborg and @kafr007
 
 
 
