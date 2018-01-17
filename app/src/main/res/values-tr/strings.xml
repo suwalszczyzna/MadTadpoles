@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Thanks to Anild @anildaloglu -->
+<resources>
+    <string name="app_name">Mad Tadpoles</string>
+    <string name="countdown_start">Başla</string>
+    <string name="attackField_text">Last attack:\n21 points</string>
+    <string name="notYourTurn">Sıranı bekle! </string>
+    <string name="YourTurn">Şimdi senin sıran!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Saldırı Butonu </string>
+    <string name="change_names_dialog">İsimleri değiştirmek ister misin?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Nasıl Oynanır?</string>
+    <string name="helpInfo">Mad Tadpoles sırasal  bir oyundur\n-için 2 kişinin tek bir cihazda rahatlıkla ve keyifle oynayabileceği bir oyun.</string>
+    <string name="startHelp">Sıranı başlatmak için lütfen start butonuna tıkla.\n\nŞimdi,rakibine saldırmak için sadece 3 saniyen var.</string>
+    <string name="countdownHelp"> Geri sayım devam ederken lütfen atak butonuna bas.\n\nRakibine rastgele seçtiğin silahla saldırılacak.</string>
+    <string name="hpHelp">Ne zaman rakibi \’nin sağlık puanı 0 sıfıra eşitlenirse sen kazanmış olursun</string>
+    <string name="weaponImage">Silahının Resmi</string>
+    <string name="hpImage">Sağlık Puan Resmi(SP)</string>
+    <string name="namesHelp">Kendi oluşturduğun isimleri oyuna ekleyerek bu oyunu kendine gore özelleştirebilirsin.\n\Değiştirmek için tadpole altındaki isme dokunman yeterli. </string>
+    <string name="imageNames">İsimlerin resmi</string>
+    <string name="setNames">Değişiklikleri kaydet</string>
+    <string name="mustImplement">DialogListener uygulanmak zorundadır</string>
+    <string name="yes">Evet </string>
+    <string name="No">Hayır</string>
+    <string name="newGameToast">Yeni oyuna başladınız. </string>
+    <string name="playAgain">Tekrar oynamak ister misin?</string>
+    <string name="winnerIs">Kazanan </string>
+    <string name="authors">Yapımcılar/Yazarlar</string>
+    <string name="damian_name" translatable="false">Damian Suwała</string>
+    <string name="damian_link" translatable="false">damian.suwala@gmail.com</string>
+    <string name="damian_description">Base concept, project management, Java and XML code</string>
+    <string name="malgoska_name" translatable="false">Małgorzata Ghouga</string>
+    <string name="malgoska_link" translatable="false">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Main graphic designer, XML layouts, java code</string>
+    <string name="ola_name" translatable="false">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link" translatable="false">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Advanced Java code, programming support</string>
+    <string name="michal_name" translatable="false">Michał Jura</string>
+    <string name="michal_link" translatable="false">https://github.com/yoori85</string>
+    <string name="michal_description">Object-oriented programming, VCS and programming support</string>
+    <string name="mateusz_name" translatable="false">Mateusz Famulski</string>
+    <string name="mateusz_link" translatable="false">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Advanced Java and XML code, programming support</string>
+    <string name="cezary_name" translatable="false">Cezary Graban</string>
+    <string name="cezary_link" translatable="false">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Graphic designer, java and XML code, programming support</string>
+    <string name="misqlak_name" translatable="false">Michał Bieda</string>
+    <string name="misqlak_link" translatable="false">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java code, programming support</string>
+    <string name="beetho_name" translatable="false">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link" translatable="false">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Graphic designer, video advertising, general support</string>
+    <string name="titleImage">Başlık resmi</string>
+    <string name="com_google_android_gms_fonts_certs_dev" translatable="false">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod" translatable="false">com_google_android_gms_fonts_certs_prod</string>
+
+    <!--  New Strings -->
+    <string name="background_music" translatable="false">Background music ON/OFF</string>
+    <string name="fight_sounds" translatable="false">Fight souns ON/OFF</string>
+
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Thanks to Oswald-->
+<resources>
+    <string name="app_name">Gekke Kikkervisjes</string>
+    <string name="countdown_start">Start</string>
+    <string name="attackField_text">Laatste aanval:\n21 punten</string>
+    <string name="notYourTurn">Wacht je beurt af</string>
+    <string name="YourTurn">Jouw beurt!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Aanval knop</string>
+    <string name="change_names_dialog">Wil je van naam veranderen?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">Hoe speel je?</string>
+    <string name="helpInfo">Gekke kikkervisjes is een op beurten gebaseerd spel\nvoor twee spelers op één toestel.</string>
+    <string name="startHelp">Druk op de Start knop om je beurt te starten.\n\nNu heb je maar 3 seconden om je tegenstander aan te vallen.</string>
+    <string name="countdownHelp">Tijdens de aftelling druk je op Aanval knop.\n\nJe tegenstander wordt aangevallen met het wapen dat je willekeurig kiest.</string>
+    <string name="hpHelp">Je wint wanneer je tegenstander zijn levens punten gelijk zijn aan 0</string>
+    <string name="weaponImage">Afbeelding van het wapen</string>
+    <string name="hpImage">Afbeelding van LP</string>
+    <string name="namesHelp">Je kan het spel personaliseren door je naam toe te voegen.\n\nDruk op de naam onder de kikkervis om deze te veranderen.</string>
+    <string name="imageNames">Afbeelding van namen</string>
+    <string name="setNames">Geef namen in</string>
+    <string name="mustImplement">DialogListener moet ingebracht worden</string>
+    <string name="yes">Ja</string>
+    <string name="No">Nee</string>
+    <string name="newGameToast">Je hebt een nieuw spel gestard</string>
+    <string name="playAgain">Wil je nog eens spelen?</string>
+    <string name="winnerIs">De winnaar is </string>
+    <string name="authors">Auteurs</string>
+    <string name="damian_name">Damian Suwała</string>
+    <string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="damian_description">Basis concept, project management, Java en XML code</string>
+    <string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Hoofd grafisch ontwikkelaar, XML layouts, java code</string>
+    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Gevorderde Java code, programmeer ondersteuning</string>
+    <string name="michal_name">Michał Jura</string>
+    <string name="michal_link">https://github.com/yoori85</string>
+    <string name="michal_description">Object-georienteerd programmeren, VCS en programmeer ondersteuning</string>
+    <string name="mateusz_name">Mateusz Famulski</string>
+    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Gevorderde Java en XML code, programmeer ondersteuning</string>
+    <string name="cezary_name">Cezary Graban</string>
+    <string name="cezary_link">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Grafisch ontwikkelaar, java en XML code, programmeer ondersteuning</string>
+    <string name="misqlak_name">Michał Bieda</string>
+    <string name="misqlak_link">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java code, programmeer ondersteuning</string>
+    <string name="beetho_name">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Grafisch ontwikkelaar, video advertering, algemene ondersteuning</string>
+    <string name="titleImage">Hier gaan we title afbeelding</string>
+    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
+
+</resources>

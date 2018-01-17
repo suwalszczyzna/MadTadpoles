@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mad Tadpoles</string>
+    <string name="countdown_start">Start</string>
+    <string name="attackField_text">Last attack:\n21 points</string>
+    <string name="notYourTurn">Wait for your turn</string>
+    <string name="YourTurn">Your turn!</string>
+    <string name="km_hp_value">100</string>
+    <string name="kt_hp_value">100</string>
+    <string name="attack_btn_desc">Attack Button</string>
+    <string name="change_names_dialog">Do you want to change names?</string>
+    <string name="john">John</string>
+    <string name="jerry">Jerry</string>
+    <string name="zero">0</string>
+    <string name="howToPlay">How to play?</string>
+    <string name="helpInfo">Mad Tadpoles is a turn-based game\nfor two players on one device.</string>
+    <string name="startHelp">To start your turn press Start button.\n\nNow, you have only 3 seconds to attack your opponent.</string>
+    <string name="countdownHelp">During countdown press Attack button.\n\nYour opponent will be attacked by the weapon which you randomly choose</string>
+    <string name="hpHelp">You win when your opponent\'s health points are equal to 0</string>
+    <string name="weaponImage">Image of the weapon</string>
+    <string name="hpImage">Image of HP</string>
+    <string name="namesHelp">You can personalize game by adding your names.\n\nTap on name below tadpole to change it</string>
+    <string name="imageNames">Image of names</string>
+    <string name="setNames">Apply changes</string>
+    <string name="mustImplement">must implement DialogListener</string>
+    <string name="yes">Yes</string>
+    <string name="No">No</string>
+    <string name="newGameToast">You have started new game</string>
+    <string name="playAgain">Do you want to play again?</string>
+    <string name="winnerIs">The winner is </string>
+    <string name="authors">Authors</string>
+    <string name="damian_name" translatable="false">Damian Suwała</string>
+    <string name="damian_link" translatable="false">damian.suwala@gmail.com</string>
+    <string name="damian_description">Base concept, project management, Java and XML code</string>
+    <string name="malgoska_name" translatable="false">Małgorzata Ghouga</string>
+    <string name="malgoska_link" translatable="false">ghouga.m@gmail.com</string>
+    <string name="malgoska_description">Main graphic designer, XML layouts, java code</string>
+    <string name="ola_name" translatable="false">Aleksanda Mielcarek-Najdek</string>
+    <string name="ola_link" translatable="false">mielcarek.aleksandra@gmail.com</string>
+    <string name="ola_description">Advanced Java code, programming support</string>
+    <string name="michal_name" translatable="false">Michał Jura</string>
+    <string name="michal_link" translatable="false">https://github.com/yoori85</string>
+    <string name="michal_description">Object-oriented programming, VCS and programming support</string>
+    <string name="mateusz_name" translatable="false">Mateusz Famulski</string>
+    <string name="mateusz_link" translatable="false">mateusz.famulski@gmail.com</string>
+    <string name="mateusz_description">Advanced Java and XML code, programming support</string>
+    <string name="cezary_name" translatable="false">Cezary Graban</string>
+    <string name="cezary_link" translatable="false">cezarygraban@gmail.com</string>
+    <string name="cezary_description">Graphic designer, java and XML code, programming support</string>
+    <string name="misqlak_name" translatable="false">Michał Bieda</string>
+    <string name="misqlak_link" translatable="false">bieda.michal@gmail.com</string>
+    <string name="misqlak_description">Java code, programming support</string>
+    <string name="beetho_name" translatable="false">Jacek Smolik (Beetho)</string>
+    <string name="beetho_link" translatable="false">j.smolik@bth-studio.pl</string>
+    <string name="beetho_description">Graphic designer, video advertising, general support</string>
+    <string name="titleImage">Here we go title image</string>
+    <string name="com_google_android_gms_fonts_certs_dev" translatable="false">com_google_android_gms_fonts_certs_dev</string>
+    <string name="com_google_android_gms_fonts_certs_prod" translatable="false">com_google_android_gms_fonts_certs_prod</string>
+
+    <!--  New Strings -->
+    <string name="background_music" translatable="false">Background music ON/OFF</string>
+    <string name="fight_sounds" translatable="false">Fight souns ON/OFF</string>
+
+</resources>
+
