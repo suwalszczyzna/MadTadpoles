@@ -1,4 +1,4 @@
-package com.example.android.madtadpoles;
+package com.poland.android.madtadpoles;
 
 import org.junit.Test;
 

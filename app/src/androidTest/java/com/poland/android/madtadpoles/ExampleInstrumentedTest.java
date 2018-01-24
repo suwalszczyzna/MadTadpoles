@@ -1,4 +1,4 @@
-package com.example.android.madtadpoles;
+package com.poland.android.madtadpoles;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

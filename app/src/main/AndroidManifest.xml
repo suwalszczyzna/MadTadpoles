@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.madtadpoles">
+    package="com.poland.android.madtadpoles">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.poland.android.madtadpoles.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +24,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".InfoActivity"></activity>
+        <activity android:name="com.poland.android.madtadpoles.HelpActivity" />
+        <activity android:name="com.poland.android.madtadpoles.InfoActivity"></activity>
     </application>
 
 </manifest>

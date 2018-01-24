@@ -1,4 +1,4 @@
-package com.example.android.madtadpoles;
+package com.poland.android.madtadpoles;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
