@@ -29,36 +29,16 @@
     <string name="playAgain">Chceš hrát znova?</string>
     <string name="winnerIs">Vítězem je </string>
     <string name="authors">Autoři</string>
-    <string name="damian_name">Damian Suwała</string>
-    <string name="damian_link">damian.suwala@gmail.com</string>
     <string name="damian_description">Základní koncept, projektový management, Java a XML kód</string>
-    <string name="malgoska_name">Małgorzata Ghouga</string>
-    <string name="malgoska_link">ghouga.m@gmail.com</string>
     <string name="malgoska_description">Hlavní grafický designer, XML rozvržení, java kód</string>
-    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
-    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
     <string name="ola_description">Pokročilý Java kód, programátorská podpora</string>
-    <string name="michal_name">Michał Jura</string>
-    <string name="michal_link">https://github.com/yoori85</string>
     <string name="michal_description">OOP, VCS and programátorská podpora</string>
-    <string name="mateusz_name">Mateusz Famulski</string>
-    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
     <string name="mateusz_description">Pokročilý Java a XML kód, programátorská podpora</string>
-    <string name="cezary_name">Cezary Graban</string>
-    <string name="cezary_link">cezarygraban@gmail.com</string>
     <string name="cezary_description">Grafický designer, Java a XML kód, programátorská podpora</string>
-    <string name="misqlak_name">Michał Bieda</string>
-    <string name="misqlak_link">bieda.michal@gmail.com</string>
     <string name="misqlak_description">Java kód, programátorská podpora</string>
-    <string name="beetho_name">Jacek Smolik (Beetho)</string>
-    <string name="beetho_link">j.smolik@bth-studio.pl</string>
     <string name="beetho_description">Grafický designer, video reklama, všeobecná podpora</string>
     <string name="titleImage">A tady obrázek pro název</string>
-    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
-    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
 
     <!--  New Strings -->
-    <string name="background_music" translatable="false">Hudba na pozadí VYPNOUT/ZAPNOUT</string>
-    <string name="fight_sounds" translatable="false">Zvuky boje VYPNOUT/ZAPNOUT</string>
 
 </resources>

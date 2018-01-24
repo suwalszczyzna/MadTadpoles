@@ -37,32 +37,14 @@
     <string name="playAgain">Θες να παίξεις ξανά?</string>
     <string name="winnerIs">Ο νικητής είναι </string>
     <string name="authors">Συγγραφείς</string>
-    <string name="damian_name">Damian Suwała</string>
-    <string name="damian_link">damian.suwala@gmail.com</string>
     <string name="damian_description">Βασική ιδέα, project management, Java και XML κώδικας</string>
-    <string name="malgoska_name">Małgorzata Ghouga</string>
-    <string name="malgoska_link">ghouga.m@gmail.com</string>
     <string name="malgoska_description">Κύριος graphic designer, XML layouts, java κώδικας</string>
-    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
-    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
     <string name="ola_description">Προχωρημένος Java κώδικας, υποστήριξη προγράμματος</string>
-    <string name="michal_name">Michał Jura</string>
-    <string name="michal_link">https://github.com/yoori85</string>
     <string name="michal_description">Αντικειμενοστραφής προγραμματισμός, VCS και υποστήριξη προγράμματος</string>
-    <string name="mateusz_name">Mateusz Famulski</string>
-    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
     <string name="mateusz_description">Προχωρημένος Java κώδικας, υποστήριξη προγράμματος</string>
-    <string name="cezary_name">Cezary Graban</string>
-    <string name="cezary_link">cezarygraban@gmail.com</string>
     <string name="cezary_description">Graphic designer, java και XML κώδικας, υποστήριξη προγράμματος</string>
-    <string name="misqlak_name">Michał Bieda</string>
-    <string name="misqlak_link">bieda.michal@gmail.com</string>
     <string name="misqlak_description">Java κώδικας, υποστήριξη προγράμματος</string>
-    <string name="beetho_name">Jacek Smolik (Beetho)</string>
-    <string name="beetho_link">j.smolik@bth-studio.pl</string>
     <string name="beetho_description">Graphic designer, video διαφήμιση, γενική υποστήριξη</string>
     <string name="titleImage">Ξεκινάμε λοιπόν title image</string>
-    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
-    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
 
 </resources>

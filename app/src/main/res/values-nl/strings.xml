@@ -31,32 +31,14 @@
     <string name="playAgain">Wil je nog eens spelen?</string>
     <string name="winnerIs">De winnaar is </string>
     <string name="authors">Auteurs</string>
-    <string name="damian_name">Damian Suwała</string>
-    <string name="damian_link">damian.suwala@gmail.com</string>
     <string name="damian_description">Basis concept, project management, Java en XML code</string>
-    <string name="malgoska_name">Małgorzata Ghouga</string>
-    <string name="malgoska_link">ghouga.m@gmail.com</string>
     <string name="malgoska_description">Hoofd grafisch ontwikkelaar, XML layouts, java code</string>
-    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
-    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
     <string name="ola_description">Gevorderde Java code, programmeer ondersteuning</string>
-    <string name="michal_name">Michał Jura</string>
-    <string name="michal_link">https://github.com/yoori85</string>
     <string name="michal_description">Object-georienteerd programmeren, VCS en programmeer ondersteuning</string>
-    <string name="mateusz_name">Mateusz Famulski</string>
-    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
     <string name="mateusz_description">Gevorderde Java en XML code, programmeer ondersteuning</string>
-    <string name="cezary_name">Cezary Graban</string>
-    <string name="cezary_link">cezarygraban@gmail.com</string>
     <string name="cezary_description">Grafisch ontwikkelaar, java en XML code, programmeer ondersteuning</string>
-    <string name="misqlak_name">Michał Bieda</string>
-    <string name="misqlak_link">bieda.michal@gmail.com</string>
     <string name="misqlak_description">Java code, programmeer ondersteuning</string>
-    <string name="beetho_name">Jacek Smolik (Beetho)</string>
-    <string name="beetho_link">j.smolik@bth-studio.pl</string>
     <string name="beetho_description">Grafisch ontwikkelaar, video advertering, algemene ondersteuning</string>
     <string name="titleImage">Hier gaan we title afbeelding</string>
-    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
-    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
 
 </resources>

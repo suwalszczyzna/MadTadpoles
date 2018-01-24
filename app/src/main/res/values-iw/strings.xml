@@ -30,32 +30,14 @@
     <string name="playAgain">האם תרצו לשחק שוב?</string>
     <string name="winnerIs">והמנצח הוא </string>
     <string name="authors">כותבי האפליקציה</string>
-    <string name="damian_name">Damian Suwała</string>
-    <string name="damian_link">damian.suwala@gmail.com</string>
     <string name="damian_description">קווי בסיס, ניהול הפרוייקט, קוד ג'אווה ו XML</string>
-    <string name="malgoska_name">Małgorzata Ghouga</string>
-    <string name="malgoska_link">ghouga.m@gmail.com</string>
     <string name="malgoska_description">מעצבת גרפיקה ראשית, XML מערך, קוד ג'אווה</string>
-    <string name="ola_name">Aleksanda Mielcarek-Najdek</string>
-    <string name="ola_link">mielcarek.aleksandra@gmail.com</string>
     <string name="ola_description">קוד ג'אווה מתקדם ותמיכה</string>
-    <string name="michal_name">Michał Jura</string>
-    <string name="michal_link">https://github.com/yoori85</string>
     <string name="michal_description">תכנות מונחה עצמים, תכנות VCS ותמיכה</string>
-    <string name="mateusz_name">Mateusz Famulski</string>
-    <string name="mateusz_link">mateusz.famulski@gmail.com</string>
     <string name="mateusz_description">תכנות JAVA ו XML מתקדמים ותמיכה</string>
-    <string name="cezary_name">Cezary Graban</string>
-    <string name="cezary_link">cezarygraban@gmail.com</string>
     <string name="cezary_description"> מעצב גרפי, קוד ג'אווה ו XML, תמיכה</string>
-    <string name="misqlak_name">Michał Bieda</string>
-    <string name="misqlak_link">bieda.michal@gmail.com</string>
     <string name="misqlak_description">קוד ג'אווה ותמיכה</string>
-    <string name="beetho_name">Jacek Smolik (Beetho)</string>
-    <string name="beetho_link">j.smolik@bth-studio.pl</string>
     <string name="beetho_description">מעצב גרפי, פרסום בוידאו ותמיכה כללית</string>
     <string name="titleImage">Here we go title image</string>
-    <string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
-    <string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
 
 </resources>

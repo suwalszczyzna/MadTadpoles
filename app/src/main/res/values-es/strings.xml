@@ -61,60 +61,23 @@
 
 <string name="authors">Autoress</string>
 
-<string name="damian_name">Damian Suwała</string>
+    <string name="damian_description">Idea, gestión del proyecto, código Java y XML</string>
 
-<string name="damian_link">damian.suwala@gmail.com</string>
+    <string name="malgoska_description">Diseñador gráfico principal, diseños XML, código Java</string>
 
-<string name="damian_description">Idea, gestión del proyecto, código Java y XML</string>
+    <string name="ola_description">Código Java avanzado, soporte de programación</string>
 
-<string name="malgoska_name">Małgorzata Ghouga</string>
+    <string name="michal_description">Programación orientada a objetos, VCS y soporte de programación</string>
 
-<string name="malgoska_link">ghouga.m@gmail.com</string>
+    <string name="mateusz_description">Código Java y XML avanzado, soporte de programación</string>
 
-<string name="malgoska_description">Diseñador gráfico principal, diseños XML, código Java</string>
+    <string name="cezary_description">Diseñador gráfico, código Java y XML, soporte de programación</string>
 
-<string name="ola_name">Aleksanda Mielcarek-Najdek</string>
+    <string name="misqlak_description">Código Java, soporte de programación</string>
 
-<string name="ola_link">mielcarek.aleksandra@gmail.com</string>
-
-<string name="ola_description">Código Java avanzado, soporte de programación</string>
-
-<string name="michal_name">Michał Jura</string>
-
-<string name="michal_link">https://github.com/yoori85</string>
-
-<string name="michal_description">Programación orientada a objetos, VCS y soporte de programación</string>
-
-<string name="mateusz_name">Mateusz Famulski</string>
-
-<string name="mateusz_link">mateusz.famulski@gmail.com</string>
-
-<string name="mateusz_description">Código Java y XML avanzado, soporte de programación</string>
-
-<string name="cezary_name">Cezary Graban</string>
-
-<string name="cezary_link">cezarygraban@gmail.com</string>
-
-<string name="cezary_description">Diseñador gráfico, código Java y XML, soporte de programación</string>
-
-<string name="misqlak_name">Michał Bieda</string>
-
-<string name="misqlak_link">bieda.michal@gmail.com</string>
-
-<string name="misqlak_description">Código Java, soporte de programación</string>
-
-<string name="beetho_name">Jacek Smolik (Beetho)</string>
-
-<string name="beetho_link">j.smolik@bth-studio.pl</string>
-
-<string name="beetho_description">Diseñador gráfico, anunciante de vídeo, soporte general</string>
+    <string name="beetho_description">Diseñador gráfico, anunciante de vídeo, soporte general</string>
 
 <string name="titleImage">Título de imagen</string>
 
-<string name="com_google_android_gms_fonts_certs_dev">com_google_android_gms_fonts_certs_dev</string>
 
-<string name="com_google_android_gms_fonts_certs_prod">com_google_android_gms_fonts_certs_prod</string>
-
-
-
-    </resources>
+</resources>

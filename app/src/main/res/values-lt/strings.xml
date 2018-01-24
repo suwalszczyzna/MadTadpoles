@@ -29,36 +29,16 @@
     <string name="playAgain">Ar norite žaisti dar kartą?</string>
     <string name="winnerIs">Laimėtojas yra </string>
     <string name="authors">Autoriai</string>
-    <string name="damian_name" translatable="false">Damian Suwała</string>
-    <string name="damian_link" translatable="false">damian.suwala@gmail.com</string>
     <string name="damian_description">Pagrindinė idėja, projekto valdymas, Java ir XML kodai</string>
-    <string name="malgoska_name" translatable="false">Małgorzata Ghouga</string>
-    <string name="malgoska_link" translatable="false">ghouga.m@gmail.com</string>
     <string name="malgoska_description">Pagrindinė grafikos dizainerė, XML maketai, Java kodas</string>
-    <string name="ola_name" translatable="false">Aleksanda Mielcarek-Najdek</string>
-    <string name="ola_link" translatable="false">mielcarek.aleksandra@gmail.com</string>
     <string name="ola_description">Sudėtingesnis Java kodas, programavimo pagalba</string>
-    <string name="michal_name" translatable="false">Michał Jura</string>
-    <string name="michal_link" translatable="false">https://github.com/yoori85</string>
     <string name="michal_description">Objektinis programavimas, VCS ir programavimo pagalba</string>
-    <string name="mateusz_name" translatable="false">Mateusz Famulski</string>
-    <string name="mateusz_link" translatable="false">mateusz.famulski@gmail.com</string>
     <string name="mateusz_description">Sudėtingesnis Java ir XML kodai, programavimo pagalba</string>
-    <string name="cezary_name" translatable="false">Cezary Graban</string>
-    <string name="cezary_link" translatable="false">cezarygraban@gmail.com</string>
     <string name="cezary_description">Grafikos dizaineris, Java ir XML kodai, programavimo pagalba</string>
-    <string name="misqlak_name" translatable="false">Michał Bieda</string>
-    <string name="misqlak_link" translatable="false">bieda.michal@gmail.com</string>
     <string name="misqlak_description">Java kodas, programavimo pagalba</string>
-    <string name="beetho_name" translatable="false">Jacek Smolik (Beetho)</string>
-    <string name="beetho_link" translatable="false">j.smolik@bth-studio.pl</string>
     <string name="beetho_description">Grafikos dizaineris, vaizdo reklama, bendra pagalba</string>
     <string name="titleImage">Pavadinimo Pirmyn paveikslėlis</string>
-    <string name="com_google_android_gms_fonts_certs_dev" translatable="false">com_google_android_gms_fonts_certs_dev</string>
-    <string name="com_google_android_gms_fonts_certs_prod" translatable="false">com_google_android_gms_fonts_certs_prod</string>
 
     <!--  New Strings -->
-    <string name="background_music" translatable="false">Background music ON/OFF</string>
-    <string name="fight_sounds" translatable="false">Fight souns ON/OFF</string>
 
 </resources>
